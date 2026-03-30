@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Catering & Rental Services</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <h1 class="logo">Delicious Catering</h1>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/admin/">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h2>Welcome to Your Catering Service</h2>
+      <p>Fresh, homemade meals for your events, parties, and celebrations</p>
+      <button onclick="scrollToSection('menu')">View Menu</button>
+    </div>
+  </section>
+
+  <!-- Services Selector (Your 3 Targets) -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-tabs">
+        <button class="tab-btn active" onclick="filterServices('catering')">Catering Services</button>
+        <button class="tab-btn" onclick="filterServices('delivery')">Food Delivery</button>
+        <button class="tab-btn" onclick="filterServices('beach')">Beach House Rentals</button>
+      </div>
+      
+      <div id="service-content">
+        <div id="catering-info" class="service-info visible">
+          <h3>Catering Services</h3>
+          <p>Full-service catering for weddings, corporate events, and private celebrations. Custom menus tailored to your needs.</p>
+        </div>
+        <div id="delivery-info" class="service-info">
+          <h3>Food Delivery</h3>
+          <p>Fresh, homemade meals delivered to your doorstep. Order from our menu for convenient home dining.</p>
+        </div>
+        <div id="beach-info" class="service-info">
+          <h3>Beach House Rentals</h3>
+          <p>Beautiful beach houses available for rent. Perfect for family vacations or group retreats.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>We provide premium catering and food services with over 10 years of experience. Our passion is creating memorable culinary experiences for our clients.</p>
+    </div>
+  </section>
+
+  <!-- Menu Section (Decap CMS Integration) -->
+  <section id="menu" class="menu">
+    <div class="container">
+      <h2>Our Menu</h2>
+      <div id="menu-list" class="menu-grid">
+        <!-- Menu items will be loaded here by Decap CMS or JavaScript -->
+        <div class="menu-item">
+          <h3>Sample Dish</h3>
+          <p>Delicious description</p>
+          <span class="price">$15</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        <img src="images/dish1.jpg" alt="Dish 1" />
+        <img src="images/dish2.jpg" alt="Dish 2" />
+        <img src="images/event1.jpg" alt="Event 1" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form (Netlify Forms) -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Get in Touch</h2>
+      <form name="contact" method="POST" netlify>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <select name="service">
+          <option value="">Select a Service</option>
+          <option value="catering">Catering</option>
+          <option value="delivery">Food Delivery</option>
+          <option value="beach">Beach House Rental</option>
+        </select>
+        <textarea name="message" placeholder="Your Message" rows="5"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Your Catering Service. All rights reserved.</p>
+  </footer>
+
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Simple JavaScript for Service Filtering -->
+  <script>
+    function filterServices(service) {
+      // Hide all
+      document.querySelectorAll('.service-info').forEach(el => el.classList.remove('visible'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      // Show selected
+      document.getElementById(service + '-info').classList.add('visible');
+      event.target.classList.add('active');
+    }
+
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
