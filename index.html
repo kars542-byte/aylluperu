@@ -17,22 +17,58 @@
             color: #4a3b2c;
         }
 
+        /* Header con logo */
         .header {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .header h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .header p {
-            font-size: 1.2rem;
-            margin-top: 0.5rem;
+        .logo-img {
+            max-width: 80px;
+            height: auto;
+            border-radius: 15px;
+            background: white;
+            padding: 5px;
+        }
+
+        .logo-text {
+            text-align: left;
+        }
+
+        .logo-text h1 {
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 1rem;
+            margin-top: 0.2rem;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text {
+                text-align: center;
+            }
+            .logo-text h1 {
+                font-size: 1.8rem;
+            }
         }
 
         .section {
@@ -42,7 +78,7 @@
         }
 
         .section h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #d35400;
             text-align: center;
             margin-bottom: 2rem;
@@ -170,7 +206,7 @@
         }
 
         @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
+            .section h2 { font-size: 1.6rem; }
             .menu-card { width: 90%; }
             .price-banner { font-size: 1rem; }
             .price-banner span { font-size: 1.5rem; }
@@ -180,8 +216,13 @@
 <body>
 
 <div class="header">
-    <h1>🍽️ Ayllu Perú</h1>
-    <p>Comida casera, el sabor de siempre</p>
+    <div class="logo-container">
+        <img src="logo.jpg" alt="Ayllu Perú Logo" class="logo-img">
+        <div class="logo-text">
+            <h1>🍽️ Ayllu Perú</h1>
+            <p>Comida casera, el sabor de siempre</p>
+        </div>
+    </div>
 </div>
 
 <div class="section">
@@ -197,45 +238,40 @@
     <p style="text-align:center; margin-bottom:2rem;">📅 Menú disponible de Lunes a Viernes<br>⏰ 12:00 pm a 4:00 pm</p>
 
     <div class="menu-grid">
-        <!-- LUNES -->
         <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Menú+Lunes" alt="Lunes">
+            <img src="https://placehold.co/400x300?text=Lunes" alt="Lunes">
             <h3>📅 LUNES</h3>
             <div class="entrada">🥣 Entrada: Sopa Criolla</div>
             <div class="segundo">🍛 Segundo: Lomo Saltado</div>
             <div class="bebida">🥤 Bebida: Chicha Morada</div>
         </div>
 
-        <!-- MARTES -->
         <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Menú+Martes" alt="Martes">
+            <img src="https://placehold.co/400x300?text=Martes" alt="Martes">
             <h3>📅 MARTES</h3>
             <div class="entrada">🥣 Entrada: Causa Limeña</div>
             <div class="segundo">🍛 Segundo: Ají de Gallina</div>
             <div class="bebida">🥤 Bebida: Limonada Frozen</div>
         </div>
 
-        <!-- MIÉRCOLES -->
         <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Menú+Miércoles" alt="Miércoles">
+            <img src="https://placehold.co/400x300?text=Miércoles" alt="Miércoles">
             <h3>📅 MIÉRCOLES</h3>
             <div class="entrada">🥣 Entrada: Tamal Verde</div>
             <div class="segundo">🍛 Segundo: Seco de Carne</div>
             <div class="bebida">🥤 Bebida: Maracuyá</div>
         </div>
 
-        <!-- JUEVES -->
         <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Menú+Jueves" alt="Jueves">
+            <img src="https://placehold.co/400x300?text=Jueves" alt="Jueves">
             <h3>📅 JUEVES</h3>
             <div class="entrada">🥣 Entrada: Papa a la Huancaína</div>
             <div class="segundo">🍛 Segundo: Pescado a lo Macho</div>
             <div class="bebida">🥤 Bebida: Jugo de Piña</div>
         </div>
 
-        <!-- VIERNES -->
         <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Menú+Viernes" alt="Viernes">
+            <img src="https://placehold.co/400x300?text=Viernes" alt="Viernes">
             <h3>📅 VIERNES</h3>
             <div class="entrada">🥣 Entrada: Choros a la Chalaca</div>
             <div class="segundo">🍛 Segundo: Arroz con Pollo</div>
