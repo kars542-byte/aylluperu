@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
-    <!-- Favicon para que aparezca el logo en favoritos y pestañas -->
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
     <style>
@@ -20,7 +20,7 @@
             color: #4a3b2c;
         }
 
-        /* Header con logo más grande */
+        /* Header */
         .header {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
@@ -78,7 +78,7 @@
             }
         }
 
-        /* Reloj antiguo */
+        /* Reloj antiguo con números */
         .clock-container {
             display: flex;
             justify-content: center;
@@ -86,16 +86,16 @@
             gap: 2rem;
             flex-wrap: wrap;
             margin: 2rem auto;
-            padding: 1rem;
+            padding: 1.5rem;
             background: #fff3e0;
             border-radius: 30px;
-            max-width: 500px;
+            max-width: 600px;
             box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .analog-clock {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: #f5e6d3;
             border: 6px solid #8b5a2b;
@@ -109,14 +109,22 @@
             height: 100%;
         }
 
-        .hour-mark {
+        .number {
             position: absolute;
             width: 100%;
             height: 100%;
             text-align: center;
-            font-size: 12px;
+            font-size: 14px;
             font-weight: bold;
             color: #8b5a2b;
+            transform: rotate(var(--rot));
+        }
+
+        .number span {
+            position: absolute;
+            left: 50%;
+            top: 8px;
+            transform: translateX(-50%);
         }
 
         .hand {
@@ -130,19 +138,19 @@
 
         .hour-hand {
             width: 5px;
-            height: 30px;
+            height: 35px;
             transform: translateX(-50%) rotate(0deg);
         }
 
         .minute-hand {
             width: 3px;
-            height: 40px;
+            height: 48px;
             transform: translateX(-50%) rotate(0deg);
         }
 
         .second-hand {
             width: 2px;
-            height: 45px;
+            height: 52px;
             background: #e67e22;
             transform: translateX(-50%) rotate(0deg);
         }
@@ -172,9 +180,25 @@
         }
 
         .date-info .date {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #8b5a2b;
             margin-top: 0.5rem;
+        }
+
+        .season-info {
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e67e22;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .season-icon {
+            font-size: 1.3rem;
         }
 
         .section {
@@ -268,7 +292,7 @@
             font-size: 0.9rem;
         }
 
-        /* Carrusel de imágenes al final */
+        /* Carrusel con nombres de platos */
         .gallery-rolling {
             background: #fff3e0;
             border-radius: 20px;
@@ -291,11 +315,16 @@
 
         .rolling-track {
             display: flex;
-            animation: scroll 45s linear infinite;
+            animation: scroll 66s linear infinite;
             gap: 1rem;
         }
 
-        .rolling-track img {
+        .rolling-item {
+            text-align: center;
+            min-width: 220px;
+        }
+
+        .rolling-item img {
             width: 200px;
             height: 150px;
             object-fit: cover;
@@ -304,8 +333,22 @@
             transition: transform 0.3s;
         }
 
-        .rolling-track img:hover {
+        .rolling-item img:hover {
             transform: scale(1.05);
+        }
+
+        .rolling-item .dish-name {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: #d35400;
+            font-weight: bold;
+            max-width: 200px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rolling-container:hover .rolling-track {
             animation-play-state: paused;
         }
 
@@ -316,10 +359,6 @@
             100% {
                 transform: translateX(-50%);
             }
-        }
-
-        .rolling-container:hover .rolling-track {
-            animation-play-state: paused;
         }
 
         .whatsapp-btn {
@@ -370,8 +409,10 @@
             .menu-card { width: 90%; }
             .price-banner { font-size: 1rem; }
             .price-banner span { font-size: 1.5rem; }
-            .rolling-track img { width: 150px; height: 120px; }
-            .analog-clock { width: 90px; height: 90px; }
+            .rolling-item { min-width: 160px; }
+            .rolling-item img { width: 150px; height: 120px; }
+            .rolling-item .dish-name { font-size: 0.7rem; max-width: 150px; }
+            .analog-clock { width: 100px; height: 100px; }
             .date-info .time-digital { font-size: 1.3rem; }
         }
     </style>
@@ -388,19 +429,26 @@
     </div>
 </div>
 
-<!-- Reloj antiguo -->
+<!-- Reloj antiguo con números y estación -->
 <div class="clock-container">
     <div class="analog-clock" id="analogClock">
-        <div class="clock-face">
+        <div class="clock-face" id="clockFace">
+            <!-- Los números se agregarán con JS -->
             <div class="hand hour-hand" id="hourHand"></div>
             <div class="hand minute-hand" id="minuteHand"></div>
             <div class="hand second-hand" id="secondHand"></div>
             <div class="center-dot"></div>
         </div>
     </div>
-    <div class="date-info">
-        <div class="time-digital" id="digitalTime"></div>
-        <div class="date" id="fullDate"></div>
+    <div>
+        <div class="date-info">
+            <div class="time-digital" id="digitalTime"></div>
+            <div class="date" id="fullDate"></div>
+        </div>
+        <div class="season-info" id="seasonInfo">
+            <span class="season-icon" id="seasonIcon">☀️</span>
+            <span id="seasonName">Verano</span>
+        </div>
     </div>
 </div>
 
@@ -459,16 +507,14 @@
     </div>
 </div>
 
-<!-- Carrusel de 15 imágenes rodantes -->
+<!-- Carrusel de 22 imágenes rodantes con nombres -->
 <div class="section">
     <div class="gallery-rolling">
         <div class="rolling-title">
             🍜 Nuestros Platos Destacados 🍲
         </div>
         <div class="rolling-container">
-            <div class="rolling-track" id="rollingTrack">
-                <!-- Las imágenes se duplican para efecto infinito -->
-            </div>
+            <div class="rolling-track" id="rollingTrack"></div>
         </div>
     </div>
 </div>
@@ -495,7 +541,57 @@
 </a>
 
 <script>
-    // ========== RELOJ ANALÓGICO Y DIGITAL ==========
+    // ========== NÚMEROS DEL RELOJ (12, 3, 6, 9) ==========
+    function agregarNumerosReloj() {
+        const clockFace = document.getElementById('clockFace');
+        const numeros = [12, 3, 6, 9];
+        numeros.forEach(num => {
+            const div = document.createElement('div');
+            div.className = 'number';
+            let rotacion = 0;
+            if (num === 12) rotacion = -90;
+            else if (num === 3) rotacion = 0;
+            else if (num === 6) rotacion = 90;
+            else if (num === 9) rotacion = 180;
+            div.style.transform = `rotate(${rotacion}deg)`;
+            const span = document.createElement('span');
+            span.textContent = num;
+            div.appendChild(span);
+            clockFace.appendChild(div);
+        });
+    }
+    
+    // ========== ESTACIÓN DEL AÑO (PERÚ - HEMISFERIO SUR) ==========
+    function obtenerEstacionPeru() {
+        const fecha = new Date();
+        const mes = fecha.getMonth(); // 0=Enero, 11=Diciembre
+        const dia = fecha.getDate();
+        
+        // Hemisferio Sur: 
+        // Verano: 21 Dic - 20 Mar
+        // Otoño: 21 Mar - 20 Jun
+        // Invierno: 21 Jun - 22 Sep
+        // Primavera: 23 Sep - 20 Dic
+        
+        if ((mes === 11 && dia >= 21) || (mes === 0) || (mes === 1) || (mes === 2 && dia <= 20)) {
+            return { nombre: "Verano", icono: "☀️🌊", color: "#e67e22" };
+        } else if ((mes === 2 && dia >= 21) || (mes === 3) || (mes === 4) || (mes === 5 && dia <= 20)) {
+            return { nombre: "Otoño", icono: "🍂🌧️", color: "#b8860b" };
+        } else if ((mes === 5 && dia >= 21) || (mes === 6) || (mes === 7) || (mes === 8 && dia <= 22)) {
+            return { nombre: "Invierno", icono: "❄️☁️", color: "#4a90d9" };
+        } else {
+            return { nombre: "Primavera", icono: "🌸🌼", color: "#27ae60" };
+        }
+    }
+    
+    function actualizarEstacion() {
+        const estacion = obtenerEstacionPeru();
+        document.getElementById('seasonIcon').textContent = estacion.icono;
+        document.getElementById('seasonName').textContent = estacion.nombre;
+        document.getElementById('seasonName').style.color = estacion.color;
+    }
+    
+    // ========== RELOJ ==========
     function updateClock() {
         const now = new Date();
         
@@ -528,49 +624,67 @@
         document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
     }
     
-    updateClock();
-    setInterval(updateClock, 1000);
-    
-    // ========== CARRUSEL DE 15 IMÁGENES ==========
-    // Lista de URLs de imágenes de muestra (platos peruanos)
-    // Reemplaza estas URLs con las tuyas cuando tengas las fotos reales
-    const imagenesPlatos = [
-        "https://placehold.co/400x300?text=Ceviche",
-        "https://placehold.co/400x300?text=Lomo+Saltado",
-        "https://placehold.co/400x300?text=Ají+de+Gallina",
-        "https://placehold.co/400x300?text=Anticuchos",
-        "https://placehold.co/400x300?text=Papa+a+la+H",
-        "https://placehold.co/400x300?text=Seco+de+Carne",
-        "https://placehold.co/400x300?text=Arroz+con+Pollo",
-        "https://placehold.co/400x300?text=Causa+Limeña",
-        "https://placehold.co/400x300?text=Suspiro+Limeño",
-        "https://placehold.co/400x300?text=Chicha+Morada",
-        "https://placehold.co/400x300?text=Pisco+Sour",
-        "https://placehold.co/400x300?text=Pescado+a+lo+Macho",
-        "https://placehold.co/400x300?text=Tamal+Verde",
-        "https://placehold.co/400x300?text=Choros+a+la+Chalaca",
-        "https://placehold.co/400x300?text=Turrón+de+Doña+Pepa"
+    // ========== CARRUSEL CON 22 IMÁGENES Y NOMBRES ==========
+    const platos = [
+        { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
+        { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
+        { img: "imagenes/platos/IMG-20260323-WA0029.jpg", nombre: "Pollo a la milanesa con arroz y verduras" },
+        { img: "imagenes/platos/IMG-20260323-WA0030.jpg", nombre: "Churrasco con papas y arroz" },
+        { img: "imagenes/platos/IMG-20260323-WA0031.jpg", nombre: "Bistec con papas al horno y arroz" },
+        { img: "imagenes/platos/IMG-20260323-WA0033.jpg", nombre: "Bistec con frijoles y arroz" },
+        { img: "imagenes/platos/IMG-20260323-WA0119.jpg", nombre: "Pollo al horno con arroz y ensalada rusa" },
+        { img: "imagenes/platos/IMG-20260323-WA0035.jpg", nombre: "Pollo al horno con espaguetti" },
+        { img: "imagenes/platos/IMG-20260323-WA0036.jpg", nombre: "Bistec con huevo, plátano y arroz" },
+        { img: "imagenes/platos/IMG-20260323-WA0037.jpg", nombre: "Seco de carne con arroz" },
+        { img: "imagenes/platos/IMG-20260323-WA0038.jpg", nombre: "Pollo con fideos y ensalada" },
+        { img: "imagenes/platos/IMG-20260323-WA0041.jpg", nombre: "Pollo con arroz y ensalada" },
+        { img: "imagenes/platos/IMG-20260323-WA0042.jpg", nombre: "Bistec pasta y salsa verde" },
+        { img: "imagenes/platos/IMG-20260323-WA0052.jpg", nombre: "Papa rellena" },
+        { img: "imagenes/platos/IMG-20260323-WA0053.jpg", nombre: "Pollo frito con arroz y papa al horno" },
+        { img: "imagenes/platos/IMG-20260323-WA0056.jpg", nombre: "Ceviche de pollo con arroz blanco y camote" },
+        { img: "imagenes/platos/IMG-20260323-WA0122.jpg", nombre: "Bistec con arroz y alverjitas (tequeños)" },
+        { img: "imagenes/platos/IMG-20260323-WA0120.jpg", nombre: "Lomo al vino con arroz blanco y puré (tequeños)" },
+        { img: "imagenes/platos/IMG-20260323-WA0110.jpg", nombre: "Pollo a la olla con arroz blanco y lentejitas" },
+        { img: "imagenes/platos/IMG-20260323-WA0104.jpg", nombre: "Pollo al horno con ensalada, arroz blanco y causa" },
+        { img: "imagenes/platos/IMG-20260323-WA0103.jpg", nombre: "Pollo a la plancha con arroz, choclo, sopa" },
+        { img: "imagenes/platos/IMG-20260323-WA0063.jpg", nombre: "Pollo al horno con arroz amarillo y ensalada" }
     ];
     
-    const rollingTrack = document.getElementById('rollingTrack');
-    
-    // Crear el carrusel (duplicar para efecto infinito)
     function crearCarrusel() {
+        const rollingTrack = document.getElementById('rollingTrack');
         rollingTrack.innerHTML = '';
-        // Duplicar imágenes para que el scroll sea continuo
-        const todasLasImagenes = [...imagenesPlatos, ...imagenesPlatos];
-        todasLasImagenes.forEach(imgUrl => {
+        
+        // Duplicar para efecto infinito
+        const todasLasImagenes = [...platos, ...platos];
+        
+        todasLasImagenes.forEach(plato => {
+            const item = document.createElement('div');
+            item.className = 'rolling-item';
+            
             const img = document.createElement('img');
-            img.src = imgUrl;
-            img.alt = "Plato Peruano";
-            rollingTrack.appendChild(img);
+            img.src = plato.img;
+            img.alt = plato.nombre;
+            
+            const nameSpan = document.createElement('div');
+            nameSpan.className = 'dish-name';
+            nameSpan.textContent = plato.nombre;
+            
+            item.appendChild(img);
+            item.appendChild(nameSpan);
+            rollingTrack.appendChild(item);
         });
+        
+        // Ajustar duración de animación: 22 imágenes * 3 segundos = 66 segundos
+        const duracion = platos.length * 3; // 66 segundos
+        rollingTrack.style.animationDuration = `${duracion}s`;
     }
     
+    // Inicialización
+    agregarNumerosReloj();
+    actualizarEstacion();
+    updateClock();
+    setInterval(updateClock, 1000);
     crearCarrusel();
-    
-    // Ajustar velocidad de animación basada en cantidad de imágenes
-    // 45 segundos para 30 imágenes (15 reales x2)
 </script>
 </body>
 </html>
