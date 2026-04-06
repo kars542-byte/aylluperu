@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Ayllu Perú - Catering y Más</title>
+    <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
     <style>
         * {
             margin: 0;
@@ -17,7 +17,6 @@
             color: #4a3b2c;
         }
 
-        /* Header */
         .header {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
@@ -36,30 +35,6 @@
             margin-top: 0.5rem;
         }
 
-        /* Navegación */
-        .nav {
-            background: #fff3e0;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .nav a {
-            color: #d35400;
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-
-        .nav a:hover {
-            text-decoration: underline;
-        }
-
-        /* Secciones generales */
         .section {
             padding: 3rem 1.5rem;
             max-width: 1200px;
@@ -81,7 +56,22 @@
             text-align: center;
         }
 
-        /* Menú de platos */
+        .price-banner {
+            background: #f39c12;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 50px;
+            margin: 1rem auto 2rem;
+            max-width: 450px;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .price-banner span {
+            font-size: 2rem;
+        }
+
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
@@ -104,7 +94,7 @@
 
         .menu-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: cover;
         }
 
@@ -112,71 +102,30 @@
             background: #f39c12;
             color: white;
             padding: 0.8rem;
-            font-size: 1.4rem;
-        }
-
-        .menu-card p {
-            padding: 0.8rem;
-            font-size: 0.95rem;
-        }
-
-        .menu-card .price {
-            color: #e67e22;
-            font-weight: bold;
             font-size: 1.3rem;
-            padding: 0 0.8rem 1rem;
+            text-align: center;
         }
 
-        /* Galería rotativa (carrusel simple) */
-        .gallery {
-            background: #fff;
-            border-radius: 20px;
-            padding: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        .menu-card .entrada {
+            background: #fff3e0;
+            padding: 0.5rem;
+            font-weight: bold;
+            color: #e67e22;
+            text-align: center;
         }
 
-        .carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 15px;
+        .menu-card .segundo {
+            padding: 0.5rem;
+            text-align: center;
         }
 
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease;
+        .menu-card .bebida {
+            background: #fff3e0;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
         }
 
-        .carousel-images img {
-            width: 100%;
-            flex-shrink: 0;
-            object-fit: cover;
-            height: 400px;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 0.8rem 1rem;
-            cursor: pointer;
-            font-size: 1.5rem;
-            border-radius: 50%;
-        }
-
-        .carousel-btn.prev {
-            left: 10px;
-        }
-
-        .carousel-btn.next {
-            right: 10px;
-        }
-
-        /* Botón WhatsApp flotante */
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
@@ -199,28 +148,17 @@
             transform: scale(1.05);
         }
 
-        /* Contacto y reservas */
-        .contact-box {
+        .contact-info {
+            text-align: center;
             background: #fff3e0;
             border-radius: 20px;
             padding: 2rem;
-            text-align: center;
             margin-top: 2rem;
         }
 
-        .contact-box button {
-            background: #d35400;
-            color: white;
-            border: none;
-            padding: 12px 24px;
+        .contact-info p {
+            margin: 0.5rem 0;
             font-size: 1.1rem;
-            border-radius: 30px;
-            cursor: pointer;
-            margin: 0.5rem;
-        }
-
-        .contact-box button:hover {
-            background: #e67e22;
         }
 
         footer {
@@ -233,9 +171,9 @@
 
         @media (max-width: 768px) {
             .header h1 { font-size: 2rem; }
-            .nav a { display: inline-block; margin: 0.5rem; font-size: 0.9rem; }
-            .carousel-images img { height: 250px; }
             .menu-card { width: 90%; }
+            .price-banner { font-size: 1rem; }
+            .price-banner span { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -243,148 +181,89 @@
 
 <div class="header">
     <h1>🍽️ Ayllu Perú</h1>
-    <p>Catering, Decoración y Eventos inolvidables</p>
+    <p>Comida casera, el sabor de siempre</p>
 </div>
 
-<div class="nav">
-    <a href="#catering">Catering</a>
-    <a href="#eventos">Eventos & Decoración</a>
-    <a href="#playa">Casa de Playa</a>
-    <a href="#contacto">Contacto</a>
-</div>
-
-<!-- SECCIÓN CATERING -->
-<div id="catering" class="section">
-    <div class="title-center"><h2>✨ Nuestro Catering ✨</h2></div>
-    <div class="menu-grid">
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Ceviche+Peruano" alt="Ceviche">
-            <h3>Ceviche Clásico</h3>
-            <p>Pescado fresco, limón, ají, camote y choclo.</p>
-            <div class="price">S/ 45 por persona</div>
-        </div>
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Lomo+Saltado" alt="Lomo Saltado">
-            <h3>Lomo Saltado</h3>
-            <p>Carne jugosa, cebolla, tomate, papas fritas y arroz.</p>
-            <div class="price">S/ 40 por persona</div>
-        </div>
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Aji+de+Gallina" alt="Ají de Gallina">
-            <h3>Ají de Gallina</h3>
-            <p>Cremoso ají, pechuga deshilachada, nueces y arroz.</p>
-            <div class="price">S/ 38 por persona</div>
-        </div>
+<div class="section">
+    <div class="title-center">
+        <h2>✨ Menú Ejecutivo ✨</h2>
     </div>
-</div>
-
-<!-- SECCIÓN EVENTOS Y DECORACIÓN + GALERÍA RODANTE -->
-<div id="eventos" class="section">
-    <div class="title-center"><h2>🎉 Eventos y Decoración 🎉</h2></div>
-    <p style="text-align:center; margin-bottom:1.5rem;">Bodas, cumpleaños, empresas. Creamos la atmósfera perfecta.</p>
-    <div class="gallery">
-        <div class="carousel" id="carouselEventos">
-            <div class="carousel-images" id="eventosImages">
-                <img src="https://placehold.co/800x400?text=Decoración+1" alt="Evento 1">
-                <img src="https://placehold.co/800x400?text=Decoración+2" alt="Evento 2">
-                <img src="https://placehold.co/800x400?text=Decoración+3" alt="Evento 3">
-                <img src="https://placehold.co/800x400?text=Decoración+4" alt="Evento 4">
-            </div>
-            <button class="carousel-btn prev" onclick="moveSlide(-1, 'eventosImages')">❮</button>
-            <button class="carousel-btn next" onclick="moveSlide(1, 'eventosImages')">❯</button>
-        </div>
-    </div>
-</div>
-
-<!-- SECCIÓN CASA DE PLAYA - PARACAS -->
-<div id="playa" class="section">
-    <div class="title-center"><h2>🏖️ Alquiler Casa de Playa - Paracas 🏖️</h2></div>
-    <p style="text-align:center;">Frente al mar, piscina, totalmente equipada. Ideal para familia o amigos.</p>
     
-    <div class="gallery" style="margin: 2rem 0;">
-        <div class="carousel" id="carouselPlaya">
-            <div class="carousel-images" id="playaImages">
-                <img src="imagenes/casa/001_terraza.jpg" alt="Casa Terraza">
-                <img src="imagenes/casa/002_cocina.jpg" alt="Casa Cocina">
-                <img src="imagenes/casa/003_Cuarto1.jpg" alt="Casa Primer Cuarto">
-                <img src="imagenes/casa/004_Cuarto1.jpg" alt="Casa Primer Cuarto Alt">
-                <img src="imagenes/casa/005_Cuarto2.jpg" alt="Casa Segundo Cuarto">
-                <img src="imagenes/casa/006_Cuarto3.jpg" alt="Casa Tercer Cuarto">
-                <img src="imagenes/casa/007_servicios.jpg" alt="Casa Servicios">
-                <img src="imagenes/casa/008_Sala.jpg" alt="Casa Sala">
-                <img src="imagenes/casa/009_Piscina.jpg" alt="Casa Piscina">
-            </div>
-            <button class="carousel-btn prev" onclick="moveSlide(-1, 'playaImages')">❮</button>
-            <button class="carousel-btn next" onclick="moveSlide(1, 'playaImages')">❯</button>
+    <div class="price-banner">
+        🥗 Incluye: Entrada + Segundo + Bebida 🥤<br>
+        <span>¡Solo S/ 17!</span>
+    </div>
+
+    <p style="text-align:center; margin-bottom:2rem;">📅 Menú disponible de Lunes a Viernes<br>⏰ 12:00 pm a 4:00 pm</p>
+
+    <div class="menu-grid">
+        <!-- LUNES -->
+        <div class="menu-card">
+            <img src="https://placehold.co/400x300?text=Menú+Lunes" alt="Lunes">
+            <h3>📅 LUNES</h3>
+            <div class="entrada">🥣 Entrada: Sopa Criolla</div>
+            <div class="segundo">🍛 Segundo: Lomo Saltado</div>
+            <div class="bebida">🥤 Bebida: Chicha Morada</div>
+        </div>
+
+        <!-- MARTES -->
+        <div class="menu-card">
+            <img src="https://placehold.co/400x300?text=Menú+Martes" alt="Martes">
+            <h3>📅 MARTES</h3>
+            <div class="entrada">🥣 Entrada: Causa Limeña</div>
+            <div class="segundo">🍛 Segundo: Ají de Gallina</div>
+            <div class="bebida">🥤 Bebida: Limonada Frozen</div>
+        </div>
+
+        <!-- MIÉRCOLES -->
+        <div class="menu-card">
+            <img src="https://placehold.co/400x300?text=Menú+Miércoles" alt="Miércoles">
+            <h3>📅 MIÉRCOLES</h3>
+            <div class="entrada">🥣 Entrada: Tamal Verde</div>
+            <div class="segundo">🍛 Segundo: Seco de Carne</div>
+            <div class="bebida">🥤 Bebida: Maracuyá</div>
+        </div>
+
+        <!-- JUEVES -->
+        <div class="menu-card">
+            <img src="https://placehold.co/400x300?text=Menú+Jueves" alt="Jueves">
+            <h3>📅 JUEVES</h3>
+            <div class="entrada">🥣 Entrada: Papa a la Huancaína</div>
+            <div class="segundo">🍛 Segundo: Pescado a lo Macho</div>
+            <div class="bebida">🥤 Bebida: Jugo de Piña</div>
+        </div>
+
+        <!-- VIERNES -->
+        <div class="menu-card">
+            <img src="https://placehold.co/400x300?text=Menú+Viernes" alt="Viernes">
+            <h3>📅 VIERNES</h3>
+            <div class="entrada">🥣 Entrada: Choros a la Chalaca</div>
+            <div class="segundo">🍛 Segundo: Arroz con Pollo</div>
+            <div class="bebida">🥤 Bebida: Inca Kola</div>
         </div>
     </div>
+</div>
 
-    <div style="background: #fff3e0; border-radius: 20px; padding: 1.5rem;">
-        <h3 style="color:#d35400;">🌟 Recomendaciones para Paracas</h3>
-        <ul style="margin-top: 1rem; margin-left: 1.5rem;">
-            <li>🌊 Reserva de Islas Ballestas (muy temprano)</li>
-            <li>🏄‍♂️ Clases de kitesurf en la Bahía</li>
-            <li>🍷 Cata de vinos en bodegas cercanas</li>
-            <li>🌅 Atardecer en la Reserva Nacional</li>
-            <li>🍽️ Prueba el pulpo al olivo en el muelle</li>
-        </ul>
+<div class="section">
+    <div class="title-center">
+        <h2>📞 Haz tu pedido</h2>
     </div>
-
-    <div class="contact-box" id="contacto">
-        <h3>📞 ¿Quieres reservar o pedir información?</h3>
-        <button onclick="window.open('https://wa.me/51999999999?text=Hola,%20quiero%20información%20sobre%20Sabores%20Perú%20y%20Casa%20en%20Paracas', '_blank')">WhatsApp para Reservas</button>
-        <button onclick="window.open('https://wa.me/51999999999?text=Hola,%20me%20interesa%20el%20catering%20y%20decoración', '_blank')">WhatsApp Catering y Eventos</button>
-        <p style="margin-top:1rem;">✉️ Correo: juditrodas@gmail.com | 📍 Lima / Paracas</p>
+    <div class="contact-info">
+        <p>📱 <strong>WhatsApp:</strong> 946 895 814</p>
+        <p>✉️ <strong>Email:</strong> juditrodas@gmail.com</p>
+        <p>📍 <strong>Atención:</strong> Lima / Paracas</p>
+        <p>🚚 <strong>Delivery disponible</strong> (consultar cobertura)</p>
     </div>
 </div>
 
 <footer>
-    <p>Ayllu Perú - Catering, Decoración y Alquiler de Casa de Playa</p>
-    <p>✨ Hacemos tus eventos inolvidables ✨</p>
+    <p>Ayllu Perú - Comida casera para tu día a día</p>
+    <p>✨ Menú Ejecutivo S/ 17 (Entrada + Segundo + Bebida) ✨</p>
 </footer>
 
-<!-- Botón WhatsApp flotante -->
-<a href="https://wa.me/51946895814?text=Hola,%20quiero%20más%20información%20de%20Sabores%20Perú" class="whatsapp-btn" target="_blank">
-    💬 Escríbenos
+<a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">
+    💬 Pedir por WhatsApp
 </a>
 
-<script>
-    // Carrusel genérico
-    let currentIndexEventos = 0;
-    let currentIndexPlaya = 0;
-
-    function moveSlide(direction, galleryId) {
-        const gallery = document.getElementById(galleryId);
-        const totalImages = gallery.children.length;
-        let currentIndex;
-        
-        if (galleryId === 'eventosImages') {
-            currentIndex = currentIndexEventos;
-        } else {
-            currentIndex = currentIndexPlaya;
-        }
-
-        currentIndex += direction;
-        if (currentIndex < 0) currentIndex = totalImages - 1;
-        if (currentIndex >= totalImages) currentIndex = 0;
-
-        const offset = -currentIndex * 100;
-        gallery.style.transform = `translateX(${offset}%)`;
-
-        if (galleryId === 'eventosImages') {
-            currentIndexEventos = currentIndex;
-        } else {
-            currentIndexPlaya = currentIndex;
-        }
-    }
-
-    // Inicializar posición de los carruseles
-    window.onload = () => {
-        const eventosGal = document.getElementById('eventosImages');
-        const playaGal = document.getElementById('playaImages');
-        if (eventosGal) eventosGal.style.transform = 'translateX(0%)';
-        if (playaGal) playaGal.style.transform = 'translateX(0%)';
-    }
-</script>
 </body>
 </html>
