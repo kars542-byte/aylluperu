@@ -23,7 +23,7 @@
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
             text-align: center;
-            padding: 1.5rem 1rem;
+            padding: 1.5rem 1rem 1rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
@@ -74,6 +74,45 @@
             .logo-img {
                 max-width: 100px;
             }
+        }
+
+        .top-menu {
+            background: #fff3e0;
+            padding: 0.8rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .menu-tab {
+            background: transparent;
+            color: #d35400;
+            border: 2px solid #d35400;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .menu-tab:hover {
+            background: #f39c12;
+            color: white;
+            border-color: #f39c12;
+        }
+
+        .menu-tab.active {
+            background: #d35400;
+            color: white;
+            border-color: #d35400;
         }
 
         .clock-container {
@@ -180,7 +219,7 @@
         }
 
         .section {
-            padding: 3rem 1.5rem;
+            padding: 2rem 1.5rem;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -216,6 +255,53 @@
             font-size: 2rem;
         }
 
+        .carta-container {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            max-width: 650px;
+            margin: 0 auto;
+            transition: transform 0.2s;
+        }
+
+        .carta-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #f0e0c0;
+        }
+
+        .carta-item:last-child {
+            border-bottom: none;
+        }
+
+        .carta-nombre {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #2c3e2f;
+        }
+
+        .carta-precio {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #e67e22;
+            white-space: nowrap;
+            margin-left: 1rem;
+            background: #fff3e0;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+        }
+
+        .carta-subtitulo {
+            text-align: center;
+            color: #a0764a;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
@@ -225,15 +311,15 @@
 
         .menu-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             width: 300px;
-            transition: transform 0.3s;
+            transition: transform 0.25s ease;
         }
 
         .menu-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-6px);
         }
 
         .menu-card img {
@@ -252,30 +338,30 @@
 
         .menu-card .entrada {
             background: #fff3e0;
-            padding: 0.5rem;
+            padding: 0.6rem;
             font-weight: bold;
             color: #e67e22;
             text-align: center;
         }
 
         .menu-card .segundo {
-            padding: 0.3rem 0.5rem;
+            padding: 0.4rem 0.6rem;
             text-align: center;
         }
 
         .menu-card .bebida {
             background: #fff3e0;
-            padding: 0.5rem;
+            padding: 0.6rem;
             text-align: center;
             font-size: 0.9rem;
         }
 
         .gallery-rolling {
             background: #fff3e0;
-            border-radius: 20px;
+            border-radius: 28px;
             padding: 2rem;
             margin-top: 2rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .rolling-title {
@@ -283,11 +369,12 @@
             color: #d35400;
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
+            font-weight: 600;
         }
 
         .rolling-container {
             overflow: hidden;
-            border-radius: 15px;
+            border-radius: 18px;
         }
 
         .rolling-track {
@@ -306,9 +393,9 @@
             width: 200px;
             height: 150px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            border-radius: 20px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            transition: transform 0.25s;
             mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0.6) 95%, rgba(0,0,0,0) 100%);
             -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0.6) 95%, rgba(0,0,0,0) 100%);
         }
@@ -333,12 +420,8 @@
         }
 
         @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         .whatsapp-btn {
@@ -354,7 +437,7 @@
             gap: 8px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
             z-index: 1000;
             transition: transform 0.2s;
         }
@@ -366,14 +449,14 @@
         .contact-info {
             text-align: center;
             background: #fff3e0;
-            border-radius: 20px;
+            border-radius: 28px;
             padding: 2rem;
             margin-top: 2rem;
         }
 
         .contact-info p {
-            margin: 0.5rem 0;
-            font-size: 1.1rem;
+            margin: 0.6rem 0;
+            font-size: 1.05rem;
         }
 
         footer {
@@ -382,6 +465,14 @@
             text-align: center;
             padding: 1.5rem;
             margin-top: 2rem;
+        }
+
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active-page {
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -394,6 +485,10 @@
             .rolling-item .dish-name { font-size: 0.7rem; max-width: 150px; }
             .analog-clock { width: 100px; height: 100px; }
             .date-info .time-digital { font-size: 1.3rem; }
+            .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+            .carta-container { margin: 0 1rem; padding: 1.2rem; }
+            .carta-nombre { font-size: 0.9rem; }
+            .carta-precio { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -409,6 +504,12 @@
     </div>
 </div>
 
+<div class="top-menu">
+    <button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button>
+    <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
+    <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
+</div>
+
 <div class="clock-container">
     <div class="analog-clock">
         <div class="clock-face">
@@ -416,7 +517,6 @@
             <div style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); font-size: 16px; font-weight: bold; color: #8b5a2b;">6</div>
             <div style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); font-size: 16px; font-weight: bold; color: #8b5a2b;">3</div>
             <div style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 16px; font-weight: bold; color: #8b5a2b;">9</div>
-            
             <div class="hand hour-hand" id="hourHand"></div>
             <div class="hand minute-hand" id="minuteHand"></div>
             <div class="hand second-hand" id="secondHand"></div>
@@ -435,85 +535,103 @@
     </div>
 </div>
 
-<div class="section">
-    <div class="title-center">
-        <h2>✨ Menú Ejecutivo ✨</h2>
+<!-- MENÚ EJECUTIVO -->
+<div id="page-ejecutivo" class="page-section active-page">
+    <div class="section">
+        <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
+        <div class="price-banner">
+            🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br>
+            <span>¡Solo S/ 17!</span>
+        </div>
+        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 12:00 pm a 4:00 pm</p>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <img src="https://placehold.co/400x300?text=Lunes" alt="Lunes">
+                <h3>📅 LUNES</h3>
+                <div class="entrada">🥣 Ensalada mixta</div>
+                <div class="segundo">🍛 Churrasco con arverjitas partidas</div>
+                <div class="segundo">🍲 Pollo al sillao</div>
+                <div class="bebida">🥤 Limonada</div>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/400x300?text=Martes" alt="Martes">
+                <h3>📅 MARTES</h3>
+                <div class="entrada">🥣 Cremita de zapallo</div>
+                <div class="segundo">🍛 Seco de res</div>
+                <div class="segundo">🍲 Suprema de pollo con puré de espinacas</div>
+                <div class="bebida">🥤 Hierba luisa</div>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/400x300?text=Miércoles" alt="Miércoles">
+                <h3>📅 MIÉRCOLES</h3>
+                <div class="entrada">🥣 Ocopa</div>
+                <div class="segundo">🍛 Pollo al horno con ensalada de fideos</div>
+                <div class="segundo">🍲 Macarrones a la bolognesa</div>
+                <div class="bebida">🥤 Naranjada</div>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/400x300?text=Jueves" alt="Jueves">
+                <h3>📅 JUEVES</h3>
+                <div class="entrada">🥣 Tequeños con queso</div>
+                <div class="segundo">🍛 Carne estofada con yuca</div>
+                <div class="segundo">🍲 Pollo con piña y arroz chaufa</div>
+                <div class="bebida">🥤 Maracuyá</div>
+            </div>
+            <div class="menu-card">
+                <img src="https://placehold.co/400x300?text=Viernes" alt="Viernes">
+                <h3>📅 VIERNES</h3>
+                <div class="entrada">🥣 Ensalada fresca</div>
+                <div class="segundo">🍛 Pollo broaster con espaguetti a la huancaina</div>
+                <div class="segundo">🍲 Carapulcra con panceta</div>
+                <div class="bebida">🥤 Chicha morada</div>
+            </div>
+        </div>
     </div>
-    
-    <div class="price-banner">
-        🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br>
-        <span>¡Solo S/ 17!</span>
+</div>
+
+<!-- ENSALADAS -->
+<div id="page-ensaladas" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
+        <div class="carta-container">
+            <div class="carta-subtitulo">Frescas, saludables y llenas de sabor</div>
+            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada Mixta</span><span class="carta-precio">S/ 12</span></div>
+            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada de Pollo</span><span class="carta-precio">S/ 15</span></div>
+            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada de Atún</span><span class="carta-precio">S/ 16</span></div>
+            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada de Frutas</span><span class="carta-precio">S/ 10</span></div>
+        </div>
     </div>
+</div>
 
-    <p style="text-align:center; margin-bottom:2rem;">📅 Menú disponible de Lunes a Viernes<br>⏰ 12:00 pm a 4:00 pm</p>
-
-    <div class="menu-grid">
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Lunes" alt="Lunes">
-            <h3>📅 LUNES</h3>
-            <div class="entrada">🥣 Entrada: Ensalada mixta</div>
-            <div class="segundo">🍛 Plato de fondo 1: Churrasco con arverjitas partidas</div>
-            <div class="segundo">🍲 Plato de fondo 2: Pollo al sillao</div>
-            <div class="bebida">🥤 Bebida: Limonada</div>
-        </div>
-
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Martes" alt="Martes">
-            <h3>📅 MARTES</h3>
-            <div class="entrada">🥣 Entrada: Cremmita de zapallo</div>
-            <div class="segundo">🍛 Plato de fondo 1: Seco de res</div>
-            <div class="segundo">🍲 Plato de fondo 2: Suprema de pollo con pure de espinacas</div>
-            <div class="bebida">🥤 Bebida: Hierba luisa</div>
-        </div>
-
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Miércoles" alt="Miércoles">
-            <h3>📅 MIÉRCOLES</h3>
-            <div class="entrada">🥣 Entrada: Ocopa</div>
-            <div class="segundo">🍛 Plato de fondo 1: Pollo al horno con ensalada de fideos</div>
-            <div class="segundo">🍲 Plato de fondo 2: Macarrones a la bolognesa</div>
-            <div class="bebida">🥤 Bebida: Naranjada</div>
-        </div>
-
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Jueves" alt="Jueves">
-            <h3>📅 JUEVES</h3>
-            <div class="entrada">🥣 Entrada: Tequeños con queso</div>
-            <div class="segundo">🍛 Plato de fondo 1: Carne estofada con yuca</div>
-            <div class="segundo">🍲 Plato de fondo 2: Pollo con piña y arroz chaufa</div>
-            <div class="bebida">🥤 Bebida: Maracuyá</div>
-        </div>
-
-        <div class="menu-card">
-            <img src="https://placehold.co/400x300?text=Viernes" alt="Viernes">
-            <h3>📅 VIERNES</h3>
-            <div class="entrada">🥣 Entrada: Ensalada fresca</div>
-            <div class="segundo">🍛 Plato de fondo 1: Pollo broaster con espaguetti a la huancaina</div>
-            <div class="segundo">🍲 Plato de fondo 2: Carapulcra con panceta</div>
-            <div class="bebida">🥤 Bebida: Chicha morada</div>
+<!-- PLATOS A LA CARTA -->
+<div id="page-carta" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>🍽️ Platos a la Carta</h2></div>
+        <div class="carta-container">
+            <div class="carta-subtitulo">Preparados al momento con ingredientes frescos</div>
+            <div class="carta-item"><span class="carta-nombre">🍖 Churrasco con papas fritas</span><span class="carta-precio">S/ 18</span></div>
+            <div class="carta-item"><span class="carta-nombre">🍖 Churrasco montado (arroz, huevo, plátano)</span><span class="carta-precio">S/ 22</span></div>
+            <div class="carta-item"><span class="carta-nombre">🍗 Pollo a la plancha con arroz y papas fritas</span><span class="carta-precio">S/ 18</span></div>
+            <div class="carta-item"><span class="carta-nombre">🥣 Sopa de dieta</span><span class="carta-precio">S/ 15</span></div>
+            <div class="carta-item"><span class="carta-nombre">🍛 Pollo saltado con papas fritas y arroz</span><span class="carta-precio">S/ 20</span></div>
+            <div class="carta-item"><span class="carta-nombre">🍛 Lomo saltado con papas fritas y arroz</span><span class="carta-precio">S/ 22</span></div>
         </div>
     </div>
 </div>
 
 <div class="section">
     <div class="gallery-rolling">
-        <div class="rolling-title">
-            🍜 Nuestros Platos Destacados 🍲
-        </div>
-        <div class="rolling-container">
-            <div class="rolling-track" id="rollingTrack"></div>
-        </div>
+        <div class="rolling-title">🍜 Nuestros Platos Destacados 🍲</div>
+        <div class="rolling-container"><div class="rolling-track" id="rollingTrack"></div></div>
     </div>
 </div>
 
 <div class="section">
-    <div class="title-center">
-        <h2>📞 Haz tu pedido por WhatsApp</h2>
-    </div>
+    <div class="title-center"><h2>📞 Haz tu pedido por WhatsApp</h2></div>
     <div class="contact-info">
         <p>📱 <strong>WhatsApp:</strong> 946 895 814</p>
         <p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p>
-        <p>📍 <strong>Atención:</strong> Lima </p>
+        <p>📍 <strong>Atención:</strong> Lima</p>
         <p>🚚 <strong>Delivery disponible</strong> (consultar cobertura)</p>
     </div>
 </div>
@@ -523,62 +641,33 @@
     <p>✨ Menú Ejecutivo S/ 17 (Entrada + 2 Platos de fondo + Bebida) ✨</p>
 </footer>
 
-<a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">
-    💬 Pedir por WhatsApp
-</a>
+<a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
     function updateClock() {
         const now = new Date();
-        
-        const hours = now.getHours().toString().padStart(2, '0');
-        const minutes = now.getMinutes().toString().padStart(2, '0');
-        const seconds = now.getSeconds().toString().padStart(2, '0');
-        document.getElementById('digitalTime').textContent = `${hours}:${minutes}:${seconds}`;
-        
+        document.getElementById('digitalTime').textContent = now.toLocaleTimeString('es-PE');
         const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
         const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-        const dayName = days[now.getDay()];
-        const day = now.getDate();
-        const month = months[now.getMonth()];
-        const year = now.getFullYear();
-        document.getElementById('fullDate').textContent = `${dayName}, ${day} de ${month} de ${year}`;
-        
-        const hour = now.getHours() % 12;
-        const minute = now.getMinutes();
-        const second = now.getSeconds();
-        
-        const hourDeg = (hour * 30) + (minute * 0.5);
-        const minuteDeg = (minute * 6) + (second * 0.1);
-        const secondDeg = second * 6;
-        
-        document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
-        document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
-        document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+        document.getElementById('fullDate').textContent = `${days[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
+        const hour = now.getHours() % 12, minute = now.getMinutes(), second = now.getSeconds();
+        document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${(hour * 30) + (minute * 0.5)}deg)`;
+        document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${(minute * 6) + (second * 0.1)}deg)`;
+        document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
     }
-    
-    function obtenerEstacionPeru() {
-        const fecha = new Date();
-        const mes = fecha.getMonth();
-        const dia = fecha.getDate();
-        
-        if ((mes === 11 && dia >= 21) || (mes === 0) || (mes === 1) || (mes === 2 && dia <= 20)) {
-            return { nombre: "Verano", icono: "☀️🌊" };
-        } else if ((mes === 2 && dia >= 21) || (mes === 3) || (mes === 4) || (mes === 5 && dia <= 20)) {
-            return { nombre: "Otoño", icono: "🍂🌧️" };
-        } else if ((mes === 5 && dia >= 21) || (mes === 6) || (mes === 7) || (mes === 8 && dia <= 22)) {
-            return { nombre: "Invierno", icono: "❄️☁️" };
-        } else {
-            return { nombre: "Primavera", icono: "🌸🌼" };
-        }
+    function estacionPeru() {
+        const fecha = new Date(), mes = fecha.getMonth(), dia = fecha.getDate();
+        if ((mes === 11 && dia >= 21) || mes === 0 || mes === 1 || (mes === 2 && dia <= 20)) return { nombre: "Verano", icono: "☀️🌊" };
+        if ((mes === 2 && dia >= 21) || mes === 3 || mes === 4 || (mes === 5 && dia <= 20)) return { nombre: "Otoño", icono: "🍂🌧️" };
+        if ((mes === 5 && dia >= 21) || mes === 6 || mes === 7 || (mes === 8 && dia <= 22)) return { nombre: "Invierno", icono: "❄️☁️" };
+        return { nombre: "Primavera", icono: "🌸🌼" };
     }
-    
-    function actualizarEstacion() {
-        const estacion = obtenerEstacionPeru();
-        document.getElementById('seasonIcon').textContent = estacion.icono;
-        document.getElementById('seasonName').textContent = estacion.nombre;
-    }
-    
+    const estacion = estacionPeru();
+    document.getElementById('seasonIcon').textContent = estacion.icono;
+    document.getElementById('seasonName').textContent = estacion.nombre;
+    setInterval(updateClock, 1000);
+    updateClock();
+
     const platos = [
         { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
         { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
@@ -603,45 +692,26 @@
         { img: "imagenes/platos/IMG-20260405-WA0103.jpg", nombre: "Pollo a la plancha con arroz, choclo, sopa" },
         { img: "imagenes/platos/IMG-20260405-WA0063.jpg", nombre: "Pollo al horno con arroz amarillo y ensalada" }
     ];
-    
-    function crearCarrusel() {
-        const rollingTrack = document.getElementById('rollingTrack');
-        if (!rollingTrack) return;
-        
-        rollingTrack.innerHTML = '';
-        
-        const handleImageError = (img) => {
-            img.src = 'https://placehold.co/400x300?text=Plato+Peruano&bg=fef7e8&color=d35400';
-        };
-        
-        const todasLasImagenes = [...platos, ...platos];
-        
-        todasLasImagenes.forEach(plato => {
-            const item = document.createElement('div');
-            item.className = 'rolling-item';
-            
-            const img = document.createElement('img');
-            img.src = plato.img;
-            img.alt = plato.nombre;
-            img.onerror = () => handleImageError(img);
-            
-            const nameSpan = document.createElement('div');
-            nameSpan.className = 'dish-name';
-            nameSpan.textContent = plato.nombre;
-            
-            item.appendChild(img);
-            item.appendChild(nameSpan);
-            rollingTrack.appendChild(item);
+    const track = document.getElementById('rollingTrack');
+    if (track) {
+        [...platos, ...platos].forEach(p => {
+            const div = document.createElement('div'); div.className = 'rolling-item';
+            const img = document.createElement('img'); img.src = p.img; img.alt = p.nombre;
+            img.onerror = () => img.src = 'https://placehold.co/400x300?text=Plato&bg=fef7e8&color=d35400';
+            const span = document.createElement('div'); span.className = 'dish-name'; span.textContent = p.nombre;
+            div.append(img, span); track.appendChild(div);
         });
-        
-        const duracion = platos.length * 3;
-        rollingTrack.style.animationDuration = `${duracion}s`;
+        track.style.animationDuration = `${platos.length * 3}s`;
     }
-    
-    updateClock();
-    setInterval(updateClock, 1000);
-    actualizarEstacion();
-    crearCarrusel();
+
+    document.querySelectorAll('.menu-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page'));
+            document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page');
+        });
+    });
 </script>
 </body>
 </html>
