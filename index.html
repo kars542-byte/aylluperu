@@ -268,9 +268,10 @@
         .carta-item {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
+            align-items: flex-start;
             padding: 0.9rem 0;
             border-bottom: 1px solid #f0e0c0;
+            gap: 1rem;
         }
 
         .carta-item:last-child {
@@ -278,9 +279,14 @@
         }
 
         .carta-nombre {
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 500;
             color: #2c3e2f;
+            flex: 3;
+        }
+
+        .carta-nombre strong {
+            font-size: 1.05rem;
         }
 
         .carta-precio {
@@ -288,16 +294,16 @@
             font-weight: 700;
             color: #e67e22;
             white-space: nowrap;
-            margin-left: 1rem;
             background: #fff3e0;
             padding: 0.2rem 0.8rem;
             border-radius: 30px;
+            flex-shrink: 0;
         }
 
         .carta-subtitulo {
             text-align: center;
             color: #a0764a;
-            margin: 1rem 0 1.5rem;
+            margin: 0 0 1.5rem 0;
             font-size: 0.95rem;
             letter-spacing: 0.5px;
         }
@@ -487,7 +493,7 @@
             .date-info .time-digital { font-size: 1.3rem; }
             .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
             .carta-container { margin: 0 1rem; padding: 1.2rem; }
-            .carta-nombre { font-size: 0.9rem; }
+            .carta-nombre { font-size: 0.85rem; }
             .carta-precio { font-size: 0.9rem; }
         }
     </style>
@@ -589,16 +595,36 @@
     </div>
 </div>
 
-<!-- ENSALADAS -->
+<!-- ENSALADAS ACTUALIZADAS -->
 <div id="page-ensaladas" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
         <div class="carta-container">
-            <div class="carta-subtitulo">Frescas, saludables y llenas de sabor</div>
-            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada Mixta</span><span class="carta-precio">S/ 12</span></div>
-            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada de Pollo</span><span class="carta-precio">S/ 15</span></div>
-            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada de Atún</span><span class="carta-precio">S/ 16</span></div>
-            <div class="carta-item"><span class="carta-nombre">🥗 Ensalada de Frutas</span><span class="carta-precio">S/ 10</span></div>
+            <div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div>
+            
+            <div class="carta-item">
+                <div class="carta-nombre">
+                    🥗 <strong>Ensalada Alexandra</strong><br>
+                    <span style="font-size: 0.85rem; color: #7a5a3a;">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún. Aliño de la casa.</span>
+                </div>
+                <div class="carta-precio">S/ 18</div>
+            </div>
+            
+            <div class="carta-item">
+                <div class="carta-nombre">
+                    🥑 <strong>Ensalada Isabella</strong><br>
+                    <span style="font-size: 0.85rem; color: #7a5a3a;">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo sancochado. Aliño de la casa.</span>
+                </div>
+                <div class="carta-precio">S/ 19</div>
+            </div>
+            
+            <div class="carta-item">
+                <div class="carta-nombre">
+                    🧀 <strong>Ensalada Camille</strong><br>
+                    <span style="font-size: 0.85rem; color: #7a5a3a;">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo sancochado. Aliño de la casa.</span>
+                </div>
+                <div class="carta-precio">S/ 19</div>
+            </div>
         </div>
     </div>
 </div>
@@ -609,12 +635,12 @@
         <div class="title-center"><h2>🍽️ Platos a la Carta</h2></div>
         <div class="carta-container">
             <div class="carta-subtitulo">Preparados al momento con ingredientes frescos</div>
-            <div class="carta-item"><span class="carta-nombre">🍖 Churrasco con papas fritas</span><span class="carta-precio">S/ 18</span></div>
-            <div class="carta-item"><span class="carta-nombre">🍖 Churrasco montado (arroz, huevo, plátano)</span><span class="carta-precio">S/ 22</span></div>
-            <div class="carta-item"><span class="carta-nombre">🍗 Pollo a la plancha con arroz y papas fritas</span><span class="carta-precio">S/ 18</span></div>
-            <div class="carta-item"><span class="carta-nombre">🥣 Sopa de dieta</span><span class="carta-precio">S/ 15</span></div>
-            <div class="carta-item"><span class="carta-nombre">🍛 Pollo saltado con papas fritas y arroz</span><span class="carta-precio">S/ 20</span></div>
-            <div class="carta-item"><span class="carta-nombre">🍛 Lomo saltado con papas fritas y arroz</span><span class="carta-precio">S/ 22</span></div>
+            <div class="carta-item"><div class="carta-nombre">🍖 Churrasco con papas fritas</div><div class="carta-precio">S/ 18</div></div>
+            <div class="carta-item"><div class="carta-nombre">🍖 Churrasco montado (arroz, huevo, plátano)</div><div class="carta-precio">S/ 22</div></div>
+            <div class="carta-item"><div class="carta-nombre">🍗 Pollo a la plancha con arroz y papas fritas</div><div class="carta-precio">S/ 18</div></div>
+            <div class="carta-item"><div class="carta-nombre">🥣 Sopa de dieta</div><div class="carta-precio">S/ 15</div></div>
+            <div class="carta-item"><div class="carta-nombre">🍛 Pollo saltado con papas fritas y arroz</div><div class="carta-precio">S/ 20</div></div>
+            <div class="carta-item"><div class="carta-nombre">🍛 Lomo saltado con papas fritas y arroz</div><div class="carta-precio">S/ 22</div></div>
         </div>
     </div>
 </div>
