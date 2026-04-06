@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
+    <!-- Favicon para que aparezca el logo en favoritos y pestañas -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
     <style>
         * {
             margin: 0;
@@ -17,7 +20,7 @@
             color: #4a3b2c;
         }
 
-        /* Header con logo */
+        /* Header con logo más grande */
         .header {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
@@ -30,16 +33,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
         }
 
         .logo-img {
-            max-width: 80px;
+            max-width: 120px;
             height: auto;
-            border-radius: 15px;
+            border-radius: 20px;
             background: white;
-            padding: 5px;
+            padding: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .logo-text {
@@ -47,14 +51,14 @@
         }
 
         .logo-text h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             letter-spacing: 2px;
             margin: 0;
         }
 
         .logo-text p {
-            font-size: 1rem;
-            margin-top: 0.2rem;
+            font-size: 1.1rem;
+            margin-top: 0.3rem;
             opacity: 0.9;
         }
 
@@ -67,8 +71,110 @@
                 text-align: center;
             }
             .logo-text h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
+            .logo-img {
+                max-width: 100px;
+            }
+        }
+
+        /* Reloj antiguo */
+        .clock-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem auto;
+            padding: 1rem;
+            background: #fff3e0;
+            border-radius: 30px;
+            max-width: 500px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .analog-clock {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #f5e6d3;
+            border: 6px solid #8b5a2b;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .clock-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hour-mark {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #8b5a2b;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: 50% 100%;
+            background: #4a3b2c;
+            border-radius: 4px;
+        }
+
+        .hour-hand {
+            width: 5px;
+            height: 30px;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .minute-hand {
+            width: 3px;
+            height: 40px;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .second-hand {
+            width: 2px;
+            height: 45px;
+            background: #e67e22;
+            transform: translateX(-50%) rotate(0deg);
+        }
+
+        .center-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #e67e22;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .date-info {
+            text-align: center;
+            font-family: 'Courier New', monospace;
+        }
+
+        .date-info .time-digital {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d35400;
+            font-family: monospace;
+        }
+
+        .date-info .date {
+            font-size: 1.2rem;
+            color: #8b5a2b;
+            margin-top: 0.5rem;
         }
 
         .section {
@@ -162,6 +268,60 @@
             font-size: 0.9rem;
         }
 
+        /* Carrusel de imágenes al final */
+        .gallery-rolling {
+            background: #fff3e0;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .rolling-title {
+            text-align: center;
+            color: #d35400;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .rolling-container {
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .rolling-track {
+            display: flex;
+            animation: scroll 45s linear infinite;
+            gap: 1rem;
+        }
+
+        .rolling-track img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+        }
+
+        .rolling-track img:hover {
+            transform: scale(1.05);
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .rolling-container:hover .rolling-track {
+            animation-play-state: paused;
+        }
+
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
@@ -210,6 +370,9 @@
             .menu-card { width: 90%; }
             .price-banner { font-size: 1rem; }
             .price-banner span { font-size: 1.5rem; }
+            .rolling-track img { width: 150px; height: 120px; }
+            .analog-clock { width: 90px; height: 90px; }
+            .date-info .time-digital { font-size: 1.3rem; }
         }
     </style>
 </head>
@@ -222,6 +385,22 @@
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
         </div>
+    </div>
+</div>
+
+<!-- Reloj antiguo -->
+<div class="clock-container">
+    <div class="analog-clock" id="analogClock">
+        <div class="clock-face">
+            <div class="hand hour-hand" id="hourHand"></div>
+            <div class="hand minute-hand" id="minuteHand"></div>
+            <div class="hand second-hand" id="secondHand"></div>
+            <div class="center-dot"></div>
+        </div>
+    </div>
+    <div class="date-info">
+        <div class="time-digital" id="digitalTime"></div>
+        <div class="date" id="fullDate"></div>
     </div>
 </div>
 
@@ -280,6 +459,20 @@
     </div>
 </div>
 
+<!-- Carrusel de 15 imágenes rodantes -->
+<div class="section">
+    <div class="gallery-rolling">
+        <div class="rolling-title">
+            🍜 Nuestros Platos Destacados 🍲
+        </div>
+        <div class="rolling-container">
+            <div class="rolling-track" id="rollingTrack">
+                <!-- Las imágenes se duplican para efecto infinito -->
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="section">
     <div class="title-center">
         <h2>📞 Haz tu pedido</h2>
@@ -301,5 +494,83 @@
     💬 Pedir por WhatsApp
 </a>
 
+<script>
+    // ========== RELOJ ANALÓGICO Y DIGITAL ==========
+    function updateClock() {
+        const now = new Date();
+        
+        // Hora digital
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById('digitalTime').textContent = `${hours}:${minutes}:${seconds}`;
+        
+        // Fecha completa
+        const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+        const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+        const dayName = days[now.getDay()];
+        const day = now.getDate();
+        const month = months[now.getMonth()];
+        const year = now.getFullYear();
+        document.getElementById('fullDate').textContent = `${dayName}, ${day} de ${month} de ${year}`;
+        
+        // Reloj analógico
+        const hour = now.getHours() % 12;
+        const minute = now.getMinutes();
+        const second = now.getSeconds();
+        
+        const hourDeg = (hour * 30) + (minute * 0.5);
+        const minuteDeg = (minute * 6) + (second * 0.1);
+        const secondDeg = second * 6;
+        
+        document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+        document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${minuteDeg}deg)`;
+        document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${secondDeg}deg)`;
+    }
+    
+    updateClock();
+    setInterval(updateClock, 1000);
+    
+    // ========== CARRUSEL DE 15 IMÁGENES ==========
+    // Lista de URLs de imágenes de muestra (platos peruanos)
+    // Reemplaza estas URLs con las tuyas cuando tengas las fotos reales
+    const imagenesPlatos = [
+        "https://placehold.co/400x300?text=Ceviche",
+        "https://placehold.co/400x300?text=Lomo+Saltado",
+        "https://placehold.co/400x300?text=Ají+de+Gallina",
+        "https://placehold.co/400x300?text=Anticuchos",
+        "https://placehold.co/400x300?text=Papa+a+la+H",
+        "https://placehold.co/400x300?text=Seco+de+Carne",
+        "https://placehold.co/400x300?text=Arroz+con+Pollo",
+        "https://placehold.co/400x300?text=Causa+Limeña",
+        "https://placehold.co/400x300?text=Suspiro+Limeño",
+        "https://placehold.co/400x300?text=Chicha+Morada",
+        "https://placehold.co/400x300?text=Pisco+Sour",
+        "https://placehold.co/400x300?text=Pescado+a+lo+Macho",
+        "https://placehold.co/400x300?text=Tamal+Verde",
+        "https://placehold.co/400x300?text=Choros+a+la+Chalaca",
+        "https://placehold.co/400x300?text=Turrón+de+Doña+Pepa"
+    ];
+    
+    const rollingTrack = document.getElementById('rollingTrack');
+    
+    // Crear el carrusel (duplicar para efecto infinito)
+    function crearCarrusel() {
+        rollingTrack.innerHTML = '';
+        // Duplicar imágenes para que el scroll sea continuo
+        const todasLasImagenes = [...imagenesPlatos, ...imagenesPlatos];
+        todasLasImagenes.forEach(imgUrl => {
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            img.alt = "Plato Peruano";
+            rollingTrack.appendChild(img);
+        });
+    }
+    
+    crearCarrusel();
+    
+    // Ajustar velocidad de animación basada en cantidad de imágenes
+    // 45 segundos para 30 imágenes (15 reales x2)
+</script>
 </body>
 </html>
