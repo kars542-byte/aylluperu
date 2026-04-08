@@ -218,6 +218,67 @@
             font-size: 1.3rem;
         }
 
+        /* Sección de días de la semana - SIN FONDO GRIS */
+        .weekdays-section {
+            background: transparent;
+            padding: 0.5rem 1rem 1.5rem;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .weekdays-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            align-items: center;
+        }
+
+        .day-card {
+            text-align: center;
+            background: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 20px;
+            min-width: 90px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #f0dbb4;
+        }
+
+        .day-card.highlight {
+            background: #d35400;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(211,84,0,0.3);
+        }
+
+        .day-card.highlight .day-number,
+        .day-card.highlight .day-name {
+            color: white;
+        }
+
+        .day-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d35400;
+            font-family: monospace;
+            line-height: 1.2;
+        }
+
+        .day-name {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #4a3b2c;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 480px) {
+            .weekdays-container { gap: 0.8rem; }
+            .day-card { padding: 0.5rem 0.8rem; min-width: 65px; }
+            .day-number { font-size: 1.3rem; }
+            .day-name { font-size: 0.7rem; }
+        }
+
         .section {
             padding: 2rem 1.5rem;
             max-width: 1200px;
@@ -543,6 +604,13 @@
     </div>
 </div>
 
+<!-- SECCIÓN DE DÍAS DE LA SEMANA - DINÁMICA, SIN FONDO GRIS -->
+<div class="weekdays-section">
+    <div class="weekdays-container" id="weekdaysContainer">
+        <!-- Los días se generan automáticamente con JavaScript -->
+    </div>
+</div>
+
 <!-- MENÚ EJECUTIVO -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
@@ -673,6 +741,7 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
+    // ========== RELOJ Y FECHA ==========
     function updateClock() {
         const now = new Date();
         document.getElementById('digitalTime').textContent = now.toLocaleTimeString('es-PE');
@@ -684,6 +753,7 @@
         document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${(minute * 6) + (second * 0.1)}deg)`;
         document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
     }
+    
     function estacionPeru() {
         const fecha = new Date(), mes = fecha.getMonth(), dia = fecha.getDate();
         if ((mes === 11 && dia >= 21) || mes === 0 || mes === 1 || (mes === 2 && dia <= 20)) return { nombre: "Verano", icono: "☀️🌊" };
@@ -691,12 +761,52 @@
         if ((mes === 5 && dia >= 21) || mes === 6 || mes === 7 || (mes === 8 && dia <= 22)) return { nombre: "Invierno", icono: "❄️☁️" };
         return { nombre: "Primavera", icono: "🌸🌼" };
     }
+    
     const estacion = estacionPeru();
     document.getElementById('seasonIcon').textContent = estacion.icono;
     document.getElementById('seasonName').textContent = estacion.nombre;
     setInterval(updateClock, 1000);
     updateClock();
 
+    // ========== DÍAS DE LA SEMANA DINÁMICOS (CON NÚMERO DE FECHA) ==========
+    function generarDiasSemana() {
+        const hoy = new Date();
+        const diaActual = hoy.getDay(); // 0 = Domingo, 1 = Lunes...
+        
+        // Obtener la fecha del Lunes de esta semana
+        const lunes = new Date(hoy);
+        const diasHastaLunes = (diaActual === 0 ? 6 : diaActual - 1);
+        lunes.setDate(hoy.getDate() - diasHastaLunes);
+        
+        const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
+        const container = document.getElementById('weekdaysContainer');
+        container.innerHTML = '';
+        
+        for (let i = 0; i < diasSemana.length; i++) {
+            const fechaDia = new Date(lunes);
+            fechaDia.setDate(lunes.getDate() + i);
+            const numeroDia = fechaDia.getDate();
+            const nombreDia = diasSemana[i];
+            
+            const card = document.createElement('div');
+            card.className = 'day-card';
+            
+            // Resaltar el día actual si coincide
+            if (fechaDia.toDateString() === hoy.toDateString()) {
+                card.classList.add('highlight');
+            }
+            
+            card.innerHTML = `
+                <div class="day-number">${numeroDia}</div>
+                <div class="day-name">${nombreDia}</div>
+            `;
+            container.appendChild(card);
+        }
+    }
+    
+    generarDiasSemana();
+
+    // ========== GALERÍA RODANTE ==========
     const platos = [
         { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
         { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
@@ -721,6 +831,7 @@
         { img: "imagenes/platos/IMG-20260405-WA0103.jpg", nombre: "Pollo a la plancha con arroz, choclo, sopa" },
         { img: "imagenes/platos/IMG-20260405-WA0063.jpg", nombre: "Pollo al horno con arroz amarillo y ensalada" }
     ];
+    
     const track = document.getElementById('rollingTrack');
     if (track) {
         [...platos, ...platos].forEach(p => {
@@ -733,6 +844,7 @@
         track.style.animationDuration = `${platos.length * 3}s`;
     }
 
+    // ========== TABS ==========
     document.querySelectorAll('.menu-tab').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
