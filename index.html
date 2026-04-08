@@ -223,31 +223,33 @@
             background: transparent;
             padding: 0.5rem 1rem 1.5rem;
             margin: 0 auto;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         .weekdays-container {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1.2rem;
+            gap: 1rem;
             align-items: center;
         }
 
         .day-card {
             text-align: center;
             background: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 20px;
-            min-width: 90px;
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            min-width: 80px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border: 1px solid #f0dbb4;
+            position: relative;
         }
 
         .day-card.highlight {
             background: #d35400;
             color: white;
-            transform: scale(1.05);
+            transform: scale(1.02);
+            box-shadow: 0 6px 16px rgba(211,84,0,0.3);
         }
 
         .day-card.highlight .day-number,
@@ -255,8 +257,21 @@
             color: white;
         }
 
+        .today-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #e67e22;
+            color: white;
+            font-size: 0.65rem;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
         .day-number {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: bold;
             color: #d35400;
             font-family: monospace;
@@ -264,22 +279,23 @@
         }
 
         .day-name {
-            font-size: 0.9rem;
+            font-size: 0.75rem;
             font-weight: bold;
             color: #4a3b2c;
             letter-spacing: 1px;
         }
 
         @media (max-width: 480px) {
-            .weekdays-container { gap: 0.8rem; }
-            .day-card { padding: 0.5rem 0.8rem; min-width: 65px; }
-            .day-number { font-size: 1.3rem; }
-            .day-name { font-size: 0.7rem; }
+            .weekdays-container { gap: 0.6rem; }
+            .day-card { padding: 0.4rem 0.6rem; min-width: 60px; }
+            .day-number { font-size: 1.2rem; }
+            .day-name { font-size: 0.6rem; }
+            .today-badge { font-size: 0.5rem; top: -8px; right: -8px; padding: 1px 4px; }
         }
 
         .section {
             padding: 2rem 1.5rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -366,11 +382,11 @@
             letter-spacing: 0.5px;
         }
 
-        /* IMPORTANTE: menu-grid con flex-wrap */
+        /* menu-grid con tarjetas MÁS ANCHAS */
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
         }
 
@@ -379,12 +395,31 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            width: 300px;
+            width: 340px;
             transition: transform 0.25s ease;
+            position: relative;
         }
 
         .menu-card:hover {
             transform: translateY(-6px);
+        }
+
+        .menu-card.today-card {
+            border: 3px solid #d35400;
+            box-shadow: 0 8px 25px rgba(211,84,0,0.2);
+        }
+
+        .today-flag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #d35400;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 20px;
+            z-index: 10;
         }
 
         .menu-card img {
@@ -396,31 +431,49 @@
         .menu-card h3 {
             background: #f39c12;
             color: white;
-            padding: 0.8rem;
-            font-size: 1.3rem;
+            padding: 0.6rem;
+            font-size: 1.1rem;
             text-align: center;
+            letter-spacing: 1px;
         }
 
         .menu-card .entrada {
             background: #fff3e0;
-            padding: 0.6rem;
+            padding: 0.8rem;
             font-weight: bold;
             color: #e67e22;
             text-align: center;
+            font-size: 0.95rem;
         }
 
         .menu-card .segundo {
-            padding: 0.4rem 0.6rem;
+            padding: 0.7rem 0.8rem;
             text-align: center;
             border-bottom: 1px dashed #f0e0c0;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
         }
 
         .menu-card .bebida {
             background: #fff3e0;
-            padding: 0.6rem;
+            padding: 0.8rem;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: bold;
+        }
+
+        /* Permitir scroll horizontal en móviles si es necesario */
+        @media (max-width: 768px) {
+            .menu-card .segundo {
+                white-space: normal;
+                overflow-x: visible;
+            }
+            .menu-card {
+                width: 100%;
+                max-width: 380px;
+            }
         }
 
         .gallery-rolling {
@@ -526,7 +579,6 @@
 
         @media (max-width: 768px) {
             .section h2 { font-size: 1.6rem; }
-            .menu-card { width: 95%; }
             .price-banner { font-size: 1rem; }
             .price-banner span { font-size: 1.5rem; }
             .rolling-item { min-width: 160px; }
@@ -580,7 +632,7 @@
     </div>
 </div>
 
-<!-- Días dinámicos -->
+<!-- Días dinámicos con indicador "HOY" -->
 <div class="weekdays-section">
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
@@ -590,51 +642,12 @@
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
         <div class="price-banner">
-            🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
+            🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br>
             <span>¡Solo S/ 17!</span>
         </div>
         <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
-        <div class="menu-grid">
-            <div class="menu-card">
-                <img src="https://placehold.co/400x300?text=Lunes" alt="Lunes">
-                <h3>📆 LUNES</h3>
-                <div class="entrada">🥣 Ensalada mixta</div>
-                <div class="segundo">🍛 Churrasco con arverjitas partidas</div>
-                <div class="segundo">🍲 Pollo al sillao</div>
-                <div class="bebida">🥤 Limonada</div>
-            </div>
-            <div class="menu-card">
-                <img src="https://placehold.co/400x300?text=Martes" alt="Martes">
-                <h3>📆 MARTES</h3>
-                <div class="entrada">🥣 Cremita de zapallo</div>
-                <div class="segundo">🍛 Seco de res</div>
-                <div class="segundo">🍲 Suprema de pollo con puré de espinacas</div>
-                <div class="bebida">🥤 Hierba luisa</div>
-            </div>
-            <div class="menu-card">
-                <img src="https://placehold.co/400x300?text=Miércoles" alt="Miércoles">
-                <h3>📆 MIÉRCOLES</h3>
-                <div class="entrada">🥣 Ocopa</div>
-                <div class="segundo">🍛 Pollo al horno con ensalada de fideos</div>
-                <div class="segundo">🍲 Macarrones a la bolognesa</div>
-                <div class="bebida">🥤 Naranjada</div>
-            </div>
-            <div class="menu-card">
-                <img src="https://placehold.co/400x300?text=Jueves" alt="Jueves">
-                <h3>📆 JUEVES</h3>
-                <div class="entrada">🥣 Tequeños con queso</div>
-                <div class="segundo">🍛 Carne estofada con yuca</div>
-                <div class="segundo">🍲 Pollo con piña y arroz chaufa</div>
-                <div class="bebida">🥤 Maracuyá</div>
-            </div>
-            <div class="menu-card">
-                <img src="https://placehold.co/400x300?text=Viernes" alt="Viernes">
-                <h3>📆 VIERNES</h3>
-                <div class="entrada">🥣 Ensalada fresca</div>
-                <div class="segundo">🍛 Pollo broaster con espaguetti a la huancaina</div>
-                <div class="segundo">🍲 Carapulcra con panceta</div>
-                <div class="bebida">🥤 Chicha morada</div>
-            </div>
+        <div class="menu-grid" id="menuGrid">
+            <!-- Los menús se generan con JavaScript para mantener el día actual -->
         </div>
     </div>
 </div>
@@ -703,6 +716,129 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
+    // Datos del menú por día
+    const menuData = {
+        'LUNES': {
+            entrada: '🥣 Ensalada mixta',
+            segundo1: '🍛 Churrasco con arverjitas partidas',
+            segundo2: '🍲 Pollo al sillao',
+            bebida: '🥤 Limonada',
+            img: 'https://placehold.co/400x300?text=Lunes'
+        },
+        'MARTES': {
+            entrada: '🥣 Cremita de zapallo',
+            segundo1: '🍛 Seco de res',
+            segundo2: '🍲 Suprema de pollo con puré de espinacas',
+            bebida: '🥤 Hierba luisa',
+            img: 'https://placehold.co/400x300?text=Martes'
+        },
+        'MIÉRCOLES': {
+            entrada: '🥣 Ocopa',
+            segundo1: '🍛 Pollo al horno con ensalada de fideos',
+            segundo2: '🍲 Macarrones a la bolognesa',
+            bebida: '🥤 Naranjada',
+            img: 'https://placehold.co/400x300?text=Miércoles'
+        },
+        'JUEVES': {
+            entrada: '🥣 Tequeños con queso',
+            segundo1: '🍛 Carne estofada con yuca',
+            segundo2: '🍲 Pollo con piña y arroz chaufa',
+            bebida: '🥤 Maracuyá',
+            img: 'https://placehold.co/400x300?text=Jueves'
+        },
+        'VIERNES': {
+            entrada: '🥣 Ensalada fresca',
+            segundo1: '🍛 Pollo broaster con espaguetti a la huancaina',
+            segundo2: '🍲 Carapulcra con panceta',
+            bebida: '🥤 Chicha morada',
+            img: 'https://placehold.co/400x300?text=Viernes'
+        }
+    };
+
+    const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
+    
+    // Obtener día actual (Lunes a Viernes)
+    function getCurrentDayName() {
+        const days = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
+        const today = new Date().getDay();
+        return days[today];
+    }
+
+    // Generar los días de la semana (arriba)
+    function generarDiasSemana() {
+        const hoy = new Date();
+        const diaActual = hoy.getDay();
+        const lunes = new Date(hoy);
+        const diasHastaLunes = (diaActual === 0 ? 6 : diaActual - 1);
+        lunes.setDate(hoy.getDate() - diasHastaLunes);
+        
+        const container = document.getElementById('weekdaysContainer');
+        container.innerHTML = '';
+        
+        for (let i = 0; i < diasSemana.length; i++) {
+            const fechaDia = new Date(lunes);
+            fechaDia.setDate(lunes.getDate() + i);
+            const card = document.createElement('div');
+            card.className = 'day-card';
+            
+            const isToday = (fechaDia.toDateString() === hoy.toDateString());
+            if (isToday) card.classList.add('highlight');
+            
+            let badgeHtml = '';
+            if (isToday) badgeHtml = '<div class="today-badge">HOY</div>';
+            
+            card.innerHTML = badgeHtml + `
+                <div class="day-number">${fechaDia.getDate()}</div>
+                <div class="day-name">${diasSemana[i]}</div>
+            `;
+            container.appendChild(card);
+        }
+    }
+    
+    // Generar las tarjetas del menú
+    function generarMenuCards() {
+        const hoy = new Date();
+        const diaActualNum = hoy.getDay(); // 1=Lunes, 5=Viernes
+        const currentDayName = getCurrentDayName();
+        
+        // Determinar qué día es hoy (para resaltar)
+        const todayMenuName = (diaActualNum >= 1 && diaActualNum <= 5) ? diasSemana[diaActualNum - 1] : null;
+        
+        const container = document.getElementById('menuGrid');
+        container.innerHTML = '';
+        
+        diasSemana.forEach(day => {
+            const menu = menuData[day];
+            if (!menu) return;
+            
+            const card = document.createElement('div');
+            card.className = 'menu-card';
+            
+            // Resaltar el día actual
+            const isToday = (day === todayMenuName);
+            if (isToday) {
+                card.classList.add('today-card');
+            }
+            
+            // Badge "MENÚ DE HOY" si es el día actual
+            let badgeHtml = '';
+            if (isToday) {
+                badgeHtml = '<div class="today-flag">🌟 MENÚ DE HOY</div>';
+            }
+            
+            card.innerHTML = badgeHtml + `
+                <img src="${menu.img}" alt="${day}">
+                <h3>📆 ${day}</h3>
+                <div class="entrada">${menu.entrada}</div>
+                <div class="segundo">${menu.segundo1}</div>
+                <div class="segundo">${menu.segundo2}</div>
+                <div class="bebida">${menu.bebida}</div>
+            `;
+            container.appendChild(card);
+        });
+    }
+    
+    // Reloj
     function updateClock() {
         const now = new Date();
         document.getElementById('digitalTime').textContent = now.toLocaleTimeString('es-PE');
@@ -715,38 +851,31 @@
         document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
     }
     
-    function generarDiasSemana() {
-        const hoy = new Date();
-        const diaActual = hoy.getDay();
-        const lunes = new Date(hoy);
-        const diasHastaLunes = (diaActual === 0 ? 6 : diaActual - 1);
-        lunes.setDate(hoy.getDate() - diasHastaLunes);
-        const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
-        const container = document.getElementById('weekdaysContainer');
-        container.innerHTML = '';
-        for (let i = 0; i < diasSemana.length; i++) {
-            const fechaDia = new Date(lunes);
-            fechaDia.setDate(lunes.getDate() + i);
-            const card = document.createElement('div');
-            card.className = 'day-card';
-            if (fechaDia.toDateString() === hoy.toDateString()) card.classList.add('highlight');
-            card.innerHTML = `<div class="day-number">${fechaDia.getDate()}</div><div class="day-name">${diasSemana[i]}</div>`;
-            container.appendChild(card);
-        }
+    // Estación
+    function estacionPeru() {
+        const fecha = new Date(), mes = fecha.getMonth(), dia = fecha.getDate();
+        if ((mes === 11 && dia >= 21) || mes === 0 || mes === 1 || (mes === 2 && dia <= 20)) return { nombre: "Verano", icono: "☀️🌊" };
+        if ((mes === 2 && dia >= 21) || mes === 3 || mes === 4 || (mes === 5 && dia <= 20)) return { nombre: "Otoño", icono: "🍂🌧️" };
+        if ((mes === 5 && dia >= 21) || mes === 6 || mes === 7 || (mes === 8 && dia <= 22)) return { nombre: "Invierno", icono: "❄️☁️" };
+        return { nombre: "Primavera", icono: "🌸🌼" };
     }
     
+    const estacion = estacionPeru();
+    document.getElementById('seasonIcon').textContent = estacion.icono;
+    document.getElementById('seasonName').textContent = estacion.nombre;
+    
+    // Inicializar
     generarDiasSemana();
+    generarMenuCards();
     setInterval(updateClock, 1000);
     updateClock();
     
+    // Galería
     const platos = [
         { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
         { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
         { img: "imagenes/platos/IMG-20260405-WA0029.jpg", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0031.jpg", nombre: "Bistec con papas al horno y arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0033.jpg", nombre: "Bistec con frijoles y arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0119.jpg", nombre: "Pollo al horno con arroz y ensalada rusa" }
+        { img: "imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" }
     ];
     
     const track = document.getElementById('rollingTrack');
@@ -760,6 +889,7 @@
         });
     }
     
+    // Tabs
     document.querySelectorAll('.menu-tab').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
