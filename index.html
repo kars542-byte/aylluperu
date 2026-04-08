@@ -380,7 +380,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Menu Grid y Cards - ANCHO AUMENTADO */
+        /* Menu Grid y Cards */
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
@@ -407,7 +407,6 @@
             transform: translateY(-6px);
         }
 
-        /* Resaltado del día actual - SOLO sombra, SIN borde naranja */
         .menu-card.today-card {
             box-shadow: 0 8px 25px rgba(211,84,0,0.2);
             background: #fffef8;
@@ -557,6 +556,42 @@
             font-size: 1.05rem;
         }
 
+        /* ========== BOTÓN TIKTOK (Opción 2) ========== */
+        .tiktok-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #000000;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 15px;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .tiktok-btn:hover {
+            transform: scale(1.02);
+            background: #161616;
+        }
+
+        .tiktok-icon {
+            width: 22px;
+            height: 22px;
+            display: inline-block;
+            background-color: white;
+            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>') no-repeat center;
+            mask-size: contain;
+            -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>') no-repeat center;
+            -webkit-mask-size: contain;
+        }
+
         footer {
             background: #d35400;
             color: white;
@@ -595,6 +630,8 @@
             .analog-clock { width: 100px; height: 100px; }
             .date-info .time-digital { font-size: 1.3rem; }
             .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+            .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; }
+            .tiktok-icon { width: 18px; height: 18px; }
         }
 
         @media (max-width: 480px) {
@@ -728,6 +765,11 @@
         <p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p>
         <p>📍 <strong>Atención:</strong> Lima</p>
         <p>🚚 <strong>Delivery disponible</strong></p>
+        <!-- Botón TikTok integrado -->
+        <a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn">
+            <span class="tiktok-icon"></span>
+            Síguenos en TikTok
+        </a>
     </div>
 </div>
 
@@ -739,7 +781,7 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // Datos del menú por día (sin emojis mezclados con texto)
+    // Datos del menú por día
     const menuData = {
         'LUNES': {
             entrada: 'Ensalada mixta',
@@ -795,7 +837,7 @@
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
     
-    // Generar los días de la semana (arriba) - con la palabra HOY
+    // Generar los días de la semana (arriba)
     function generarDiasSemana() {
         const hoy = new Date();
         const diaActual = hoy.getDay();
@@ -826,7 +868,7 @@
         }
     }
     
-    // Generar las tarjetas del menú - SIN borde naranja, solo sombra sutil
+    // Generar las tarjetas del menú
     function generarMenuCards() {
         const hoy = new Date();
         const diaActualNum = hoy.getDay();
