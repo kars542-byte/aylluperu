@@ -218,7 +218,7 @@
             font-size: 1.3rem;
         }
 
-        /* Sección de días de la semana - SIN FONDO GRIS */
+        /* Días de la semana */
         .weekdays-section {
             background: transparent;
             padding: 0.5rem 1rem 1.5rem;
@@ -241,7 +241,6 @@
             border-radius: 20px;
             min-width: 90px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
             border: 1px solid #f0dbb4;
         }
 
@@ -249,7 +248,6 @@
             background: #d35400;
             color: white;
             transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(211,84,0,0.3);
         }
 
         .day-card.highlight .day-number,
@@ -323,7 +321,6 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.08);
             max-width: 650px;
             margin: 0 auto;
-            transition: transform 0.2s;
         }
 
         .carta-item {
@@ -369,6 +366,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* IMPORTANTE: menu-grid con flex-wrap */
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
@@ -401,8 +399,6 @@
             padding: 0.8rem;
             font-size: 1.3rem;
             text-align: center;
-            font-family: 'Brush Script MT', 'Comic Sans MS', 'Segoe UI', cursive;
-            letter-spacing: 1px;
         }
 
         .menu-card .entrada {
@@ -416,6 +412,7 @@
         .menu-card .segundo {
             padding: 0.4rem 0.6rem;
             text-align: center;
+            border-bottom: 1px dashed #f0e0c0;
         }
 
         .menu-card .bebida {
@@ -423,6 +420,7 @@
             padding: 0.6rem;
             text-align: center;
             font-size: 0.9rem;
+            font-weight: bold;
         }
 
         .gallery-rolling {
@@ -430,7 +428,6 @@
             border-radius: 28px;
             padding: 2rem;
             margin-top: 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .rolling-title {
@@ -455,7 +452,6 @@
         .rolling-item {
             text-align: center;
             min-width: 220px;
-            position: relative;
         }
 
         .rolling-item img {
@@ -464,13 +460,6 @@
             object-fit: cover;
             border-radius: 20px;
             box-shadow: 0 6px 14px rgba(0,0,0,0.1);
-            transition: transform 0.25s;
-            mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0.6) 95%, rgba(0,0,0,0) 100%);
-            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 85%, rgba(0,0,0,0.6) 95%, rgba(0,0,0,0) 100%);
-        }
-
-        .rolling-item img:hover {
-            transform: scale(1.05);
         }
 
         .rolling-item .dish-name {
@@ -478,10 +467,6 @@
             font-size: 0.8rem;
             color: #d35400;
             font-weight: bold;
-            max-width: 200px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
         .rolling-container:hover .rolling-track {
@@ -508,11 +493,6 @@
             font-weight: bold;
             box-shadow: 0 6px 14px rgba(0,0,0,0.15);
             z-index: 1000;
-            transition: transform 0.2s;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
         }
 
         .contact-info {
@@ -551,13 +531,9 @@
             .price-banner span { font-size: 1.5rem; }
             .rolling-item { min-width: 160px; }
             .rolling-item img { width: 150px; height: 120px; }
-            .rolling-item .dish-name { font-size: 0.7rem; max-width: 150px; }
             .analog-clock { width: 100px; height: 100px; }
             .date-info .time-digital { font-size: 1.3rem; }
             .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
-            .carta-container { margin: 0 1rem; padding: 1.2rem; }
-            .carta-nombre { font-size: 0.85rem; }
-            .carta-precio { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -604,19 +580,17 @@
     </div>
 </div>
 
-<!-- SECCIÓN DE DÍAS DE LA SEMANA - DINÁMICA, SIN FONDO GRIS -->
+<!-- Días dinámicos -->
 <div class="weekdays-section">
-    <div class="weekdays-container" id="weekdaysContainer">
-        <!-- Los días se generan automáticamente con JavaScript -->
-    </div>
+    <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
-<!-- MENÚ EJECUTIVO -->
+<!-- MENÚ EJECUTIVO CORREGIDO -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
         <div class="price-banner">
-            🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br>
+            🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
             <span>¡Solo S/ 17!</span>
         </div>
         <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
@@ -665,34 +639,22 @@
     </div>
 </div>
 
-<!-- ENSALADAS ACTUALIZADAS -->
+<!-- ENSALADAS -->
 <div id="page-ensaladas" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
         <div class="carta-container">
             <div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div>
-            
             <div class="carta-item">
-                <div class="carta-nombre">
-                    🥗 <strong>Ensalada Alexandra</strong><br>
-                    <span style="font-size: 0.85rem; color: #8b5a2b;">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún. Aliño de la casa.</span>
-                </div>
+                <div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span style="font-size: 0.85rem;">Lechuga, espinaca, aceitunas, tomate, huevo y atún</span></div>
                 <div class="carta-precio">S/ 20</div>
             </div>
-            
             <div class="carta-item">
-                <div class="carta-nombre">
-                    🥑 <strong>Ensalada Isabella</strong><br>
-                    <span style="font-size: 0.85rem; color: #8b5a2b;">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo sancochado. Aliño de la casa.</span>
-                </div>
+                <div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span style="font-size: 0.85rem;">Lechuga, espinaca, zanahoria, tomate, palta y pollo</span></div>
                 <div class="carta-precio">S/ 20</div>
             </div>
-            
             <div class="carta-item">
-                <div class="carta-nombre">
-                    🧀 <strong>Ensalada Camille</strong><br>
-                    <span style="font-size: 0.85rem; color: #8b5a2b;">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo sancochado. Aliño de la casa.</span>
-                </div>
+                <div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span style="font-size: 0.85rem;">Lechuga, espinaca, choclo, queso, palta, tomate y pollo</span></div>
                 <div class="carta-precio">S/ 22</div>
             </div>
         </div>
@@ -729,19 +691,18 @@
         <p>📱 <strong>WhatsApp:</strong> 946 895 814</p>
         <p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p>
         <p>📍 <strong>Atención:</strong> Lima</p>
-        <p>🚚 <strong>Delivery disponible</strong> (consultar cobertura)</p>
+        <p>🚚 <strong>Delivery disponible</strong></p>
     </div>
 </div>
 
 <footer>
     <p>Ayllu Perú - Comida de casa para tu día a día</p>
-    <p>✨ Menú Ejecutivo S/ 17 (Entrada + 2 Platos de fondo + Bebida) ✨</p>
+    <p>✨ Menú Ejecutivo S/ 17 ✨</p>
 </footer>
 
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ========== RELOJ Y FECHA ==========
     function updateClock() {
         const now = new Date();
         document.getElementById('digitalTime').textContent = now.toLocaleTimeString('es-PE');
@@ -754,59 +715,30 @@
         document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
     }
     
-    function estacionPeru() {
-        const fecha = new Date(), mes = fecha.getMonth(), dia = fecha.getDate();
-        if ((mes === 11 && dia >= 21) || mes === 0 || mes === 1 || (mes === 2 && dia <= 20)) return { nombre: "Verano", icono: "☀️🌊" };
-        if ((mes === 2 && dia >= 21) || mes === 3 || mes === 4 || (mes === 5 && dia <= 20)) return { nombre: "Otoño", icono: "🍂🌧️" };
-        if ((mes === 5 && dia >= 21) || mes === 6 || mes === 7 || (mes === 8 && dia <= 22)) return { nombre: "Invierno", icono: "❄️☁️" };
-        return { nombre: "Primavera", icono: "🌸🌼" };
-    }
-    
-    const estacion = estacionPeru();
-    document.getElementById('seasonIcon').textContent = estacion.icono;
-    document.getElementById('seasonName').textContent = estacion.nombre;
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    // ========== DÍAS DE LA SEMANA DINÁMICOS (CON NÚMERO DE FECHA) ==========
     function generarDiasSemana() {
         const hoy = new Date();
-        const diaActual = hoy.getDay(); // 0 = Domingo, 1 = Lunes...
-        
-        // Obtener la fecha del Lunes de esta semana
+        const diaActual = hoy.getDay();
         const lunes = new Date(hoy);
         const diasHastaLunes = (diaActual === 0 ? 6 : diaActual - 1);
         lunes.setDate(hoy.getDate() - diasHastaLunes);
-        
         const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
         const container = document.getElementById('weekdaysContainer');
         container.innerHTML = '';
-        
         for (let i = 0; i < diasSemana.length; i++) {
             const fechaDia = new Date(lunes);
             fechaDia.setDate(lunes.getDate() + i);
-            const numeroDia = fechaDia.getDate();
-            const nombreDia = diasSemana[i];
-            
             const card = document.createElement('div');
             card.className = 'day-card';
-            
-            // Resaltar el día actual si coincide
-            if (fechaDia.toDateString() === hoy.toDateString()) {
-                card.classList.add('highlight');
-            }
-            
-            card.innerHTML = `
-                <div class="day-number">${numeroDia}</div>
-                <div class="day-name">${nombreDia}</div>
-            `;
+            if (fechaDia.toDateString() === hoy.toDateString()) card.classList.add('highlight');
+            card.innerHTML = `<div class="day-number">${fechaDia.getDate()}</div><div class="day-name">${diasSemana[i]}</div>`;
             container.appendChild(card);
         }
     }
     
     generarDiasSemana();
-
-    // ========== GALERÍA RODANTE ==========
+    setInterval(updateClock, 1000);
+    updateClock();
+    
     const platos = [
         { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
         { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
@@ -814,22 +746,7 @@
         { img: "imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" },
         { img: "imagenes/platos/IMG-20260405-WA0031.jpg", nombre: "Bistec con papas al horno y arroz" },
         { img: "imagenes/platos/IMG-20260405-WA0033.jpg", nombre: "Bistec con frijoles y arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0119.jpg", nombre: "Pollo al horno con arroz y ensalada rusa" },
-        { img: "imagenes/platos/IMG-20260405-WA0035.jpg", nombre: "Pollo al horno con espaguetti" },
-        { img: "imagenes/platos/IMG-20260405-WA0036.jpg", nombre: "Bistec con huevo, plátano y arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0037.jpg", nombre: "Seco de carne con arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0038.jpg", nombre: "Pollo con fideos y ensalada" },
-        { img: "imagenes/platos/IMG-20260405-WA0041.jpg", nombre: "Pollo con arroz y ensalada" },
-        { img: "imagenes/platos/IMG-20260405-WA0042.jpg", nombre: "Bistec pasta y salsa verde" },
-        { img: "imagenes/platos/IMG-20260405-WA0052.jpg", nombre: "Papa rellena" },
-        { img: "imagenes/platos/IMG-20260405-WA0053.jpg", nombre: "Pollo frito con arroz y papa al horno" },
-        { img: "imagenes/platos/IMG-20260405-WA0056.jpg", nombre: "Ceviche de pollo con arroz blanco y camote" },
-        { img: "imagenes/platos/IMG-20260405-WA0122.jpg", nombre: "Bistec con arroz y alverjitas (tequeños)" },
-        { img: "imagenes/platos/IMG-20260405-WA0120.jpg", nombre: "Lomo al vino con arroz blanco y puré (tequeños)" },
-        { img: "imagenes/platos/IMG-20260405-WA0110.jpg", nombre: "Pollo a la olla con arroz blanco y lentejitas" },
-        { img: "imagenes/platos/IMG-20260405-WA0104.jpg", nombre: "Pollo al horno con ensalada, arroz blanco y causa" },
-        { img: "imagenes/platos/IMG-20260405-WA0103.jpg", nombre: "Pollo a la plancha con arroz, choclo, sopa" },
-        { img: "imagenes/platos/IMG-20260405-WA0063.jpg", nombre: "Pollo al horno con arroz amarillo y ensalada" }
+        { img: "imagenes/platos/IMG-20260405-WA0119.jpg", nombre: "Pollo al horno con arroz y ensalada rusa" }
     ];
     
     const track = document.getElementById('rollingTrack');
@@ -837,14 +754,12 @@
         [...platos, ...platos].forEach(p => {
             const div = document.createElement('div'); div.className = 'rolling-item';
             const img = document.createElement('img'); img.src = p.img; img.alt = p.nombre;
-            img.onerror = () => img.src = 'https://placehold.co/400x300?text=Plato&bg=fef7e8&color=d35400';
+            img.onerror = () => img.src = 'https://placehold.co/400x300?text=Plato';
             const span = document.createElement('div'); span.className = 'dish-name'; span.textContent = p.nombre;
             div.append(img, span); track.appendChild(div);
         });
-        track.style.animationDuration = `${platos.length * 3}s`;
     }
-
-    // ========== TABS ==========
+    
     document.querySelectorAll('.menu-tab').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
