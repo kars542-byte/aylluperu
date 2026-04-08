@@ -382,12 +382,13 @@
             letter-spacing: 0.5px;
         }
 
-        /* menu-grid con tarjetas MÁS ANCHAS */
+        /* Menu Grid y Cards - MEJORADOS */
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
+            gap: 1.8rem;
             justify-content: center;
+            align-items: stretch;
         }
 
         .menu-card {
@@ -395,9 +396,13 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            width: 340px;
+            width: 380px;
+            min-width: 320px;
+            max-width: 100%;
             transition: transform 0.25s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .menu-card:hover {
@@ -439,43 +444,56 @@
 
         .menu-card .entrada {
             background: #fff3e0;
-            padding: 0.8rem;
+            padding: 0.8rem 1rem;
             font-weight: bold;
             color: #e67e22;
             text-align: center;
             font-size: 0.95rem;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
         .menu-card .segundo {
-            padding: 0.7rem 0.8rem;
+            padding: 0.8rem 1rem;
             text-align: center;
             border-bottom: 1px dashed #f0e0c0;
             font-size: 0.95rem;
-            white-space: nowrap;
-            overflow-x: auto;
-            overflow-y: hidden;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            word-break: break-word;
         }
 
         .menu-card .bebida {
             background: #fff3e0;
-            padding: 0.8rem;
+            padding: 0.8rem 1rem;
             text-align: center;
             font-size: 0.95rem;
             font-weight: bold;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: auto;
         }
 
-        /* Permitir scroll horizontal en móviles si es necesario */
-        @media (max-width: 768px) {
-            .menu-card .segundo {
-                white-space: normal;
-                overflow-x: visible;
-            }
-            .menu-card {
-                width: 100%;
-                max-width: 380px;
-            }
+        .menu-item-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            vertical-align: middle;
         }
 
+        /* Galería rodante */
         .gallery-rolling {
             background: #fff3e0;
             border-radius: 28px;
@@ -577,6 +595,13 @@
             display: block;
         }
 
+        @media (max-width: 900px) {
+            .menu-card {
+                width: 100%;
+                max-width: 420px;
+            }
+        }
+
         @media (max-width: 768px) {
             .section h2 { font-size: 1.6rem; }
             .price-banner { font-size: 1rem; }
@@ -586,6 +611,23 @@
             .analog-clock { width: 100px; height: 100px; }
             .date-info .time-digital { font-size: 1.3rem; }
             .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
+        }
+
+        @media (max-width: 480px) {
+            .menu-card {
+                width: 100%;
+                min-width: auto;
+            }
+            .menu-card .entrada,
+            .menu-card .segundo,
+            .menu-card .bebida {
+                padding: 0.7rem;
+                font-size: 0.85rem;
+            }
+            .menu-item-icon {
+                width: 28px;
+                height: 28px;
+            }
         }
     </style>
 </head>
@@ -637,7 +679,7 @@
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
-<!-- MENÚ EJECUTIVO CORREGIDO -->
+<!-- MENÚ EJECUTIVO -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
@@ -646,9 +688,7 @@
             <span>¡Solo S/ 17!</span>
         </div>
         <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
-        <div class="menu-grid" id="menuGrid">
-            <!-- Los menús se generan con JavaScript para mantener el día actual -->
-        </div>
+        <div class="menu-grid" id="menuGrid"></div>
     </div>
 </div>
 
@@ -757,7 +797,7 @@
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
     
-    // Obtener día actual (Lunes a Viernes)
+    // Obtener día actual
     function getCurrentDayName() {
         const days = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
         const today = new Date().getDay();
@@ -795,13 +835,18 @@
         }
     }
     
+    // Función para limpiar texto y separar emoji
+    const cleanText = (text) => {
+        const emojiMatch = text.match(/^([\u{1F300}-\u{1F9FF}])/u);
+        const emoji = emojiMatch ? emojiMatch[0] : '🍽️';
+        const clean = text.replace(/^[🥣🍲🥗🍛🥤🍖🍗]/, '').trim();
+        return { emoji, clean };
+    };
+    
     // Generar las tarjetas del menú
     function generarMenuCards() {
         const hoy = new Date();
-        const diaActualNum = hoy.getDay(); // 1=Lunes, 5=Viernes
-        const currentDayName = getCurrentDayName();
-        
-        // Determinar qué día es hoy (para resaltar)
+        const diaActualNum = hoy.getDay();
         const todayMenuName = (diaActualNum >= 1 && diaActualNum <= 5) ? diasSemana[diaActualNum - 1] : null;
         
         const container = document.getElementById('menuGrid');
@@ -814,25 +859,48 @@
             const card = document.createElement('div');
             card.className = 'menu-card';
             
-            // Resaltar el día actual
             const isToday = (day === todayMenuName);
-            if (isToday) {
-                card.classList.add('today-card');
-            }
+            if (isToday) card.classList.add('today-card');
             
-            // Badge "MENÚ DE HOY" si es el día actual
+            const dayLower = day.toLowerCase()
+                .replace('miércoles', 'miercoles')
+                .replace('á', 'a')
+                .replace('é', 'e')
+                .replace('í', 'i')
+                .replace('ó', 'o')
+                .replace('ú', 'u');
+            
+            const imgSrc = `imagenes/menu/${dayLower}.jpg`;
+            
             let badgeHtml = '';
             if (isToday) {
-                badgeHtml = '<div class="today-flag">🌟 MENÚ DE HOY</div>';
+                badgeHtml = '<div class="today-flag">🌟 HOY</div>';
             }
             
+            const entrada = cleanText(menu.entrada);
+            const segundo1 = cleanText(menu.segundo1);
+            const segundo2 = cleanText(menu.segundo2);
+            const bebida = cleanText(menu.bebida);
+            
             card.innerHTML = badgeHtml + `
-                <img src="${menu.img}" alt="${day}">
+                <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/400x300?text=${day}&bg=fef7e8&color=d35400'">
                 <h3>📆 ${day}</h3>
-                <div class="entrada">${menu.entrada}</div>
-                <div class="segundo">${menu.segundo1}</div>
-                <div class="segundo">${menu.segundo2}</div>
-                <div class="bebida">${menu.bebida}</div>
+                <div class="entrada">
+                    <span style="font-size:1.2rem;">${entrada.emoji}</span>
+                    <span>${entrada.clean}</span>
+                </div>
+                <div class="segundo">
+                    <span style="font-size:1.2rem;">${segundo1.emoji}</span>
+                    <span>${segundo1.clean}</span>
+                </div>
+                <div class="segundo">
+                    <span style="font-size:1.2rem;">${segundo2.emoji}</span>
+                    <span>${segundo2.clean}</span>
+                </div>
+                <div class="bebida">
+                    <span style="font-size:1.2rem;">${bebida.emoji}</span>
+                    <span>${bebida.clean}</span>
+                </div>
             `;
             container.appendChild(card);
         });
@@ -875,7 +943,10 @@
         { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
         { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
         { img: "imagenes/platos/IMG-20260405-WA0029.jpg", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" }
+        { img: "imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" },
+        { img: "imagenes/platos/IMG-20260405-WA0031.jpg", nombre: "Bistec con papas al horno y arroz" },
+        { img: "imagenes/platos/IMG-20260405-WA0033.jpg", nombre: "Bistec con frijoles y arroz" },
+        { img: "imagenes/platos/IMG-20260405-WA0119.jpg", nombre: "Pollo al horno con arroz y ensalada rusa" }
     ];
     
     const track = document.getElementById('rollingTrack');
@@ -883,7 +954,7 @@
         [...platos, ...platos].forEach(p => {
             const div = document.createElement('div'); div.className = 'rolling-item';
             const img = document.createElement('img'); img.src = p.img; img.alt = p.nombre;
-            img.onerror = () => img.src = 'https://placehold.co/400x300?text=Plato';
+            img.onerror = () => img.src = 'https://placehold.co/400x300?text=Plato&bg=fef7e8&color=d35400';
             const span = document.createElement('div'); span.className = 'dish-name'; span.textContent = p.nombre;
             div.append(img, span); track.appendChild(div);
         });
