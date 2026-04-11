@@ -328,50 +328,61 @@
             font-size: 2rem;
         }
 
-        /* Sección Fines de Semana */
-        .weekend-banners {
+        /* Sección Fines de Semana - VERTICAL */
+        .weekend-banners-vertical {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .weekend-banner-card {
+        .weekend-banner-card-vertical {
             background: white;
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            max-width: 500px;
+            max-width: 600px;
             width: 100%;
             transition: transform 0.3s;
         }
 
-        .weekend-banner-card:hover {
+        .weekend-banner-card-vertical:hover {
             transform: translateY(-5px);
         }
 
-        .weekend-banner-card img {
+        .weekend-banner-card-vertical img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .weekend-banner-card .info {
+        .weekend-banner-card-vertical .info {
             padding: 1.5rem;
             text-align: center;
             background: #fff3e0;
         }
 
-        .weekend-banner-card .info h3 {
+        .weekend-banner-card-vertical .info h3 {
             color: #d35400;
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
         }
 
-        .weekend-banner-card .info p {
+        .weekend-banner-card-vertical .info p {
             color: #4a3b2c;
             font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .weekend-banner-card-vertical .badge {
+            display: inline-block;
+            background: #f39c12;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
         }
 
         .weekend-highlight {
@@ -689,6 +700,7 @@
             .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; }
             .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; }
             .tiktok-icon { width: 18px; height: 18px; }
+            .weekend-banner-card-vertical { max-width: 100%; }
         }
 
         @media (max-width: 480px) {
@@ -819,19 +831,25 @@
             Disfruta en casa con nuestra deliciosa cocina casera. 📞 Pide por WhatsApp
         </div>
         
-        <div class="weekend-banners">
-            <div class="weekend-banner-card">
-                <img src="banner1.jpg" alt="Promoción fin de semana 1" onerror="this.src='https://placehold.co/500x300?text=Banner+1&bg=f39c12&color=white'">
+        <!-- Banners en VERTICAL (uno debajo del otro) -->
+        <div class="weekend-banners-vertical">
+            <!-- Banner 1 - Sábado -->
+            <div class="weekend-banner-card-vertical">
+                <img src="banner1.jpg" alt="Sábado - Promoción fin de semana" onerror="this.src='https://placehold.co/500x750?text=SABADO&bg=2d6a4f&color=white'">
                 <div class="info">
-                    <h3>🌅 Sábado Especial</h3>
+                    <h3>🌅 SÁBADO ESPECIAL</h3>
                     <p>Platos tradicionales peruanos para empezar bien el fin de semana</p>
+                    <span class="badge">¡Pide hoy mismo!</span>
                 </div>
             </div>
-            <div class="weekend-banner-card">
-                <img src="banner2.jpg" alt="Promoción fin de semana 2" onerror="this.src='https://placehold.co/500x300?text=Banner+2&bg=e67e22&color=white'">
+            
+            <!-- Banner 2 - Domingo -->
+            <div class="weekend-banner-card-vertical">
+                <img src="banner2.jpg" alt="Domingo - Promoción fin de semana" onerror="this.src='https://placehold.co/533x370?text=DOMINGO&bg=e67e22&color=white'">
                 <div class="info">
-                    <h3>🌞 Domingo en Familia</h3>
+                    <h3>🌞 DOMINGO EN FAMILIA</h3>
                     <p>El sabor de siempre para compartir con los que más quieres</p>
+                    <span class="badge">Delivery a domicilio</span>
                 </div>
             </div>
         </div>
