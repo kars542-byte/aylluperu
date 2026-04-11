@@ -76,7 +76,6 @@
             }
         }
 
-        /* Top menu con nuevos estilos para incluir la sección de fin de semana */
         .top-menu {
             background: #fff3e0;
             padding: 0.8rem;
@@ -89,7 +88,6 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 0.5rem;
-            align-items: center;
         }
 
         .menu-tab {
@@ -115,81 +113,6 @@
             background: #d35400;
             color: white;
             border-color: #d35400;
-        }
-
-        /* Nueva sección Fines de semana - a la derecha */
-        .weekend-section {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
-            padding: 0.4rem 1rem 0.4rem 1.2rem;
-            border-radius: 50px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-
-        .weekend-text {
-            text-align: left;
-        }
-
-        .weekend-text .title {
-            color: #ffd966;
-            font-weight: bold;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .weekend-text .subtitle {
-            color: white;
-            font-size: 0.7rem;
-            opacity: 0.9;
-        }
-
-        .weekend-icons {
-            display: flex;
-            gap: 0.3rem;
-        }
-
-        .weekend-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #ffd966;
-            transition: transform 0.2s;
-        }
-
-        .weekend-icon:hover {
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 800px) {
-            .weekend-section {
-                margin-left: 0;
-                margin-top: 0.5rem;
-                width: 100%;
-                justify-content: center;
-            }
-            .top-menu {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .weekend-section {
-                padding: 0.3rem 0.8rem;
-            }
-            .weekend-text .title {
-                font-size: 0.7rem;
-            }
-            .weekend-text .subtitle {
-                font-size: 0.6rem;
-            }
-            .weekend-icon {
-                width: 28px;
-                height: 28px;
-            }
         }
 
         .clock-container {
@@ -405,6 +328,66 @@
             font-size: 2rem;
         }
 
+        /* Sección Fines de Semana */
+        .weekend-banners {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .weekend-banner-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+
+        .weekend-banner-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .weekend-banner-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .weekend-banner-card .info {
+            padding: 1.5rem;
+            text-align: center;
+            background: #fff3e0;
+        }
+
+        .weekend-banner-card .info h3 {
+            color: #d35400;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .weekend-banner-card .info p {
+            color: #4a3b2c;
+            font-size: 1rem;
+        }
+
+        .weekend-highlight {
+            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 60px;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .weekend-highlight span {
+            font-size: 1.5rem;
+        }
+
         .carta-container {
             background: white;
             border-radius: 24px;
@@ -457,7 +440,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Menu Grid y Cards */
         .menu-grid {
             display: flex;
             flex-wrap: wrap;
@@ -547,7 +529,6 @@
             margin-top: auto;
         }
 
-        /* Galería rodante */
         .gallery-rolling {
             background: #fff3e0;
             border-radius: 28px;
@@ -633,7 +614,6 @@
             font-size: 1.05rem;
         }
 
-        /* Botón TikTok */
         .tiktok-btn {
             display: inline-flex;
             align-items: center;
@@ -744,18 +724,7 @@
     <button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button>
     <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
     <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
-    
-    <!-- NUEVA SECCIÓN: Fines de semana con sabor! -->
-    <div class="weekend-section">
-        <div class="weekend-text">
-            <div class="title">🎉 FINES DE SEMANA CON SABOR 🎉</div>
-            <div class="subtitle">Comida peruana para disfrutar en casa</div>
-        </div>
-        <div class="weekend-icons">
-            <img src="banner1.jpg" alt="Plato 1" class="weekend-icon" onerror="this.src='https://placehold.co/32x32?text=🍲'">
-            <img src="banner2.jpg" alt="Plato 2" class="weekend-icon" onerror="this.src='https://placehold.co/32x32?text=🥘'">
-        </div>
-    </div>
+    <button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button>
 </div>
 
 <div class="clock-container">
@@ -836,6 +805,40 @@
             <div class="carta-item"><div class="carta-nombre">🍛 Pollo saltado</div><div class="carta-precio">S/ 20</div></div>
             <div class="carta-item"><div class="carta-nombre">🍛 Lomo saltado</div><div class="carta-precio">S/ 22</div></div>
             <div class="carta-item"><div class="carta-nombre">🥣 Sopa criolla</div><div class="carta-precio">S/ 18</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- FINES DE SEMANA CON SABOR -->
+<div id="page-findesemana" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div>
+        
+        <div class="weekend-highlight">
+            <span>🍽️</span> ¡Los fines de semana también tenemos comida peruana para ti! <span>🍽️</span><br>
+            Disfruta en casa con nuestra deliciosa cocina casera. 📞 Pide por WhatsApp
+        </div>
+        
+        <div class="weekend-banners">
+            <div class="weekend-banner-card">
+                <img src="banner1.jpg" alt="Promoción fin de semana 1" onerror="this.src='https://placehold.co/500x300?text=Banner+1&bg=f39c12&color=white'">
+                <div class="info">
+                    <h3>🌅 Sábado Especial</h3>
+                    <p>Platos tradicionales peruanos para empezar bien el fin de semana</p>
+                </div>
+            </div>
+            <div class="weekend-banner-card">
+                <img src="banner2.jpg" alt="Promoción fin de semana 2" onerror="this.src='https://placehold.co/500x300?text=Banner+2&bg=e67e22&color=white'">
+                <div class="info">
+                    <h3>🌞 Domingo en Familia</h3>
+                    <p>El sabor de siempre para compartir con los que más quieres</p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <p style="font-size: 1.1rem;">✨ ¡Contamos con delivery a domicilio! ✨</p>
+            <p style="color: #d35400; font-weight: bold;">Llama o escribe por WhatsApp al 946 895 814</p>
         </div>
     </div>
 </div>
@@ -925,7 +928,6 @@
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
     
-    // Generar los días de la semana (arriba)
     function generarDiasSemana() {
         const hoy = new Date();
         const diaActual = hoy.getDay();
@@ -956,7 +958,6 @@
         }
     }
     
-    // Generar las tarjetas del menú
     function generarMenuCards() {
         const hoy = new Date();
         const diaActualNum = hoy.getDay();
@@ -1011,7 +1012,6 @@
         });
     }
     
-    // Reloj
     function updateClock() {
         const now = new Date();
         document.getElementById('digitalTime').textContent = now.toLocaleTimeString('es-PE');
@@ -1024,7 +1024,6 @@
         document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
     }
     
-    // Estación
     function estacionPeru() {
         const fecha = new Date(), mes = fecha.getMonth(), dia = fecha.getDate();
         if ((mes === 11 && dia >= 21) || mes === 0 || mes === 1 || (mes === 2 && dia <= 20)) return { nombre: "Verano", icono: "☀️🌊" };
@@ -1037,13 +1036,11 @@
     document.getElementById('seasonIcon').textContent = estacion.icono;
     document.getElementById('seasonName').textContent = estacion.nombre;
     
-    // Inicializar
     generarDiasSemana();
     generarMenuCards();
     setInterval(updateClock, 1000);
     updateClock();
     
-    // Galería
     const platos = [
         { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
         { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
@@ -1062,7 +1059,6 @@
         });
     }
     
-    // Tabs
     document.querySelectorAll('.menu-tab').forEach(btn => {
         btn.addEventListener('click', () => {
             document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
