@@ -6,6 +6,9 @@
     <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <style>
         * {
             margin: 0;
@@ -218,7 +221,6 @@
             font-size: 1.3rem;
         }
 
-        /* Días de la semana */
         .weekdays-section {
             background: transparent;
             padding: 0.5rem 1rem 1.5rem;
@@ -328,7 +330,6 @@
             font-size: 2rem;
         }
 
-        /* Sección Fines de Semana - VERTICAL */
         .weekend-banners-vertical {
             display: flex;
             flex-direction: column;
@@ -724,7 +725,7 @@
 
 <div class="header">
     <div class="logo-container">
-        <img src="logo.jpg" alt="Ayllu Perú Logo" class="logo-img">
+        <img src="./logo.jpg" alt="Ayllu Perú Logo" class="logo-img">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
@@ -764,12 +765,10 @@
     </div>
 </div>
 
-<!-- Días dinámicos con indicador "HOY" -->
 <div class="weekdays-section">
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
-<!-- MENÚ EJECUTIVO -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
@@ -782,7 +781,6 @@
     </div>
 </div>
 
-<!-- ENSALADAS -->
 <div id="page-ensaladas" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
@@ -804,7 +802,6 @@
     </div>
 </div>
 
-<!-- PLATOS A LA CARTA -->
 <div id="page-carta" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🍽️ Platos a la Carta</h2></div>
@@ -821,7 +818,6 @@
     </div>
 </div>
 
-<!-- FINES DE SEMANA CON SABOR -->
 <div id="page-findesemana" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div>
@@ -831,9 +827,7 @@
             Disfruta en casa con nuestra deliciosa cocina casera. 📞 Pide por WhatsApp
         </div>
         
-        <!-- Banners en VERTICAL (uno debajo del otro) -->
         <div class="weekend-banners-vertical">
-            <!-- Banner 1 - Sábado -->
             <div class="weekend-banner-card-vertical">
                 <img src="./banner1.jpg" alt="Sábado - Promoción fin de semana" onerror="this.src='https://placehold.co/500x750?text=SABADO&bg=2d6a4f&color=white'">
                 <div class="info">
@@ -843,7 +837,6 @@
                 </div>
             </div>
             
-            <!-- Banner 2 - Domingo -->
             <div class="weekend-banner-card-vertical">
                 <img src="./banner2.jpg" alt="Domingo - Promoción fin de semana" onerror="this.src='https://placehold.co/533x370?text=DOMINGO&bg=e67e22&color=white'">
                 <div class="info">
@@ -890,42 +883,42 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // Datos del menú por día
+    // ===== MENÚ ACTUALIZADO - SEMANA DEL 13 AL 17 DE ABRIL =====
     const menuData = {
         'LUNES': {
-            entrada: 'Ensalada mixta',
-            segundo1: 'Churrasco con arverjitas partidas',
-            segundo2: 'Pollo al sillao',
+            entrada: 'Palta a la reina',
+            segundo1: 'Adobo de pollo con lentejitas',
+            segundo2: 'Lomo saltado',
             bebida: 'Limonada',
-            emojiEntrada: '🥣',
+            emojiEntrada: '🥑',
             emojiSegundo1: '🍛',
             emojiSegundo2: '🍲',
             emojiBebida: '🥤'
         },
         'MARTES': {
-            entrada: 'Cremita de zapallo',
-            segundo1: 'Seco de res',
-            segundo2: 'Suprema de pollo con puré de espinacas',
-            bebida: 'Hierba luisa',
+            entrada: 'Caldito de gallina',
+            segundo1: 'Pollito frito con ensalada rusa',
+            segundo2: 'Picante de carne',
+            bebida: 'Hierba Luisa',
             emojiEntrada: '🥣',
-            emojiSegundo1: '🍛',
-            emojiSegundo2: '🍲',
+            emojiSegundo1: '🍗',
+            emojiSegundo2: '🍛',
             emojiBebida: '🥤'
         },
         'MIÉRCOLES': {
-            entrada: 'Ocopa',
-            segundo1: 'Pollo al horno con ensalada de fideos',
-            segundo2: 'Macarrones a la bolognesa',
+            entrada: 'Papita con huevo en salsa huancaina',
+            segundo1: 'Res al vino con ensalada blanca',
+            segundo2: 'Tallarines rojos con pollo',
             bebida: 'Naranjada',
-            emojiEntrada: '🥣',
-            emojiSegundo1: '🍛',
-            emojiSegundo2: '🍲',
+            emojiEntrada: '🥔',
+            emojiSegundo1: '🍖',
+            emojiSegundo2: '🍝',
             emojiBebida: '🥤'
         },
         'JUEVES': {
-            entrada: 'Tequeños con queso',
-            segundo1: 'Carne estofada con yuca',
-            segundo2: 'Pollo con piña y arroz chaufa',
+            entrada: 'Sopita de dieta',
+            segundo1: 'Aji de pollo',
+            segundo2: 'Mondonguito a la italiana',
             bebida: 'Maracuyá',
             emojiEntrada: '🥣',
             emojiSegundo1: '🍛',
@@ -933,13 +926,13 @@
             emojiBebida: '🥤'
         },
         'VIERNES': {
-            entrada: 'Ensalada fresca',
-            segundo1: 'Pollo broaster con espaguetti a la huancaina',
-            segundo2: 'Carapulcra con panceta',
+            entrada: 'Ensalada del campo',
+            segundo1: 'Seco a la norteña con frijoles',
+            segundo2: '1/2 trucha frita con yuca y arroz',
             bebida: 'Chicha morada',
-            emojiEntrada: '🥣',
+            emojiEntrada: '🥗',
             emojiSegundo1: '🍛',
-            emojiSegundo2: '🍲',
+            emojiSegundo2: '🐟',
             emojiBebida: '🥤'
         }
     };
@@ -1004,7 +997,7 @@
                 .replace('ó', 'o')
                 .replace('ú', 'u');
             
-            const imgSrc = `imagenes/menu/${dayLower}.jpg`;
+            const imgSrc = `./imagenes/menu/${dayLower}.jpg`;
             
             card.innerHTML = `
                 <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}&bg=fef7e8&color=d35400'">
@@ -1060,10 +1053,10 @@
     updateClock();
     
     const platos = [
-        { img: "imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
-        { img: "imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
-        { img: "imagenes/platos/IMG-20260405-WA0029.jpg", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" }
+        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
+        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
+        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg", nombre: "Pollo a la milanesa con arroz y verduras" },
+        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" }
     ];
     
     const track = document.getElementById('rollingTrack');
