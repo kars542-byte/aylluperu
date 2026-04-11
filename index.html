@@ -76,6 +76,7 @@
             }
         }
 
+        /* Top menu con nuevos estilos para incluir la sección de fin de semana */
         .top-menu {
             background: #fff3e0;
             padding: 0.8rem;
@@ -88,6 +89,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 0.5rem;
+            align-items: center;
         }
 
         .menu-tab {
@@ -113,6 +115,81 @@
             background: #d35400;
             color: white;
             border-color: #d35400;
+        }
+
+        /* Nueva sección Fines de semana - a la derecha */
+        .weekend-section {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, #2d6a4f, #1b4d3e);
+            padding: 0.4rem 1rem 0.4rem 1.2rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .weekend-text {
+            text-align: left;
+        }
+
+        .weekend-text .title {
+            color: #ffd966;
+            font-weight: bold;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .weekend-text .subtitle {
+            color: white;
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+
+        .weekend-icons {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .weekend-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ffd966;
+            transition: transform 0.2s;
+        }
+
+        .weekend-icon:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 800px) {
+            .weekend-section {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                width: 100%;
+                justify-content: center;
+            }
+            .top-menu {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .weekend-section {
+                padding: 0.3rem 0.8rem;
+            }
+            .weekend-text .title {
+                font-size: 0.7rem;
+            }
+            .weekend-text .subtitle {
+                font-size: 0.6rem;
+            }
+            .weekend-icon {
+                width: 28px;
+                height: 28px;
+            }
         }
 
         .clock-container {
@@ -556,7 +633,7 @@
             font-size: 1.05rem;
         }
 
-        /* ========== BOTÓN TIKTOK (Opción 2) ========== */
+        /* Botón TikTok */
         .tiktok-btn {
             display: inline-flex;
             align-items: center;
@@ -667,6 +744,18 @@
     <button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button>
     <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
     <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
+    
+    <!-- NUEVA SECCIÓN: Fines de semana con sabor! -->
+    <div class="weekend-section">
+        <div class="weekend-text">
+            <div class="title">🎉 FINES DE SEMANA CON SABOR 🎉</div>
+            <div class="subtitle">Comida peruana para disfrutar en casa</div>
+        </div>
+        <div class="weekend-icons">
+            <img src="banner1.jpg" alt="Plato 1" class="weekend-icon" onerror="this.src='https://placehold.co/32x32?text=🍲'">
+            <img src="banner2.jpg" alt="Plato 2" class="weekend-icon" onerror="this.src='https://placehold.co/32x32?text=🥘'">
+        </div>
+    </div>
 </div>
 
 <div class="clock-container">
@@ -765,7 +854,6 @@
         <p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p>
         <p>📍 <strong>Atención:</strong> Lima</p>
         <p>🚚 <strong>Delivery disponible</strong></p>
-        <!-- Botón TikTok integrado -->
         <a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn">
             <span class="tiktok-icon"></span>
             Síguenos en TikTok
