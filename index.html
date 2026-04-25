@@ -6,9 +6,12 @@
     <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
+    
+    <!-- ANTI-CACHÉ: Forzar recarga de imágenes y estilos -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
+    
     <style>
         * {
             margin: 0;
@@ -725,7 +728,7 @@
 
 <div class="header">
     <div class="logo-container">
-        <img src="./logo.jpg" alt="Ayllu Perú Logo" class="logo-img">
+        <img src="./logo.jpg?v=2" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
@@ -773,7 +776,7 @@
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
         <div class="price-banner">
-            🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
+            🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br>
             <span>¡Solo S/ 17!</span>
         </div>
         <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
@@ -829,7 +832,7 @@
         
         <div class="weekend-banners-vertical">
             <div class="weekend-banner-card-vertical">
-                <img src="./banner1.jpg" alt="Sábado - Promoción fin de semana" onerror="this.src='https://placehold.co/500x750?text=SABADO&bg=2d6a4f&color=white'">
+                <img src="./banner1.jpg?v=2" alt="Sábado - Promoción fin de semana" onerror="this.src='https://placehold.co/500x750?text=SABADO&bg=2d6a4f&color=white'">
                 <div class="info">
                     <h3>🌅 SÁBADO ESPECIAL</h3>
                     <p>Platos tradicionales peruanos para empezar bien el fin de semana</p>
@@ -838,7 +841,7 @@
             </div>
             
             <div class="weekend-banner-card-vertical">
-                <img src="./banner2.jpg" alt="Domingo - Promoción fin de semana" onerror="this.src='https://placehold.co/533x370?text=DOMINGO&bg=e67e22&color=white'">
+                <img src="./banner2.jpg?v=2" alt="Domingo - Promoción fin de semana" onerror="this.src='https://placehold.co/533x370?text=DOMINGO&bg=e67e22&color=white'">
                 <div class="info">
                     <h3>🌞 DOMINGO EN FAMILIA</h3>
                     <p>El sabor de siempre para compartir con los que más quieres</p>
@@ -877,62 +880,62 @@
 
 <footer>
     <p>Ayllu Perú - Comida de casa para tu día a día</p>
-    <p>✨ Menú Ejecutivo S/ 17 (Entrada + Plato de fondo + Bebida) ✨</p>
+    <p>✨ Menú Ejecutivo S/ 17 (Entrada + 2 Platos de fondo + Bebida) ✨</p>
 </footer>
 
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ ACTUALIZADO - SEMANA DEL 20 AL 24 DE ABRIL =====
+    // ===== MENÚ ACTUALIZADO - SEMANA DEL 27 AL 31 DE ABRIL =====
     const menuData = {
         'LUNES': {
-            entrada: 'Aguadito',
-            segundo1: 'Lomito al jugo con arvejitas partidas',
-            segundo2: 'Saltadito de coliflor con pollo',
-            bebida: 'Limonada',
+            entrada: 'Sopita de morón con pollo',
+            segundo1: 'Hamburguesa con arroz con chocrito y papas fritas',
+            segundo2: 'Pollo en salsa de champignones',
+            bebida: 'Manzanilla',
             emojiEntrada: '🥣',
-            emojiSegundo1: '🍛',
-            emojiSegundo2: '🍲',
-            emojiBebida: '🥤'
-        },
-        'MARTES': {
-            entrada: 'Huevo a la rusa',
-            segundo1: 'Pollo dorado con locrito de zapallo',
-            segundo2: 'Estofado de res de la nona',
-            bebida: 'Agua de manzana',
-            emojiEntrada: '🥚',
-            emojiSegundo1: '🍗',
-            emojiSegundo2: '🍲',
-            emojiBebida: '🥤'
-        },
-        'MIÉRCOLES': {
-            entrada: 'Choclito con queso',
-            segundo1: 'Olluquito con carne',
-            segundo2: 'Filete de pollo con ensalada mixta cocida',
-            bebida: 'Emoliente',
-            emojiEntrada: '🌽',
-            emojiSegundo1: '🍛',
+            emojiSegundo1: '🍔',
             emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         },
+        'MARTES': {
+            entrada: 'Bolivia en salsa guacamole',
+            segundo1: 'Asado de res con pallares',
+            segundo2: 'Ceviche de pollo',
+            bebida: 'Limonada',
+            emojiEntrada: '🥑',
+            emojiSegundo1: '🍖',
+            emojiSegundo2: '🍛',
+            emojiBebida: '🥤'
+        },
+        'MIÉRCOLES': {
+            entrada: 'Papa a la huancaina',
+            segundo1: 'Arroz con pollo (con cerveza negra)',
+            segundo2: 'Chanfainita con espaguetti rojos',
+            bebida: 'Chicha morada',
+            emojiEntrada: '🥔',
+            emojiSegundo1: '🍛',
+            emojiSegundo2: '🍝',
+            emojiBebida: '🥤'
+        },
         'JUEVES': {
-            entrada: 'Ensalada mixta',
-            segundo1: 'Milanesa de pescado con papas doradas',
-            segundo2: 'Pollo al horno con arroz a la jardinera',
-            bebida: 'Maracuyá',
+            entrada: 'Ensalada fresca',
+            segundo1: 'Panceta al horno con ensalada blanca',
+            segundo2: 'Pollo al sillao con garbanzo o papas sancochadas',
+            bebida: 'Agua de piña',
             emojiEntrada: '🥗',
-            emojiSegundo1: '🐟',
+            emojiSegundo1: '🥓',
             emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         },
         'VIERNES': {
-            entrada: 'Cazuela de carne',
-            segundo1: 'Suprema de pollo con puré de papas',
-            segundo2: 'Arroz tapado a lo pobre',
-            bebida: 'Naranjada',
-            emojiEntrada: '🍲',
-            emojiSegundo1: '🍗',
-            emojiSegundo2: '🍛',
+            entrada: 'Ensalada estación',
+            segundo1: 'Bistec con macarrones al pesto',
+            segundo2: 'Polladita',
+            bebida: 'Emoliente',
+            emojiEntrada: '🥗',
+            emojiSegundo1: '🥩',
+            emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         }
     };
@@ -997,7 +1000,8 @@
                 .replace('ó', 'o')
                 .replace('ú', 'u');
             
-            const imgSrc = `./imagenes/menu/${dayLower}.jpg`;
+            // Versión para forzar actualización de imágenes de menú
+            const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=2`;
             
             card.innerHTML = `
                 <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}&bg=fef7e8&color=d35400'">
@@ -1053,10 +1057,10 @@
     updateClock();
     
     const platos = [
-        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg", nombre: "Lentejitas con arroz y pollo a la olla" },
-        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg", nombre: "Bistec con papas fritas y arroz" },
-        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg", nombre: "Churrasco con papas y arroz" }
+        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=2", nombre: "Lentejitas con arroz y pollo a la olla" },
+        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=2", nombre: "Bistec con papas fritas y arroz" },
+        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=2", nombre: "Pollo a la milanesa con arroz y verduras" },
+        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=2", nombre: "Churrasco con papas y arroz" }
     ];
     
     const track = document.getElementById('rollingTrack');
@@ -1076,6 +1080,21 @@
             btn.classList.add('active');
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page'));
             document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page');
+        });
+    });
+    
+    // ===== SOLUCIÓN ANTI-CACHÉ: Forzar recarga de imágenes =====
+    window.addEventListener('load', function() {
+        // Forzar que todas las imágenes se recarguen sin caché
+        const todasImagenes = document.querySelectorAll('img');
+        todasImagenes.forEach(img => {
+            const srcOriginal = img.src;
+            if (srcOriginal && !srcOriginal.includes('placehold') && !srcOriginal.includes('data:image')) {
+                // Si la imagen no tiene ya un timestamp, se lo agregamos
+                if (!srcOriginal.includes('v=') && !srcOriginal.includes('t=')) {
+                    img.src = srcOriginal + (srcOriginal.includes('?') ? '&' : '?') + 't=' + new Date().getTime();
+                }
+            }
         });
     });
 </script>
