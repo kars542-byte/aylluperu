@@ -342,17 +342,31 @@
         }
 
         .weekend-banner-card-vertical {
-            background: white;
+            background: #fef7e8;
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             max-width: 600px;
             width: 100%;
             transition: transform 0.3s;
+            border: 2px dashed #d35400;
         }
 
         .weekend-banner-card-vertical:hover {
             transform: translateY(-5px);
+        }
+
+        .weekend-banner-card-vertical .placeholder-img {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #fef7e8, #fff3e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d35400;
+            font-size: 1.2rem;
+            text-align: center;
+            padding: 1rem;
         }
 
         .weekend-banner-card-vertical img {
@@ -401,6 +415,64 @@
 
         .weekend-highlight span {
             font-size: 1.5rem;
+        }
+
+        /* Estilo para menú escolar (tabla) */
+        .menu-escolar-container {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .menu-escolar-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .menu-escolar-table th,
+        .menu-escolar-table td {
+            border: 1px solid #f0e0c0;
+            padding: 0.8rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .menu-escolar-table th {
+            background: #f39c12;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .menu-escolar-table td {
+            background: #fffef8;
+        }
+
+        .menu-escolar-table tr:hover td {
+            background: #fff3e0;
+        }
+
+        .info-escolar {
+            background: #fff3e0;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .info-escolar h3 {
+            color: #d35400;
+            margin-bottom: 1rem;
+        }
+
+        .info-escolar ul {
+            margin-left: 1.5rem;
+        }
+
+        .info-escolar li {
+            margin: 0.5rem 0;
         }
 
         .carta-container {
@@ -705,6 +777,9 @@
             .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; }
             .tiktok-icon { width: 18px; height: 18px; }
             .weekend-banner-card-vertical { max-width: 100%; }
+            .menu-escolar-table { font-size: 0.7rem; }
+            .menu-escolar-table th,
+            .menu-escolar-table td { padding: 0.4rem; }
         }
 
         @media (max-width: 480px) {
@@ -728,7 +803,7 @@
 
 <div class="header">
     <div class="logo-container">
-        <img src="./logo.jpg?v=2" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
+        <img src="./logo.jpg?v=3" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
@@ -740,6 +815,7 @@
     <button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button>
     <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
     <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
+    <button class="menu-tab" data-page="escolar">📚 Menú Escolar Mayo</button>
     <button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button>
 </div>
 
@@ -772,11 +848,12 @@
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
+<!-- MENÚ EJECUTIVO (semana del 04 al 08 de mayo) -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
         <div class="price-banner">
-            🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br>
+            🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
             <span>¡Solo S/ 17!</span>
         </div>
         <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
@@ -784,6 +861,7 @@
     </div>
 </div>
 
+<!-- ENSALADAS -->
 <div id="page-ensaladas" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
@@ -805,6 +883,7 @@
     </div>
 </div>
 
+<!-- PLATOS A LA CARTA -->
 <div id="page-carta" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🍽️ Platos a la Carta</h2></div>
@@ -821,6 +900,76 @@
     </div>
 </div>
 
+<!-- MENÚ ESCOLAR MAYO -->
+<div id="page-escolar" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>📚 Menú Escolar - Mayo 2025 📚</h2></div>
+        <div class="price-banner">
+            🥗 Incluye: Entrada + Plato de fondo + Bebida + Postre 🍰<br>
+            <span>¡Solo S/ 17!</span>
+        </div>
+        
+        <div class="menu-escolar-container">
+            <table class="menu-escolar-table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Día</th>
+                        <th>Entrada</th>
+                        <th>Plato de fondo</th>
+                        <th>Bebida</th>
+                        <th>Postre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>4</td><td>Lunes</td><td>Ensalada fresca</td><td>Pollo guisado con lentejitas</td><td>Limonada</td><td>Mix de frutas</td></tr>
+                    <tr><td>5</td><td>Martes</td><td>Causa rellena</td><td>Churrasco con papas doradas</td><td>Emoliente</td><td>Quequito de plátano</td></tr>
+                    <tr><td>6</td><td>Miércoles</td><td>Huevo a la rusa</td><td>Pollo saltado</td><td>Naranjada</td><td>Fruta de estación</td></tr>
+                    <tr><td>7</td><td>Jueves</td><td>Sopita de casa</td><td>Seco de res</td><td>Maracuyá</td><td>Mazamorra morada</td></tr>
+                    <tr><td>8</td><td>Viernes</td><td>Ensalada mixta</td><td>Polladita</td><td>Chicha morada</td><td>Quequito marmoleado</td></tr>
+                    <tr style="background:#f0e0c0;"><td colspan="6" style="text-align:center;"><strong>📅 Segunda semana</strong></td></tr>
+                    <tr><td>11</td><td>Lunes</td><td>Cremita de zapallo</td><td>Lomito al jugo con arvejitas partidas</td><td>Limonada</td><td>Fruta de estación</td></tr>
+                    <tr><td>12</td><td>Martes</td><td>Ensalada del campo</td><td>Pollo al vino con yuca</td><td>Agua de manzana</td><td>Quequito de chocolate</td></tr>
+                    <tr><td>13</td><td>Miércoles</td><td>Papa a la huancaina</td><td>Arroz con pollo</td><td>Chicha morada</td><td>Mix de frutas</td></tr>
+                    <tr><td>14</td><td>Jueves</td><td>Tequeños con queso</td><td>Pollo con piña</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
+                    <tr><td>15</td><td>Viernes</td><td>Ensalada mixta fría</td><td>Carapulcra con chancho</td><td>Emoliente</td><td>Mazamorra de durazno</td></tr>
+                    <tr style="background:#f0e0c0;"><td colspan="6" style="text-align:center;"><strong>📅 Tercera semana</strong></td></tr>
+                    <tr><td>18</td><td>Lunes</td><td>Huevo a la rusa</td><td>Asado de res con puré de papas</td><td>Agua de piña</td><td>Fruta de estación</td></tr>
+                    <tr><td>19</td><td>Martes</td><td>Ensalada fresca</td><td>Adobo de chancho con camote</td><td>Chicha morada</td><td>Quequito de vainilla</td></tr>
+                    <tr><td>20</td><td>Miércoles</td><td>Ocopa</td><td>Olluquito con carne</td><td>Limonada</td><td>Mix de frutas</td></tr>
+                    <tr><td>21</td><td>Jueves</td><td>Salpicón de pollo</td><td>Churrasco con espaguetti a la huancaina</td><td>Emoliente</td><td>Fruta de estación</td></tr>
+                    <tr><td>22</td><td>Viernes</td><td>Palta a la reina</td><td>Bistec con papas fritas</td><td>Agua de manzana</td><td>Mazamorra de maicena</td></tr>
+                    <tr style="background:#f0e0c0;"><td colspan="6" style="text-align:center;"><strong>📅 Cuarta semana</strong></td></tr>
+                    <tr><td>25</td><td>Lunes</td><td>Ensalada de palta</td><td>Seco de pollo a la norteña con frijol o yuca</td><td>Limonada</td><td>Fruta de estación</td></tr>
+                    <tr><td>26</td><td>Martes</td><td>Huevo con jamón york</td><td>Ají de pollo</td><td>Emoliente</td><td>Quequito de vainilla</td></tr>
+                    <tr><td>27</td><td>Miércoles</td><td>Cazuela de carne</td><td>Escabeche de pescado con camote</td><td>Naranjada</td><td>Mix de frutas</td></tr>
+                    <tr><td>28</td><td>Jueves</td><td>Papa en salsa al pimiento</td><td>Pollo al horno con arroz a la jardinera</td><td>Chicha morada</td><td>Mix de frutas</td></tr>
+                    <tr><td>29</td><td>Viernes</td><td>Papa a la huancaina</td><td>Tallarines rojos con pollo</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="info-escolar">
+            <h3>🍽️ Información importante</h3>
+            <ul>
+                <li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li>
+                <li><strong>Precio:</strong> S/ 17</li>
+                <li>Nuestro menú incluye opciones balanceadas y saludables con proteínas, vegetales y carbohidratos.</li>
+                <li>Nuestro packaging está diseñado con envases que mantienen el calor y la frescura de los alimentos.</li>
+            </ul>
+            
+            <h3>📦 Tipos de Entregas:</h3>
+            <ul>
+                <li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio (hora de almuerzo).</li>
+                <li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar rico y saludable antes de iniciar sus talleres y/o Adecore.</li>
+            </ul>
+            
+            <p style="margin-top: 1rem; text-align: center; font-weight: bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color: #d35400;">946 895 814</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- FINES DE SEMANA CON SABOR (con placeholder de imágenes) -->
 <div id="page-findesemana" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div>
@@ -832,7 +981,10 @@
         
         <div class="weekend-banners-vertical">
             <div class="weekend-banner-card-vertical">
-                <img src="./banner1.jpg?v=2" alt="Sábado - Promoción fin de semana" onerror="this.src='https://placehold.co/500x750?text=SABADO&bg=2d6a4f&color=white'">
+                <div class="placeholder-img">
+                    🖼️ ESPACIO PARA BANNER 1<br>
+                    (Próximamente imagen de Sábado Especial)
+                </div>
                 <div class="info">
                     <h3>🌅 SÁBADO ESPECIAL</h3>
                     <p>Platos tradicionales peruanos para empezar bien el fin de semana</p>
@@ -841,7 +993,10 @@
             </div>
             
             <div class="weekend-banner-card-vertical">
-                <img src="./banner2.jpg?v=2" alt="Domingo - Promoción fin de semana" onerror="this.src='https://placehold.co/533x370?text=DOMINGO&bg=e67e22&color=white'">
+                <div class="placeholder-img">
+                    🖼️ ESPACIO PARA BANNER 2<br>
+                    (Próximamente imagen de Domingo en Familia)
+                </div>
                 <div class="info">
                     <h3>🌞 DOMINGO EN FAMILIA</h3>
                     <p>El sabor de siempre para compartir con los que más quieres</p>
@@ -880,61 +1035,61 @@
 
 <footer>
     <p>Ayllu Perú - Comida de casa para tu día a día</p>
-    <p>✨ Menú Ejecutivo S/ 17 (Entrada + 2 Platos de fondo + Bebida) ✨</p>
+    <p>✨ Menú Ejecutivo S/ 17 (Entrada + Plato de fondo + Bebida) ✨</p>
 </footer>
 
-<a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú%20ejecutivo%20de%20hoy" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
+<a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ ACTUALIZADO - SEMANA DEL 27 AL 31 DE ABRIL =====
+    // ===== MENÚ EJECUTIVO - SEMANA DEL 04 AL 08 DE MAYO =====
     const menuData = {
         'LUNES': {
-            entrada: 'Sopita de morón con pollo',
-            segundo1: 'Hamburguesa con arroz con chocrito y papas fritas',
-            segundo2: 'Pollo en salsa de champignones',
-            bebida: 'Manzanilla',
-            emojiEntrada: '🥣',
-            emojiSegundo1: '🍔',
-            emojiSegundo2: '🍗',
+            entrada: 'Ensalada del campo',
+            segundo1: 'Pollo a la chiclayana con arvejitas partidas',
+            segundo2: 'Res al vino',
+            bebida: 'Limonada',
+            emojiEntrada: '🥗',
+            emojiSegundo1: '🍗',
+            emojiSegundo2: '🍖',
             emojiBebida: '🥤'
         },
         'MARTES': {
-            entrada: 'Bolivia en salsa guacamole',
-            segundo1: 'Asado de res con pallares',
-            segundo2: 'Ceviche de pollo',
-            bebida: 'Limonada',
+            entrada: 'Palta rellena',
+            segundo1: 'Churrasco con papas doradas',
+            segundo2: 'Ají de pollo',
+            bebida: 'Emoliente',
             emojiEntrada: '🥑',
-            emojiSegundo1: '🍖',
+            emojiSegundo1: '🥩',
             emojiSegundo2: '🍛',
             emojiBebida: '🥤'
         },
         'MIÉRCOLES': {
-            entrada: 'Papa a la huancaina',
-            segundo1: 'Arroz con pollo (con cerveza negra)',
-            segundo2: 'Chanfainita con espaguetti rojos',
-            bebida: 'Chicha morada',
-            emojiEntrada: '🥔',
+            entrada: 'Huevo a la rusa',
+            segundo1: 'Pollo saltado',
+            segundo2: 'Bistec con Spaghetti a la huancaina',
+            bebida: 'Agua de manzana',
+            emojiEntrada: '🥚',
             emojiSegundo1: '🍛',
-            emojiSegundo2: '🍝',
+            emojiSegundo2: '🥩',
             emojiBebida: '🥤'
         },
         'JUEVES': {
-            entrada: 'Ensalada fresca',
-            segundo1: 'Panceta al horno con ensalada blanca',
-            segundo2: 'Pollo al sillao con garbanzo o papas sancochadas',
-            bebida: 'Agua de piña',
-            emojiEntrada: '🥗',
-            emojiSegundo1: '🥓',
+            entrada: 'Sopita de casa',
+            segundo1: 'Picante de carne criollo',
+            segundo2: 'Pollo al horno con ensalada de fideos',
+            bebida: 'Maracuyá',
+            emojiEntrada: '🥣',
+            emojiSegundo1: '🍖',
             emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         },
         'VIERNES': {
-            entrada: 'Ensalada estación',
-            segundo1: 'Bistec con macarrones al pesto',
-            segundo2: 'Polladita',
-            bebida: 'Emoliente',
+            entrada: 'Ensalada mixta',
+            segundo1: 'Lomo saltado',
+            segundo2: 'Pollo dorado con papas en salsa al pimiento',
+            bebida: 'Chicha morada',
             emojiEntrada: '🥗',
-            emojiSegundo1: '🥩',
+            emojiSegundo1: '🍛',
             emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         }
@@ -1000,8 +1155,7 @@
                 .replace('ó', 'o')
                 .replace('ú', 'u');
             
-            // Versión para forzar actualización de imágenes de menú
-            const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=2`;
+            const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=3`;
             
             card.innerHTML = `
                 <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}&bg=fef7e8&color=d35400'">
@@ -1057,10 +1211,10 @@
     updateClock();
     
     const platos = [
-        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=2", nombre: "Lentejitas con arroz y pollo a la olla" },
-        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=2", nombre: "Bistec con papas fritas y arroz" },
-        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=2", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=2", nombre: "Churrasco con papas y arroz" }
+        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=3", nombre: "Lentejitas con arroz y pollo a la olla" },
+        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=3", nombre: "Bistec con papas fritas y arroz" },
+        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=3", nombre: "Pollo a la milanesa con arroz y verduras" },
+        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=3", nombre: "Churrasco con papas y arroz" }
     ];
     
     const track = document.getElementById('rollingTrack');
@@ -1085,12 +1239,10 @@
     
     // ===== SOLUCIÓN ANTI-CACHÉ: Forzar recarga de imágenes =====
     window.addEventListener('load', function() {
-        // Forzar que todas las imágenes se recarguen sin caché
         const todasImagenes = document.querySelectorAll('img');
         todasImagenes.forEach(img => {
             const srcOriginal = img.src;
             if (srcOriginal && !srcOriginal.includes('placehold') && !srcOriginal.includes('data:image')) {
-                // Si la imagen no tiene ya un timestamp, se lo agregamos
                 if (!srcOriginal.includes('v=') && !srcOriginal.includes('t=')) {
                     img.src = srcOriginal + (srcOriginal.includes('?') ? '&' : '?') + 't=' + new Date().getTime();
                 }
