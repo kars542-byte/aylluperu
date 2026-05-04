@@ -333,6 +333,147 @@
             font-size: 2rem;
         }
 
+        /* Estilos para reseñas - BLOG con paginación */
+        .reseñas-container {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .reseña-form {
+            background: #fff3e0;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .reseña-form h3 {
+            color: #d35400;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .reseña-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #f0dbb4;
+            border-radius: 20px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+            background: white;
+        }
+
+        .reseña-form textarea:focus {
+            outline: none;
+            border-color: #d35400;
+        }
+
+        .char-counter {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #8b5a2b;
+            margin-top: 0.3rem;
+        }
+
+        .btn-reseña {
+            background: #d35400;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-reseña:hover {
+            transform: scale(1.02);
+            background: #e67e22;
+        }
+
+        /* Lista de reseñas estilo blog */
+        .reseñas-list {
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+
+        .reseña-item {
+            background: #fffef8;
+            border-left: 4px solid #d35400;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .reseña-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .chef-icon {
+            font-size: 1.8rem;
+        }
+
+        .reseña-nombre {
+            font-weight: bold;
+            color: #d35400;
+        }
+
+        .reseña-fecha {
+            font-size: 0.7rem;
+            color: #a0764a;
+        }
+
+        .reseña-texto {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #4a3b2c;
+            margin-top: 0.5rem;
+        }
+
+        /* Paginación */
+        .paginacion {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .page-btn {
+            background: #fff3e0;
+            border: 1px solid #f0dbb4;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .page-btn:hover {
+            background: #f39c12;
+            color: white;
+        }
+
+        .page-btn.active-page-btn {
+            background: #d35400;
+            color: white;
+            border-color: #d35400;
+        }
+
         .weekend-banners-vertical {
             display: flex;
             flex-direction: column;
@@ -417,64 +558,6 @@
             font-size: 1.5rem;
         }
 
-        /* Estilo para menú escolar (tabla) */
-        .menu-escolar-container {
-            background: white;
-            border-radius: 24px;
-            padding: 1.5rem;
-            overflow-x: auto;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-        }
-
-        .menu-escolar-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.9rem;
-        }
-
-        .menu-escolar-table th,
-        .menu-escolar-table td {
-            border: 1px solid #f0e0c0;
-            padding: 0.8rem;
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .menu-escolar-table th {
-            background: #f39c12;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        .menu-escolar-table td {
-            background: #fffef8;
-        }
-
-        .menu-escolar-table tr:hover td {
-            background: #fff3e0;
-        }
-
-        .info-escolar {
-            background: #fff3e0;
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .info-escolar h3 {
-            color: #d35400;
-            margin-bottom: 1rem;
-        }
-
-        .info-escolar ul {
-            margin-left: 1.5rem;
-        }
-
-        .info-escolar li {
-            margin: 0.5rem 0;
-        }
-
         .carta-container {
             background: white;
             border-radius: 24px;
@@ -491,6 +574,7 @@
             padding: 0.9rem 0;
             border-bottom: 1px solid #f0e0c0;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .carta-item:last-child {
@@ -502,10 +586,17 @@
             font-weight: 500;
             color: #2c3e2f;
             flex: 3;
+            line-height: 1.4;
         }
 
         .carta-nombre strong {
             font-size: 1.05rem;
+        }
+
+        .carta-descripcion {
+            font-size: 0.85rem;
+            color: #8b5a2b;
+            margin-top: 0.2rem;
         }
 
         .carta-precio {
@@ -777,9 +868,6 @@
             .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; }
             .tiktok-icon { width: 18px; height: 18px; }
             .weekend-banner-card-vertical { max-width: 100%; }
-            .menu-escolar-table { font-size: 0.7rem; }
-            .menu-escolar-table th,
-            .menu-escolar-table td { padding: 0.4rem; }
         }
 
         @media (max-width: 480px) {
@@ -796,6 +884,13 @@
             .menu-card h3 {
                 font-size: 1rem;
             }
+            .carta-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .carta-precio {
+                align-self: flex-start;
+            }
         }
     </style>
 </head>
@@ -803,7 +898,7 @@
 
 <div class="header">
     <div class="logo-container">
-        <img src="./logo.jpg?v=3" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
+        <img src="./logo.jpg?v=4" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
@@ -816,6 +911,7 @@
     <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
     <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
     <button class="menu-tab" data-page="escolar">📚 Menú Escolar Mayo</button>
+    <button class="menu-tab" data-page="reseñas">⭐ ¡Déjanos tu reseña!</button>
     <button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button>
 </div>
 
@@ -848,35 +944,47 @@
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
-<!-- MENÚ EJECUTIVO (semana del 04 al 08 de mayo) -->
+<!-- MENÚ EJECUTIVO -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
         <div class="price-banner">
             🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
-            <span>¡Solo S/ 17!</span>
+            <span>¡A sólo S/ 17!</span>
         </div>
         <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
         <div class="menu-grid" id="menuGrid"></div>
     </div>
 </div>
 
-<!-- ENSALADAS -->
+<!-- ENSALADAS (con nuevo formato) -->
 <div id="page-ensaladas" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
         <div class="carta-container">
             <div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div>
+            
             <div class="carta-item">
-                <div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span style="font-size: 0.85rem;">Lechuga, espinaca, aceitunas, tomate, huevo y atún</span></div>
+                <div class="carta-nombre">
+                    🥗 <strong>Ensalada Alexandra</strong><br>
+                    <span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span>
+                </div>
                 <div class="carta-precio">S/ 20</div>
             </div>
+            
             <div class="carta-item">
-                <div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span style="font-size: 0.85rem;">Lechuga, espinaca, zanahoria, tomate, palta y pollo</span></div>
+                <div class="carta-nombre">
+                    🥑 <strong>Ensalada Isabella</strong><br>
+                    <span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span>
+                </div>
                 <div class="carta-precio">S/ 20</div>
             </div>
+            
             <div class="carta-item">
-                <div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span style="font-size: 0.85rem;">Lechuga, espinaca, choclo, queso, palta, tomate y pollo</span></div>
+                <div class="carta-nombre">
+                    🧀 <strong>Ensalada Camille</strong><br>
+                    <span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span>
+                </div>
                 <div class="carta-precio">S/ 22</div>
             </div>
         </div>
@@ -906,19 +1014,19 @@
         <div class="title-center"><h2>📚 Menú Escolar - Mayo 2025 📚</h2></div>
         <div class="price-banner">
             🥗 Incluye: Entrada + Plato de fondo + Bebida + Postre 🍰<br>
-            <span>¡Solo S/ 17!</span>
+            <span>¡A sólo S/ 17!</span>
         </div>
         
-        <div class="menu-escolar-container">
-            <table class="menu-escolar-table">
+        <div style="background: white; border-radius: 24px; padding: 1.5rem; overflow-x: auto; box-shadow: 0 8px 25px rgba(0,0,0,0.08);">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
                 <thead>
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Día</th>
-                        <th>Entrada</th>
-                        <th>Plato de fondo</th>
-                        <th>Bebida</th>
-                        <th>Postre</th>
+                    <tr style="background: #f39c12; color: white;">
+                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Fecha</th>
+                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Día</th>
+                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Entrada</th>
+                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Plato de fondo</th>
+                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Bebida</th>
+                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Postre</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -949,17 +1057,17 @@
             </table>
         </div>
         
-        <div class="info-escolar">
-            <h3>🍽️ Información importante</h3>
-            <ul>
+        <div style="background: #fff3e0; border-radius: 20px; padding: 1.5rem; margin-top: 2rem;">
+            <h3 style="color: #d35400;">🍽️ Información importante</h3>
+            <ul style="margin-left: 1.5rem;">
                 <li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li>
                 <li><strong>Precio:</strong> S/ 17</li>
                 <li>Nuestro menú incluye opciones balanceadas y saludables con proteínas, vegetales y carbohidratos.</li>
                 <li>Nuestro packaging está diseñado con envases que mantienen el calor y la frescura de los alimentos.</li>
             </ul>
             
-            <h3>📦 Tipos de Entregas:</h3>
-            <ul>
+            <h3 style="color: #d35400; margin-top: 1rem;">📦 Tipos de Entregas:</h3>
+            <ul style="margin-left: 1.5rem;">
                 <li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio (hora de almuerzo).</li>
                 <li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar rico y saludable antes de iniciar sus talleres y/o Adecore.</li>
             </ul>
@@ -969,7 +1077,35 @@
     </div>
 </div>
 
-<!-- FINES DE SEMANA CON SABOR (con placeholder de imágenes) -->
+<!-- SECCIÓN DE RESEÑAS -->
+<div id="page-reseñas" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>⭐ ¡Déjanos tu reseña! ⭐</h2></div>
+        
+        <div class="reseñas-container">
+            <!-- Formulario para nueva reseña -->
+            <div class="reseña-form">
+                <h3>👨‍🍳 <span>Comparte tu experiencia</span> <span style="font-size: 1.5rem;">🍽️</span></h3>
+                <textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida? ¿Recomendarías nuestro servicio? ¡Tu opinión nos importa!" maxlength="500"></textarea>
+                <div class="char-counter"><span id="charCount">0</span>/500 caracteres</div>
+                <button class="btn-reseña" id="enviarReseña">
+                    <span>👨‍🍳</span> Enviar reseña
+                </button>
+            </div>
+            
+            <!-- Lista de reseñas estilo blog -->
+            <h3 style="color: #d35400; margin-bottom: 1rem;">📖 Lo que dicen nuestros comensales</h3>
+            <div id="reseñasList" class="reseñas-list">
+                <!-- Las reseñas se cargarán aquí dinámicamente -->
+            </div>
+            
+            <!-- Paginación -->
+            <div id="paginacion" class="paginacion"></div>
+        </div>
+    </div>
+</div>
+
+<!-- FINES DE SEMANA CON SABOR -->
 <div id="page-findesemana" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div>
@@ -1097,6 +1233,133 @@
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
     
+    // ===== SISTEMA DE RESEÑAS =====
+    let reseñas = [];
+    let paginaActual = 1;
+    const RESEÑAS_POR_PAGINA = 5;
+    
+    // Cargar reseñas guardadas en localStorage
+    function cargarReseñas() {
+        const guardadas = localStorage.getItem('ayllu_reseñas');
+        if (guardadas) {
+            reseñas = JSON.parse(guardadas);
+        } else {
+            // Reseñas de ejemplo
+            reseñas = [
+                { id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa. El lomo saltado espectacular.', fecha: '2025-05-02' },
+                { id: 2, nombre: 'Carlos R.', texto: 'El menú ejecutivo es un chollo. S/17 bien invertidos, muy recomendable.', fecha: '2025-05-01' },
+                { id: 3, nombre: 'Ana L.', texto: 'Me encanta que tengan opciones saludables. El pollo a la plancha con ensalada es mi favorito.', fecha: '2025-04-30' }
+            ];
+        }
+        mostrarReseñas();
+    }
+    
+    // Guardar reseñas en localStorage
+    function guardarReseñas() {
+        localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas));
+    }
+    
+    // Agregar nueva reseña
+    function agregarReseña(texto) {
+        if (!texto.trim()) return false;
+        if (texto.length > 500) return false;
+        
+        const nuevaReseña = {
+            id: Date.now(),
+            nombre: 'Comensal ' + (Math.floor(Math.random() * 900) + 100),
+            texto: texto.trim(),
+            fecha: new Date().toISOString().slice(0, 10)
+        };
+        reseñas.unshift(nuevaReseña); // Agregar al inicio
+        guardarReseñas();
+        paginaActual = 1;
+        mostrarReseñas();
+        return true;
+    }
+    
+    // Mostrar reseñas con paginación
+    function mostrarReseñas() {
+        const container = document.getElementById('reseñasList');
+        const pagContainer = document.getElementById('paginacion');
+        
+        if (!container) return;
+        
+        const inicio = (paginaActual - 1) * RESEÑAS_POR_PAGINA;
+        const fin = inicio + RESEÑAS_POR_PAGINA;
+        const reseñasPagina = reseñas.slice(inicio, fin);
+        
+        if (reseñasPagina.length === 0) {
+            container.innerHTML = '<div style="text-align:center; padding:2rem; color:#a0764a;">✨ ¡Sé el primero en dejar tu reseña! ✨</div>';
+        } else {
+            container.innerHTML = reseñasPagina.map(r => `
+                <div class="reseña-item">
+                    <div class="reseña-header">
+                        <div class="chef-icon">👨‍🍳</div>
+                        <div>
+                            <div class="reseña-nombre">${escapeHtml(r.nombre)}</div>
+                            <div class="reseña-fecha">${r.fecha}</div>
+                        </div>
+                    </div>
+                    <div class="reseña-texto">${escapeHtml(r.texto)}</div>
+                </div>
+            `).join('');
+        }
+        
+        // Paginación
+        const totalPaginas = Math.ceil(reseñas.length / RESEÑAS_POR_PAGINA);
+        if (totalPaginas <= 1) {
+            pagContainer.innerHTML = '';
+            return;
+        }
+        
+        let pagHtml = '';
+        for (let i = 1; i <= totalPaginas; i++) {
+            pagHtml += `<button class="page-btn ${i === paginaActual ? 'active-page-btn' : ''}" data-page="${i}">${i}</button>`;
+        }
+        pagContainer.innerHTML = pagHtml;
+        
+        document.querySelectorAll('.page-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                paginaActual = parseInt(btn.dataset.page);
+                mostrarReseñas();
+            });
+        });
+    }
+    
+    // Función para escapar HTML
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+    
+    // Inicializar reseñas
+    function initReseñas() {
+        cargarReseñas();
+        const btnEnviar = document.getElementById('enviarReseña');
+        const textarea = document.getElementById('reseñaTexto');
+        const charCount = document.getElementById('charCount');
+        
+        if (btnEnviar) {
+            btnEnviar.addEventListener('click', () => {
+                const texto = textarea.value;
+                if (agregarReseña(texto)) {
+                    textarea.value = '';
+                    charCount.textContent = '0';
+                    alert('⭐ ¡Gracias por tu reseña! Ha sido publicada. ⭐');
+                } else {
+                    alert('Por favor escribe una reseña (máximo 500 caracteres).');
+                }
+            });
+        }
+        
+        if (textarea && charCount) {
+            textarea.addEventListener('input', () => {
+                charCount.textContent = textarea.value.length;
+            });
+        }
+    }
+    
     function generarDiasSemana() {
         const hoy = new Date();
         const diaActual = hoy.getDay();
@@ -1105,6 +1368,7 @@
         lunes.setDate(hoy.getDate() - diasHastaLunes);
         
         const container = document.getElementById('weekdaysContainer');
+        if (!container) return;
         container.innerHTML = '';
         
         for (let i = 0; i < diasSemana.length; i++) {
@@ -1133,6 +1397,7 @@
         const todayMenuName = (diaActualNum >= 1 && diaActualNum <= 5) ? diasSemana[diaActualNum - 1] : null;
         
         const container = document.getElementById('menuGrid');
+        if (!container) return;
         container.innerHTML = '';
         
         diasSemana.forEach(day => {
@@ -1155,7 +1420,7 @@
                 .replace('ó', 'o')
                 .replace('ú', 'u');
             
-            const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=3`;
+            const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=4`;
             
             card.innerHTML = `
                 <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}&bg=fef7e8&color=d35400'">
@@ -1183,14 +1448,21 @@
     
     function updateClock() {
         const now = new Date();
-        document.getElementById('digitalTime').textContent = now.toLocaleTimeString('es-PE');
-        const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-        const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-        document.getElementById('fullDate').textContent = `${days[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
+        const timeEl = document.getElementById('digitalTime');
+        const dateEl = document.getElementById('fullDate');
+        if (timeEl) timeEl.textContent = now.toLocaleTimeString('es-PE');
+        if (dateEl) {
+            const daysOfWeek = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
+            const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+            dateEl.textContent = `${daysOfWeek[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
+        }
         const hour = now.getHours() % 12, minute = now.getMinutes(), second = now.getSeconds();
-        document.getElementById('hourHand').style.transform = `translateX(-50%) rotate(${(hour * 30) + (minute * 0.5)}deg)`;
-        document.getElementById('minuteHand').style.transform = `translateX(-50%) rotate(${(minute * 6) + (second * 0.1)}deg)`;
-        document.getElementById('secondHand').style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
+        const hourHand = document.getElementById('hourHand');
+        const minuteHand = document.getElementById('minuteHand');
+        const secondHand = document.getElementById('secondHand');
+        if (hourHand) hourHand.style.transform = `translateX(-50%) rotate(${(hour * 30) + (minute * 0.5)}deg)`;
+        if (minuteHand) minuteHand.style.transform = `translateX(-50%) rotate(${(minute * 6) + (second * 0.1)}deg)`;
+        if (secondHand) secondHand.style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
     }
     
     function estacionPeru() {
@@ -1202,8 +1474,10 @@
     }
     
     const estacion = estacionPeru();
-    document.getElementById('seasonIcon').textContent = estacion.icono;
-    document.getElementById('seasonName').textContent = estacion.nombre;
+    const seasonIcon = document.getElementById('seasonIcon');
+    const seasonName = document.getElementById('seasonName');
+    if (seasonIcon) seasonIcon.textContent = estacion.icono;
+    if (seasonName) seasonName.textContent = estacion.nombre;
     
     generarDiasSemana();
     generarMenuCards();
@@ -1211,10 +1485,10 @@
     updateClock();
     
     const platos = [
-        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=3", nombre: "Lentejitas con arroz y pollo a la olla" },
-        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=3", nombre: "Bistec con papas fritas y arroz" },
-        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=3", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=3", nombre: "Churrasco con papas y arroz" }
+        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=4", nombre: "Lentejitas con arroz y pollo a la olla" },
+        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=4", nombre: "Bistec con papas fritas y arroz" },
+        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=4", nombre: "Pollo a la milanesa con arroz y verduras" },
+        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=4", nombre: "Churrasco con papas y arroz" }
     ];
     
     const track = document.getElementById('rollingTrack');
@@ -1237,7 +1511,10 @@
         });
     });
     
-    // ===== SOLUCIÓN ANTI-CACHÉ: Forzar recarga de imágenes =====
+    // Inicializar sistema de reseñas
+    initReseñas();
+    
+    // Forzar recarga de imágenes
     window.addEventListener('load', function() {
         const todasImagenes = document.querySelectorAll('img');
         todasImagenes.forEach(img => {
