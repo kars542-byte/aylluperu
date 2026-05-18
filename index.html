@@ -333,7 +333,6 @@
             font-size: 2rem;
         }
 
-        /* Estilos para reseñas */
         .reseñas-container {
             background: white;
             border-radius: 28px;
@@ -896,7 +895,7 @@
 
 <div class="header">
     <div class="logo-container">
-        <img src="./logo.jpg?v=5" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
+        <img src="./logo.jpg?v=6" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
@@ -942,7 +941,7 @@
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
-<!-- MENÚ EJECUTIVO - Semana del 11 al 15 de mayo -->
+<!-- MENÚ EJECUTIVO - Semana del 18 al 22 de mayo -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
@@ -950,7 +949,7 @@
             🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
             <span>¡A sólo S/ 17!</span>
         </div>
-        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes 11 a Viernes 15 de mayo | ⏰ 8:00 am a 3:00 pm</p>
+        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes 18 a Viernes 22 de mayo | ⏰ 8:00 am a 3:00 pm</p>
         <div class="menu-grid" id="menuGrid"></div>
     </div>
 </div>
@@ -1006,7 +1005,7 @@
     </div>
 </div>
 
-<!-- MENÚ ESCOLAR MAYO (resumido para este código) -->
+<!-- MENÚ ESCOLAR MAYO (resumido) -->
 <div id="page-escolar" class="page-section">
     <div class="section">
         <div class="title-center"><h2>📚 Menú Escolar - Mayo 2025 📚</h2></div>
@@ -1028,12 +1027,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>11</td><td>Lunes</td><td>Cremita de zapallo</td><td>Lomito al jugo con arvejitas partidas</td><td>Limonada</td><td>Fruta de estación</td></tr>
-                    <tr><td>12</td><td>Martes</td><td>Ensalada del campo</td><td>Pollo al vino con yuca</td><td>Agua de manzana</td><td>Quequito de chocolate</td></tr>
-                    <tr><td>13</td><td>Miércoles</td><td>Papa a la huancaina</td><td>Arroz con pollo</td><td>Chicha morada</td><td>Mix de frutas</td></tr>
-                    <tr><td>14</td><td>Jueves</td><td>Tequeños con queso</td><td>Pollo con piña</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
-                    <tr><td>15</td><td>Viernes</td><td>Ensalada mixta fría</td><td>Carapulcra con chancho</td><td>Emoliente</td><td>Mazamorra de durazno</td></tr>
-                    <tr style="background:#f0e0c0;"><td colspan="6" style="text-align:center;"><strong>📅 Semana 3 (18-22 mayo)</strong></td></tr>
                     <tr><td>18</td><td>Lunes</td><td>Huevo a la rusa</td><td>Asado de res con puré de papas</td><td>Agua de piña</td><td>Fruta de estación</td></tr>
                     <tr><td>19</td><td>Martes</td><td>Ensalada fresca</td><td>Adobo de chancho con camote</td><td>Chicha morada</td><td>Quequito de vainilla</td></tr>
                     <tr><td>20</td><td>Miércoles</td><td>Ocopa</td><td>Olluquito con carne</td><td>Limonada</td><td>Mix de frutas</td></tr>
@@ -1163,54 +1156,54 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ EJECUTIVO - SEMANA DEL 11 AL 15 DE MAYO =====
+    // ===== MENÚ EJECUTIVO - SEMANA DEL 18 AL 22 DE MAYO =====
     const menuData = {
         'LUNES': {
-            entrada: 'Ensalada del campo',
-            segundo1: 'Pollo a la plancha con puré de papas',
-            segundo2: 'Churrasco con papas doradas y arroz con chocloito',
+            entrada: 'Huevo a la rusa',
+            segundo1: 'Hamburguesa casera con papas fritas',
+            segundo2: 'Filete de pollo con arverjitas partidas',
             bebida: 'Emoliente',
-            emojiEntrada: '🥗',
-            emojiSegundo1: '🍗',
-            emojiSegundo2: '🥩',
+            emojiEntrada: '🥚',
+            emojiSegundo1: '🍔',
+            emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         },
         'MARTES': {
-            entrada: 'Cremita de zapallo',
-            segundo1: 'Pollo al sillao',
-            segundo2: 'Seco de res a la norteña con yuca o papa',
-            bebida: 'Limonada',
-            emojiEntrada: '🥣',
-            emojiSegundo1: '🍗',
-            emojiSegundo2: '🍖',
+            entrada: 'Tequeños con queso',
+            segundo1: 'Adobo de chancho con camote',
+            segundo2: 'Pollo con piña',
+            bebida: 'Agua de piña',
+            emojiEntrada: '🧀',
+            emojiSegundo1: '🍖',
+            emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         },
         'MIÉRCOLES': {
-            entrada: 'Papa a la huancaina',
-            segundo1: 'Macarrones rojos con pollo',
-            segundo2: 'Olluquito con carne',
-            bebida: 'Agua de manzana',
-            emojiEntrada: '🥔',
-            emojiSegundo1: '🍝',
-            emojiSegundo2: '🍛',
+            entrada: 'Ocopa',
+            segundo1: 'Pollo frito con locrito de zapallo',
+            segundo2: 'Mondonguito a la italiana',
+            bebida: 'Limonada',
+            emojiEntrada: '🥣',
+            emojiSegundo1: '🍗',
+            emojiSegundo2: '🍲',
             emojiBebida: '🥤'
         },
         'JUEVES': {
-            entrada: 'Sopita de dieta',
-            segundo1: 'Carapulcra con pollo',
-            segundo2: 'Escabeche de pescado',
-            bebida: 'Maracuyá',
-            emojiEntrada: '🥣',
-            emojiSegundo1: '🍛',
-            emojiSegundo2: '🐟',
+            entrada: 'Salpicón de pollo',
+            segundo1: 'Churrasco con rigatoni a la huancaina',
+            segundo2: 'Vainita saltada con pollo',
+            bebida: 'Agua de manzana',
+            emojiEntrada: '🥗',
+            emojiSegundo1: '🥩',
+            emojiSegundo2: '🍗',
             emojiBebida: '🥤'
         },
         'VIERNES': {
-            entrada: 'Ensalada mixta',
-            segundo1: 'Bistec con spaghetti al pesto',
+            entrada: 'Palta a la reina',
+            segundo1: 'Bistec con papas',
             segundo2: 'Pollo broaster con papas fritas',
-            bebida: 'Chicha morada',
-            emojiEntrada: '🥗',
+            bebida: 'Hierba buena',
+            emojiEntrada: '🥑',
             emojiSegundo1: '🥩',
             emojiSegundo2: '🍗',
             emojiBebida: '🥤'
@@ -1230,9 +1223,9 @@
             reseñas = JSON.parse(guardadas);
         } else {
             reseñas = [
-                { id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa. El lomo saltado espectacular.', fecha: '2025-05-02' },
-                { id: 2, nombre: 'Carlos R.', texto: 'El menú ejecutivo es un chollo. S/17 bien invertidos, muy recomendable.', fecha: '2025-05-01' },
-                { id: 3, nombre: 'Ana L.', texto: 'Me encanta que tengan opciones saludables. El pollo a la plancha con ensalada es mi favorito.', fecha: '2025-04-30' }
+                { id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2025-05-16' },
+                { id: 2, nombre: 'Carlos R.', texto: 'El menú ejecutivo es un chollo. S/17 bien invertidos.', fecha: '2025-05-15' },
+                { id: 3, nombre: 'Ana L.', texto: 'Me encanta que tengan opciones saludables.', fecha: '2025-05-14' }
             ];
         }
         mostrarReseñas();
@@ -1347,7 +1340,7 @@
                 card.className = 'menu-card';
                 if (day === todayMenuName) card.classList.add('today-card');
                 const dayLower = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({'á':'a','é':'e','í':'i','ó':'o','ú':'u'})[c]);
-                const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=5`;
+                const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=6`;
                 card.innerHTML = `
                     <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}&bg=fef7e8&color=d35400'">
                     <h3>📆 ${day}</h3>
@@ -1400,10 +1393,10 @@
     updateClock();
     
     const platos = [
-        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=5", nombre: "Lentejitas con arroz y pollo a la olla" },
-        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=5", nombre: "Bistec con papas fritas y arroz" },
-        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=5", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=5", nombre: "Churrasco con papas y arroz" }
+        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=6", nombre: "Lentejitas con arroz y pollo a la olla" },
+        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=6", nombre: "Bistec con papas fritas y arroz" },
+        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=6", nombre: "Pollo a la milanesa con arroz y verduras" },
+        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=6", nombre: "Churrasco con papas y arroz" }
     ];
     
     const track = document.getElementById('rollingTrack');
