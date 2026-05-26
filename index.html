@@ -6,12 +6,9 @@
     <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
-    
-    <!-- ANTI-CACHÉ: Forzar recarga de imágenes y estilos -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    
     <style>
         * {
             margin: 0;
@@ -895,7 +892,7 @@
 
 <div class="header">
     <div class="logo-container">
-        <img src="./logo.jpg?v=6" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
+        <img src="./logo.jpg?v=7" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>Comida casera, el sabor de siempre</p>
@@ -941,7 +938,7 @@
     <div class="weekdays-container" id="weekdaysContainer"></div>
 </div>
 
-<!-- MENÚ EJECUTIVO - Semana del 18 al 22 de mayo -->
+<!-- MENÚ EJECUTIVO - Semana actual -->
 <div id="page-ejecutivo" class="page-section active-page">
     <div class="section">
         <div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div>
@@ -949,7 +946,7 @@
             🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br>
             <span>¡A sólo S/ 17!</span>
         </div>
-        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes 18 a Viernes 22 de mayo | ⏰ 8:00 am a 3:00 pm</p>
+        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes a Viernes | ⏰ 8:00 am a 3:00 pm</p>
         <div class="menu-grid" id="menuGrid"></div>
     </div>
 </div>
@@ -960,28 +957,16 @@
         <div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div>
         <div class="carta-container">
             <div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div>
-            
             <div class="carta-item">
-                <div class="carta-nombre">
-                    🥗 <strong>Ensalada Alexandra</strong><br>
-                    <span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span>
-                </div>
+                <div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span></div>
                 <div class="carta-precio">S/ 20</div>
             </div>
-            
             <div class="carta-item">
-                <div class="carta-nombre">
-                    🥑 <strong>Ensalada Isabella</strong><br>
-                    <span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span>
-                </div>
+                <div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span></div>
                 <div class="carta-precio">S/ 20</div>
             </div>
-            
             <div class="carta-item">
-                <div class="carta-nombre">
-                    🧀 <strong>Ensalada Camille</strong><br>
-                    <span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span>
-                </div>
+                <div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span></div>
                 <div class="carta-precio">S/ 22</div>
             </div>
         </div>
@@ -1009,23 +994,10 @@
 <div id="page-escolar" class="page-section">
     <div class="section">
         <div class="title-center"><h2>📚 Menú Escolar - Mayo 2025 📚</h2></div>
-        <div class="price-banner">
-            🥗 Incluye: Entrada + Plato de fondo + Bebida + Postre 🍰<br>
-            <span>¡A sólo S/ 17!</span>
-        </div>
-        
+        <div class="price-banner"><span>¡A sólo S/ 17!</span></div>
         <div style="background: white; border-radius: 24px; padding: 1.5rem; overflow-x: auto; box-shadow: 0 8px 25px rgba(0,0,0,0.08);">
             <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
-                <thead>
-                    <tr style="background: #f39c12; color: white;">
-                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Fecha</th>
-                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Día</th>
-                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Entrada</th>
-                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Plato de fondo</th>
-                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Bebida</th>
-                        <th style="padding: 0.8rem; border: 1px solid #f0e0c0;">Postre</th>
-                    </tr>
-                </thead>
+                <thead><tr style="background: #f39c12; color: white;"><th>Fecha</th><th>Día</th><th>Entrada</th><th>Plato de fondo</th><th>Bebida</th><th>Postre</th></tr></thead>
                 <tbody>
                     <tr><td>18</td><td>Lunes</td><td>Huevo a la rusa</td><td>Asado de res con puré de papas</td><td>Agua de piña</td><td>Fruta de estación</td></tr>
                     <tr><td>19</td><td>Martes</td><td>Ensalada fresca</td><td>Adobo de chancho con camote</td><td>Chicha morada</td><td>Quequito de vainilla</td></tr>
@@ -1041,22 +1013,9 @@
                 </tbody>
             </table>
         </div>
-        
         <div style="background: #fff3e0; border-radius: 20px; padding: 1.5rem; margin-top: 2rem;">
             <h3 style="color: #d35400;">🍽️ Información importante</h3>
-            <ul style="margin-left: 1.5rem;">
-                <li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li>
-                <li><strong>Precio:</strong> S/ 17</li>
-                <li>Nuestro menú incluye opciones balanceadas y saludables con proteínas, vegetales y carbohidratos.</li>
-                <li>Nuestro packaging está diseñado con envases que mantienen el calor y la frescura de los alimentos.</li>
-            </ul>
-            
-            <h3 style="color: #d35400; margin-top: 1rem;">📦 Tipos de Entregas:</h3>
-            <ul style="margin-left: 1.5rem;">
-                <li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li>
-                <li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li>
-            </ul>
-            
+            <ul><li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li><li><strong>Precio:</strong> S/ 17</li><li>Nuestro menú incluye opciones balanceadas y saludables.</li></ul>
             <p style="margin-top: 1rem; text-align: center; font-weight: bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color: #d35400;">946 895 814</a></p>
         </div>
     </div>
@@ -1066,17 +1025,13 @@
 <div id="page-reseñas" class="page-section">
     <div class="section">
         <div class="title-center"><h2>⭐ ¡Déjanos tu reseña! ⭐</h2></div>
-        
         <div class="reseñas-container">
             <div class="reseña-form">
                 <h3>👨‍🍳 <span>Comparte tu experiencia</span> <span style="font-size: 1.5rem;">🍽️</span></h3>
-                <textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida? ¿Recomendarías nuestro servicio? ¡Tu opinión nos importa!" maxlength="500"></textarea>
+                <textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida?" maxlength="500"></textarea>
                 <div class="char-counter"><span id="charCount">0</span>/500 caracteres</div>
-                <button class="btn-reseña" id="enviarReseña">
-                    <span>👨‍🍳</span> Enviar reseña
-                </button>
+                <button class="btn-reseña" id="enviarReseña"><span>👨‍🍳</span> Enviar reseña</button>
             </div>
-            
             <h3 style="color: #d35400; margin-bottom: 1rem;">📖 Lo que dicen nuestros comensales</h3>
             <div id="reseñasList" class="reseñas-list"></div>
             <div id="paginacion" class="paginacion"></div>
@@ -1084,368 +1039,91 @@
     </div>
 </div>
 
-<!-- FINES DE SEMANA CON SABOR -->
+<!-- FINES DE SEMANA -->
 <div id="page-findesemana" class="page-section">
     <div class="section">
         <div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div>
-        
-        <div class="weekend-highlight">
-            <span>🍽️</span> ¡Los fines de semana también tenemos comida peruana para ti! <span>🍽️</span><br>
-            Disfruta en casa con nuestra deliciosa cocina casera. 📞 Pide por WhatsApp
-        </div>
-        
+        <div class="weekend-highlight"><span>🍽️</span> ¡Los fines de semana también tenemos comida peruana para ti! <span>🍽️</span><br>Disfruta en casa con nuestra deliciosa cocina casera.</div>
         <div class="weekend-banners-vertical">
-            <div class="weekend-banner-card-vertical">
-                <div class="placeholder-img">
-                    🖼️ ESPACIO PARA BANNER 1<br>
-                    (Próximamente imagen de Sábado Especial)
-                </div>
-                <div class="info">
-                    <h3>🌅 SÁBADO ESPECIAL</h3>
-                    <p>Platos tradicionales peruanos para empezar bien el fin de semana</p>
-                    <span class="badge">¡Pide hoy mismo!</span>
-                </div>
-            </div>
-            
-            <div class="weekend-banner-card-vertical">
-                <div class="placeholder-img">
-                    🖼️ ESPACIO PARA BANNER 2<br>
-                    (Próximamente imagen de Domingo en Familia)
-                </div>
-                <div class="info">
-                    <h3>🌞 DOMINGO EN FAMILIA</h3>
-                    <p>El sabor de siempre para compartir con los que más quieres</p>
-                    <span class="badge">Delivery a domicilio</span>
-                </div>
-            </div>
+            <div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 1<br>(Próximamente)</div><div class="info"><h3>🌅 SÁBADO ESPECIAL</h3><p>Platos tradicionales peruanos</p><span class="badge">¡Pide hoy mismo!</span></div></div>
+            <div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 2<br>(Próximamente)</div><div class="info"><h3>🌞 DOMINGO EN FAMILIA</h3><p>El sabor de siempre</p><span class="badge">Delivery a domicilio</span></div></div>
         </div>
-        
-        <div style="text-align: center; margin-top: 2rem;">
-            <p style="font-size: 1.1rem;">✨ ¡Contamos con delivery a domicilio! ✨</p>
-            <p style="color: #d35400; font-weight: bold;">Llama o escribe por WhatsApp al 946 895 814</p>
-        </div>
+        <div style="text-align: center; margin-top: 2rem;"><p style="font-size: 1.1rem;">✨ ¡Contamos con delivery a domicilio! ✨</p><p style="color: #d35400; font-weight: bold;">WhatsApp: 946 895 814</p></div>
     </div>
 </div>
 
-<div class="section">
-    <div class="gallery-rolling">
-        <div class="rolling-title">🍜 Nuestros Platos Destacados 🍲</div>
-        <div class="rolling-container"><div class="rolling-track" id="rollingTrack"></div></div>
-    </div>
-</div>
+<div class="section"><div class="gallery-rolling"><div class="rolling-title">🍜 Nuestros Platos Destacados 🍲</div><div class="rolling-container"><div class="rolling-track" id="rollingTrack"></div></div></div></div>
 
-<div class="section">
-    <div class="title-center"><h2>📞 Haz tu pedido por WhatsApp</h2></div>
-    <div class="contact-info">
-        <p>📱 <strong>WhatsApp:</strong> 946 895 814</p>
-        <p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p>
-        <p>📍 <strong>Atención:</strong> Lima</p>
-        <p>🚚 <strong>Delivery disponible</strong></p>
-        <a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn">
-            <span class="tiktok-icon"></span>
-            Síguenos en TikTok
-        </a>
-    </div>
-</div>
+<div class="section"><div class="title-center"><h2>📞 Haz tu pedido por WhatsApp</h2></div><div class="contact-info"><p>📱 <strong>WhatsApp:</strong> 946 895 814</p><p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p><p>📍 <strong>Atención:</strong> Lima</p><p>🚚 <strong>Delivery disponible</strong></p><a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn"><span class="tiktok-icon"></span>Síguenos en TikTok</a></div></div>
 
-<footer>
-    <p>Ayllu Perú - Comida de casa para tu día a día</p>
-    <p>✨ Menú Ejecutivo S/ 17 (Entrada + Plato de fondo + Bebida) ✨</p>
-</footer>
-
+<footer><p>Ayllu Perú - Comida de casa para tu día a día</p><p>✨ Menú Ejecutivo S/ 17 (Entrada + Plato de fondo + Bebida) ✨</p></footer>
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ EJECUTIVO - SEMANA DEL 18 AL 22 DE MAYO =====
     const menuData = {
-        'LUNES': {
-            entrada: 'Huevo a la rusa',
-            segundo1: 'Hamburguesa casera con papas fritas',
-            segundo2: 'Filete de pollo con arverjitas partidas',
-            bebida: 'Emoliente',
-            emojiEntrada: '🥚',
-            emojiSegundo1: '🍔',
-            emojiSegundo2: '🍗',
-            emojiBebida: '🥤'
-        },
-        'MARTES': {
-            entrada: 'Tequeños con queso',
-            segundo1: 'Adobo de chancho con camote',
-            segundo2: 'Pollo con piña',
-            bebida: 'Agua de piña',
-            emojiEntrada: '🧀',
-            emojiSegundo1: '🍖',
-            emojiSegundo2: '🍗',
-            emojiBebida: '🥤'
-        },
-        'MIÉRCOLES': {
-            entrada: 'Ocopa',
-            segundo1: 'Pollo frito con locrito de zapallo',
-            segundo2: 'Mondonguito a la italiana',
-            bebida: 'Limonada',
-            emojiEntrada: '🥣',
-            emojiSegundo1: '🍗',
-            emojiSegundo2: '🍲',
-            emojiBebida: '🥤'
-        },
-        'JUEVES': {
-            entrada: 'Salpicón de pollo',
-            segundo1: 'Churrasco con rigatoni a la huancaina',
-            segundo2: 'Vainita saltada con pollo',
-            bebida: 'Agua de manzana',
-            emojiEntrada: '🥗',
-            emojiSegundo1: '🥩',
-            emojiSegundo2: '🍗',
-            emojiBebida: '🥤'
-        },
-        'VIERNES': {
-            entrada: 'Palta a la reina',
-            segundo1: 'Bistec con papas',
-            segundo2: 'Pollo broaster con papas fritas',
-            bebida: 'Hierba buena',
-            emojiEntrada: '🥑',
-            emojiSegundo1: '🥩',
-            emojiSegundo2: '🍗',
-            emojiBebida: '🥤'
-        }
+        'LUNES': { entrada: 'Huevo a la rusa', segundo1: 'Hamburguesa casera con papas fritas', segundo2: 'Filete de pollo con arvejitas partidas', bebida: 'Emoliente', emojiEntrada: '🥚', emojiSegundo1: '🍔', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'MARTES': { entrada: 'Huevo en jamón York', segundo1: 'Ají de pollo', segundo2: 'Seco de res', bebida: 'Emoliente', emojiEntrada: '🥚', emojiSegundo1: '🍛', emojiSegundo2: '🍖', emojiBebida: '🥤' },
+        'MIÉRCOLES': { entrada: 'Cazuela de carne', segundo1: 'Escabeche de pollo', segundo2: 'Cerdito a la olla con papas doradas', bebida: 'Naranjada', emojiEntrada: '🍲', emojiSegundo1: '🍗', emojiSegundo2: '🍖', emojiBebida: '🥤' },
+        'JUEVES': { entrada: 'Papa en salsa al pimiento', segundo1: 'Pollo al horno con arroz a la jardinera', segundo2: 'Saltado de brócoli con carne', bebida: 'Chicha morada', emojiEntrada: '🥔', emojiSegundo1: '🍗', emojiSegundo2: '🍛', emojiBebida: '🥤' },
+        'VIERNES': { entrada: 'Ensalada campesina', segundo1: 'Tallarines rojos con pollo', segundo2: '1/2 trucha frita con yuca', bebida: 'Maracuyá', emojiEntrada: '🥗', emojiSegundo1: '🍝', emojiSegundo2: '🐟', emojiBebida: '🥤' }
     };
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
-    
-    // Sistema de reseñas
     let reseñas = [];
     let paginaActual = 1;
     const RESEÑAS_POR_PAGINA = 5;
-    
+
     function cargarReseñas() {
         const guardadas = localStorage.getItem('ayllu_reseñas');
-        if (guardadas) {
-            reseñas = JSON.parse(guardadas);
-        } else {
-            reseñas = [
-                { id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2025-05-16' },
-                { id: 2, nombre: 'Carlos R.', texto: 'El menú ejecutivo es un chollo. S/17 bien invertidos.', fecha: '2025-05-15' },
-                { id: 3, nombre: 'Ana L.', texto: 'Me encanta que tengan opciones saludables.', fecha: '2025-05-14' }
-            ];
-        }
+        reseñas = guardadas ? JSON.parse(guardadas) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2025-05-22' }];
         mostrarReseñas();
     }
-    
-    function guardarReseñas() {
-        localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas));
-    }
-    
+    function guardarReseñas() { localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas)); }
     function agregarReseña(texto) {
         if (!texto.trim() || texto.length > 500) return false;
-        const nuevaReseña = {
-            id: Date.now(),
-            nombre: 'Comensal ' + (Math.floor(Math.random() * 900) + 100),
-            texto: texto.trim(),
-            fecha: new Date().toISOString().slice(0, 10)
-        };
-        reseñas.unshift(nuevaReseña);
+        reseñas.unshift({ id: Date.now(), nombre: 'Comensal ' + Math.floor(Math.random()*900+100), texto: texto.trim(), fecha: new Date().toISOString().slice(0,10) });
         guardarReseñas();
         paginaActual = 1;
         mostrarReseñas();
         return true;
     }
-    
-    function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-    
+    function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
     function mostrarReseñas() {
-        const container = document.getElementById('reseñasList');
-        const pagContainer = document.getElementById('paginacion');
+        const container = document.getElementById('reseñasList'), pag = document.getElementById('paginacion');
         if (!container) return;
-        
-        const inicio = (paginaActual - 1) * RESEÑAS_POR_PAGINA;
-        const reseñasPagina = reseñas.slice(inicio, inicio + RESEÑAS_POR_PAGINA);
-        
-        if (reseñasPagina.length === 0) {
-            container.innerHTML = '<div style="text-align:center; padding:2rem; color:#a0764a;">✨ ¡Sé el primero en dejar tu reseña! ✨</div>';
-        } else {
-            container.innerHTML = reseñasPagina.map(r => `
-                <div class="reseña-item">
-                    <div class="reseña-header">
-                        <div class="chef-icon">👨‍🍳</div>
-                        <div>
-                            <div class="reseña-nombre">${escapeHtml(r.nombre)}</div>
-                            <div class="reseña-fecha">${r.fecha}</div>
-                        </div>
-                    </div>
-                    <div class="reseña-texto">${escapeHtml(r.texto)}</div>
-                </div>
-            `).join('');
-        }
-        
-        const totalPaginas = Math.ceil(reseñas.length / RESEÑAS_POR_PAGINA);
-        if (totalPaginas <= 1) {
-            pagContainer.innerHTML = '';
-            return;
-        }
-        
-        let pagHtml = '';
-        for (let i = 1; i <= totalPaginas; i++) {
-            pagHtml += `<button class="page-btn ${i === paginaActual ? 'active-page-btn' : ''}" data-page="${i}">${i}</button>`;
-        }
-        pagContainer.innerHTML = pagHtml;
-        
-        document.querySelectorAll('.page-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                paginaActual = parseInt(btn.dataset.page);
-                mostrarReseñas();
-            });
-        });
+        const inicio = (paginaActual-1)*RESEÑAS_POR_PAGINA, paginadas = reseñas.slice(inicio, inicio+RESEÑAS_POR_PAGINA);
+        container.innerHTML = paginadas.length ? paginadas.map(r => `<div class="reseña-item"><div class="reseña-header"><div class="chef-icon">👨‍🍳</div><div><div class="reseña-nombre">${escapeHtml(r.nombre)}</div><div class="reseña-fecha">${r.fecha}</div></div></div><div class="reseña-texto">${escapeHtml(r.texto)}</div></div>`).join('') : '<div style="text-align:center;padding:2rem;">✨ ¡Sé el primero en dejar tu reseña! ✨</div>';
+        const total = Math.ceil(reseñas.length/RESEÑAS_POR_PAGINA);
+        if(total<=1) { pag.innerHTML=''; return; }
+        let html='';
+        for(let i=1;i<=total;i++) html+=`<button class="page-btn ${i===paginaActual?'active-page-btn':''}" data-page="${i}">${i}</button>`;
+        pag.innerHTML=html;
+        document.querySelectorAll('.page-btn').forEach(b=>b.addEventListener('click',()=>{ paginaActual=parseInt(b.dataset.page); mostrarReseñas(); }));
     }
-    
+
     function generarDiasSemana() {
-        const hoy = new Date();
-        const diaActual = hoy.getDay();
-        const lunes = new Date(hoy);
-        const diasHastaLunes = (diaActual === 0 ? 6 : diaActual - 1);
-        lunes.setDate(hoy.getDate() - diasHastaLunes);
-        
-        const container = document.getElementById('weekdaysContainer');
-        if (container) {
-            container.innerHTML = '';
-            for (let i = 0; i < diasSemana.length; i++) {
-                const fechaDia = new Date(lunes);
-                fechaDia.setDate(lunes.getDate() + i);
-                const card = document.createElement('div');
-                card.className = 'day-card';
-                const isToday = (fechaDia.toDateString() === hoy.toDateString());
-                if (isToday) card.classList.add('highlight');
-                let badgeHtml = isToday ? '<div class="today-badge">HOY</div>' : '';
-                card.innerHTML = badgeHtml + `<div class="day-number">${fechaDia.getDate()}</div><div class="day-name">${diasSemana[i]}</div>`;
-                container.appendChild(card);
-            }
-        }
+        const hoy=new Date(), diaActual=hoy.getDay(), lunes=new Date(hoy);
+        lunes.setDate(hoy.getDate()-(diaActual===0?6:diaActual-1));
+        const cont=document.getElementById('weekdaysContainer');
+        if(cont){ cont.innerHTML='';
+            for(let i=0;i<diasSemana.length;i++){ let f=new Date(lunes); f.setDate(lunes.getDate()+i); let c=document.createElement('div'); c.className='day-card'; let esHoy=f.toDateString()===hoy.toDateString(); if(esHoy) c.classList.add('highlight'); c.innerHTML=(esHoy?'<div class="today-badge">HOY</div>':'')+`<div class="day-number">${f.getDate()}</div><div class="day-name">${diasSemana[i]}</div>`; cont.appendChild(c); } }
     }
-    
     function generarMenuCards() {
-        const hoy = new Date();
-        const diaActualNum = hoy.getDay();
-        const todayMenuName = (diaActualNum >= 1 && diaActualNum <= 5) ? diasSemana[diaActualNum - 1] : null;
-        
-        const container = document.getElementById('menuGrid');
-        if (container) {
-            container.innerHTML = '';
-            diasSemana.forEach(day => {
-                const menu = menuData[day];
-                if (!menu) return;
-                const card = document.createElement('div');
-                card.className = 'menu-card';
-                if (day === todayMenuName) card.classList.add('today-card');
-                const dayLower = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({'á':'a','é':'e','í':'i','ó':'o','ú':'u'})[c]);
-                const imgSrc = `./imagenes/menu/${dayLower}.jpg?v=6`;
-                card.innerHTML = `
-                    <img src="${imgSrc}" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}&bg=fef7e8&color=d35400'">
-                    <h3>📆 ${day}</h3>
-                    <div class="entrada"><span style="font-size:1.3rem;">${menu.emojiEntrada}</span> <span>${menu.entrada}</span></div>
-                    <div class="segundo"><span style="font-size:1.3rem;">${menu.emojiSegundo1}</span> <span>${menu.segundo1}</span></div>
-                    <div class="segundo"><span style="font-size:1.3rem;">${menu.emojiSegundo2}</span> <span>${menu.segundo2}</span></div>
-                    <div class="bebida"><span style="font-size:1.3rem;">${menu.emojiBebida}</span> <span>${menu.bebida}</span></div>
-                `;
-                container.appendChild(card);
-            });
-        }
+        const hoy=new Date(), diaActual=hoy.getDay(), hoyNombre=(diaActual>=1&&diaActual<=5)?diasSemana[diaActual-1]:null, cont=document.getElementById('menuGrid');
+        if(cont){ cont.innerHTML='';
+            diasSemana.forEach(day=>{ let m=menuData[day]; if(!m) return; let card=document.createElement('div'); card.className='menu-card'; if(day===hoyNombre) card.classList.add('today-card'); let dl=day.toLowerCase().replace('miércoles','miercoles').replace(/[áéíóú]/g,c=>({á:'a',é:'e',í:'i',ó:'o',ú:'u'})[c]); card.innerHTML=`<img src="./imagenes/menu/${dl}.jpg?v=7" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; cont.appendChild(card); }); }
     }
-    
-    function updateClock() {
-        const now = new Date();
-        const timeEl = document.getElementById('digitalTime');
-        const dateEl = document.getElementById('fullDate');
-        if (timeEl) timeEl.textContent = now.toLocaleTimeString('es-PE');
-        if (dateEl) {
-            const days = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-            const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-            dateEl.textContent = `${days[now.getDay()]}, ${now.getDate()} de ${months[now.getMonth()]} de ${now.getFullYear()}`;
-        }
-        const hour = now.getHours() % 12, minute = now.getMinutes(), second = now.getSeconds();
-        const hourHand = document.getElementById('hourHand');
-        const minuteHand = document.getElementById('minuteHand');
-        const secondHand = document.getElementById('secondHand');
-        if (hourHand) hourHand.style.transform = `translateX(-50%) rotate(${(hour * 30) + (minute * 0.5)}deg)`;
-        if (minuteHand) minuteHand.style.transform = `translateX(-50%) rotate(${(minute * 6) + (second * 0.1)}deg)`;
-        if (secondHand) secondHand.style.transform = `translateX(-50%) rotate(${second * 6}deg)`;
+
+    function updateClock(){ const n=new Date(); document.getElementById('digitalTime')&&(document.getElementById('digitalTime').textContent=n.toLocaleTimeString('es-PE')); if(document.getElementById('fullDate')){ const d=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'], m=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre']; document.getElementById('fullDate').textContent=`${d[n.getDay()]}, ${n.getDate()} de ${m[n.getMonth()]} de ${n.getFullYear()}`; } let h=n.getHours()%12, min=n.getMinutes(), s=n.getSeconds(); let hh=document.getElementById('hourHand'), mh=document.getElementById('minuteHand'), sh=document.getElementById('secondHand'); if(hh) hh.style.transform=`translateX(-50%) rotate(${(h*30)+(min*0.5)}deg)`; if(mh) mh.style.transform=`translateX(-50%) rotate(${(min*6)+(s*0.1)}deg)`; if(sh) sh.style.transform=`translateX(-50%) rotate(${s*6}deg)`;
     }
-    
-    function estacionPeru() {
-        const fecha = new Date(), mes = fecha.getMonth(), dia = fecha.getDate();
-        if ((mes === 11 && dia >= 21) || mes === 0 || mes === 1 || (mes === 2 && dia <= 20)) return { nombre: "Verano", icono: "☀️🌊" };
-        if ((mes === 2 && dia >= 21) || mes === 3 || mes === 4 || (mes === 5 && dia <= 20)) return { nombre: "Otoño", icono: "🍂🌧️" };
-        if ((mes === 5 && dia >= 21) || mes === 6 || mes === 7 || (mes === 8 && dia <= 22)) return { nombre: "Invierno", icono: "❄️☁️" };
-        return { nombre: "Primavera", icono: "🌸🌼" };
-    }
-    
-    const estacion = estacionPeru();
-    const seasonIcon = document.getElementById('seasonIcon');
-    const seasonName = document.getElementById('seasonName');
-    if (seasonIcon) seasonIcon.textContent = estacion.icono;
-    if (seasonName) seasonName.textContent = estacion.nombre;
-    
-    generarDiasSemana();
-    generarMenuCards();
-    setInterval(updateClock, 1000);
-    updateClock();
-    
-    const platos = [
-        { img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=6", nombre: "Lentejitas con arroz y pollo a la olla" },
-        { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=6", nombre: "Bistec con papas fritas y arroz" },
-        { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=6", nombre: "Pollo a la milanesa con arroz y verduras" },
-        { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=6", nombre: "Churrasco con papas y arroz" }
-    ];
-    
-    const track = document.getElementById('rollingTrack');
-    if (track) {
-        [...platos, ...platos].forEach(p => {
-            const div = document.createElement('div'); div.className = 'rolling-item';
-            const img = document.createElement('img'); img.src = p.img; img.alt = p.nombre;
-            img.onerror = () => img.src = 'https://placehold.co/400x300?text=Plato&bg=fef7e8&color=d35400';
-            const span = document.createElement('div'); span.className = 'dish-name'; span.textContent = p.nombre;
-            div.append(img, span); track.appendChild(div);
-        });
-    }
-    
-    document.querySelectorAll('.menu-tab').forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page'));
-            document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page');
-        });
-    });
-    
-    // Inicializar reseñas
-    cargarReseñas();
-    const btnEnviar = document.getElementById('enviarReseña');
-    const textarea = document.getElementById('reseñaTexto');
-    const charCount = document.getElementById('charCount');
-    if (btnEnviar && textarea) {
-        btnEnviar.addEventListener('click', () => {
-            if (agregarReseña(textarea.value)) {
-                textarea.value = '';
-                if (charCount) charCount.textContent = '0';
-                alert('⭐ ¡Gracias por tu reseña! Ha sido publicada. ⭐');
-            } else {
-                alert('Por favor escribe una reseña (máximo 500 caracteres).');
-            }
-        });
-        textarea.addEventListener('input', () => { if (charCount) charCount.textContent = textarea.value.length; });
-    }
-    
-    // Anti-caché de imágenes
-    window.addEventListener('load', () => {
-        document.querySelectorAll('img').forEach(img => {
-            const src = img.src;
-            if (src && !src.includes('placehold') && !src.includes('data:image') && !src.includes('v=') && !src.includes('t=')) {
-                img.src = src + (src.includes('?') ? '&' : '?') + 't=' + Date.now();
-            }
-        });
-    });
+    function estacionPeru(){ let f=new Date(), m=f.getMonth(), d=f.getDate(); if((m===11&&d>=21)||m===0||m===1||(m===2&&d<=20)) return {nombre:"Verano",icono:"☀️🌊"}; if((m===2&&d>=21)||m===3||m===4||(m===5&&d<=20)) return {nombre:"Otoño",icono:"🍂🌧️"}; if((m===5&&d>=21)||m===6||m===7||(m===8&&d<=22)) return {nombre:"Invierno",icono:"❄️☁️"}; return {nombre:"Primavera",icono:"🌸🌼"}; }
+    const e=estacionPeru(); document.getElementById('seasonIcon')&&(document.getElementById('seasonIcon').textContent=e.icono); document.getElementById('seasonName')&&(document.getElementById('seasonName').textContent=e.nombre);
+    generarDiasSemana(); generarMenuCards(); setInterval(updateClock,1000); updateClock();
+    const platos=[{img:"./imagenes/platos/IMG-20260323-WA0018.jpg?v=7",nombre:"Lentejitas con arroz y pollo"},{img:"./imagenes/platos/IMG-20260323-WA0019.jpg?v=7",nombre:"Bistec con papas fritas"},{img:"./imagenes/platos/IMG-20260405-WA0029.jpg?v=7",nombre:"Pollo a la milanesa"},{img:"./imagenes/platos/IMG-20260405-WA0030.jpg?v=7",nombre:"Churrasco con papas"}];
+    const track=document.getElementById('rollingTrack'); if(track){ [...platos,...platos].forEach(p=>{ let d=document.createElement('div'); d.className='rolling-item'; let i=document.createElement('img'); i.src=p.img; i.alt=p.nombre; i.onerror=()=>i.src='https://placehold.co/400x300?text=Plato'; let s=document.createElement('div'); s.className='dish-name'; s.textContent=p.nombre; d.append(i,s); track.appendChild(d); }); }
+    document.querySelectorAll('.menu-tab').forEach(btn=>btn.addEventListener('click',()=>{ document.querySelectorAll('.menu-tab').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s=>s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
+    cargarReseñas(); const btnEnv=document.getElementById('enviarReseña'), txt=document.getElementById('reseñaTexto'), cont=document.getElementById('charCount'); if(btnEnv&&txt){ btnEnv.addEventListener('click',()=>{ if(agregarReseña(txt.value)){ txt.value=''; if(cont) cont.textContent='0'; alert('⭐ ¡Gracias por tu reseña! ⭐'); } else alert('Por favor escribe una reseña (máximo 500 caracteres).'); }); txt.addEventListener('input',()=>{ if(cont) cont.textContent=txt.value.length; }); }
+    window.addEventListener('load',()=>{ document.querySelectorAll('img').forEach(img=>{ let src=img.src; if(src&&!src.includes('placehold')&&!src.includes('data:image')&&!src.includes('v=')&&!src.includes('t=')) img.src=src+(src.includes('?')?'&':'?')+'t='+Date.now(); }); });
 </script>
 </body>
 </html>
