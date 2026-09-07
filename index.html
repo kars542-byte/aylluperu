@@ -10,6 +10,23 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <style>
+        /* Fondo watermark con el logo al 10% de opacidad */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('./logo.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40% auto;
+            opacity: 0.08;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fef7e8; color: #4a3b2c; }
         .header { background: linear-gradient(135deg, #e67e22, #d35400); color: white; text-align: center; padding: 1.5rem 1rem 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
@@ -132,15 +149,68 @@
         .info-escolar h3:first-of-type { margin-top: 0; }
         .info-escolar ul { margin-left: 1.5rem; }
         .info-escolar li { margin: 0.5rem 0; }
+        /* Estilos para la sección Ayllu (Nosotros) */
+        .ayllu-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .ayllu-container .block {
+            margin-bottom: 2rem;
+        }
+        .ayllu-container .block:last-child {
+            margin-bottom: 0;
+        }
+        .ayllu-container .block h3 {
+            color: #d35400;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .ayllu-container .block p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4a3b2c;
+        }
+        .ayllu-container .block .icon {
+            font-size: 1.8rem;
+        }
+        .pronto-container {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .pronto-container h3 {
+            color: #d35400;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .pronto-container p {
+            font-size: 1.1rem;
+            color: #4a3b2c;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+        .pronto-container .event-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
-<div class="header"><div class="logo-container"><img src="./logo.jpg?v=22" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'"><div class="logo-text"><h1>🍽️ Ayllu Perú</h1><p>Comida casera, el sabor de siempre</p></div></div></div>
-<div class="top-menu"><button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button><button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button><button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button><button class="menu-tab" data-page="escolar">📚 Menú Escolar Septiembre</button><button class="menu-tab" data-page="reseñas">⭐ ¡Déjanos tu reseña!</button><button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button></div>
+<div class="header"><div class="logo-container"><img src="./logo.jpg?v=23" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/120x120?text=Logo'"><div class="logo-text"><h1>🍽️ Ayllu Perú</h1><p>🌟 La mejor opción de tus mediodías, a un clic de distancia</p></div></div></div>
+<div class="top-menu"><button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button><button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button><button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button><button class="menu-tab" data-page="escolar">📚 Menú Escolar Septiembre</button><button class="menu-tab" data-page="ayllu">🌟 Ayllu</button><button class="menu-tab" data-page="reseñas">⭐ ¡Déjanos tu reseña!</button><button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button><button class="menu-tab" data-page="pronto">🎉 ¡Pronto!</button></div>
 <div class="clock-container"><div class="analog-clock"><div class="clock-face"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">12</div><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">6</div><div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">3</div><div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">9</div><div class="hand hour-hand" id="hourHand"></div><div class="hand minute-hand" id="minuteHand"></div><div class="hand second-hand" id="secondHand"></div><div class="center-dot"></div></div></div><div><div class="date-info"><div class="time-digital" id="digitalTime"></div><div class="date" id="fullDate"></div></div><div class="season-info" id="seasonInfo"><span class="season-icon" id="seasonIcon">☀️</span><span id="seasonName">Verano</span></div></div></div>
 <div class="weekdays-section"><div class="weekdays-container" id="weekdaysContainer"></div></div>
 
-<!-- MENÚ EJECUTIVO - Semana del 31 de agosto al 4 de septiembre 2026 -->
+<!-- MENÚ EJECUTIVO - Semana del 31 de agosto al 4 de septiembre 2026 (puedes actualizar después) -->
 <div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 31 de agosto a Viernes 4 de septiembre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
 
 <!-- ENSALADAS -->
@@ -215,11 +285,52 @@
     </div>
 </div>
 
+<!-- NUEVA SECCIÓN: AYLLU (Presentación, Misión, Visión) -->
+<div id="page-ayllu" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>🌟 Ayllu Perú</h2></div>
+        <div class="ayllu-container">
+            <div class="block">
+                <h3><span class="icon">🌟</span> Breve presentación</h3>
+                <p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p>
+            </div>
+            <div class="block">
+                <h3><span class="icon">🇵🇪</span> Misión</h3>
+                <p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p>
+            </div>
+            <div class="block">
+                <h3><span class="icon">🌱</span> Visión</h3>
+                <p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- SECCIÓN DE RESEÑAS -->
 <div id="page-reseñas" class="page-section"><div class="section"><div class="title-center"><h2>⭐ ¡Déjanos tu reseña! ⭐</h2></div><div class="reseñas-container"><div class="reseña-form"><h3>👨‍🍳 <span>Comparte tu experiencia</span> <span style="font-size:1.5rem;">🍽️</span></h3><textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida?" maxlength="500"></textarea><div class="char-counter"><span id="charCount">0</span>/500 caracteres</div><button class="btn-reseña" id="enviarReseña"><span>👨‍🍳</span> Enviar reseña</button></div><h3 style="color:#d35400; margin-bottom:1rem;">📖 Lo que dicen nuestros comensales</h3><div id="reseñasList" class="reseñas-list"></div><div id="paginacion" class="paginacion"></div></div></div></div>
 
 <!-- FINES DE SEMANA -->
 <div id="page-findesemana" class="page-section"><div class="section"><div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div><div class="weekend-highlight"><span>🍽️</span> ¡Los fines de semana también tenemos comida peruana para ti! <span>🍽️</span><br>Disfruta en casa con nuestra deliciosa cocina casera.</div><div class="weekend-banners-vertical"><div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 1<br>(Próximamente imagen de Sábado Especial)</div><div class="info"><h3>🌅 SÁBADO ESPECIAL</h3><p>Platos tradicionales peruanos para empezar bien el fin de semana</p><span class="badge">¡Pide hoy mismo!</span></div></div><div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 2<br>(Próximamente imagen de Domingo en Familia)</div><div class="info"><h3>🌞 DOMINGO EN FAMILIA</h3><p>El sabor de siempre para compartir con los que más quieres</p><span class="badge">Delivery a domicilio</span></div></div></div><div style="text-align:center; margin-top:2rem;"><p style="font-size:1.1rem;">✨ ¡Contamos con delivery a domicilio! ✨</p><p style="color:#d35400; font-weight:bold;">WhatsApp: 946 895 814</p></div></div></div>
+
+<!-- NUEVA SECCIÓN: ¡PRONTO! -->
+<div id="page-pronto" class="page-section">
+    <div class="section">
+        <div class="title-center"><h2>🎉 ¡Pronto! 🎉</h2></div>
+        <div class="pronto-container">
+            <div class="event-icon">📅</div>
+            <h3>Eventos y Festivales Gastronómicos</h3>
+            <p>Estamos preparando experiencias únicas para ti. Próximamente podrás encontrar:</p>
+            <ul style="text-align:left; max-width:500px; margin:0 auto 1.5rem; list-style:none;">
+                <li>🍽️ <strong>Eventos corporativos</strong> – Planeación de menús para empresas y reuniones.</li>
+                <li>🎪 <strong>Ferias gastronómicas</strong> – Participación en festivales de comida peruana.</li>
+                <li>👨‍🍳 <strong>Talleres culinarios</strong> – Aprende a preparar nuestros platos.</li>
+                <li>📦 <strong>Nuevos planes de suscripción</strong> – Menús semanales personalizados.</li>
+            </ul>
+            <p style="color:#d35400; font-weight:bold;">¡Sigue atento a nuestras redes y WhatsApp para no perderte nada!</p>
+            <p style="margin-top:1rem;">📞 <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p>
+        </div>
+    </div>
+</div>
 
 <div class="section"><div class="gallery-rolling"><div class="rolling-title">🍜 Nuestros Platos Destacados 🍲</div><div class="rolling-container"><div class="rolling-track" id="rollingTrack"></div></div></div></div>
 <div class="section"><div class="title-center"><h2>📞 Haz tu pedido por WhatsApp</h2></div><div class="contact-info"><p>📱 <strong>WhatsApp:</strong> 946 895 814</p><p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p><p>📍 <strong>Atención:</strong> Lima</p><p>🚚 <strong>Delivery disponible</strong></p><a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn"><span class="tiktok-icon"></span>Síguenos en TikTok</a></div></div>
@@ -227,7 +338,7 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ EJECUTIVO - Semana del 31 de agosto al 4 de septiembre 2026 =====
+    // ===== MENÚ EJECUTIVO (ejemplo, puedes actualizar después) =====
     const menuData = {
         'LUNES': { entrada: 'Cazuela de pollo', segundo1: 'Pollo a la olla con ensalada blanca', segundo2: 'Lomo saltado', bebida: 'Emoliente', emojiEntrada: '🍲', emojiSegundo1: '🍗', emojiSegundo2: '🍛', emojiBebida: '🥤' },
         'MARTES': { entrada: 'Tequeños', segundo1: 'Cerdito al horno con camote', segundo2: 'Pollo frito con locrito de zapallo', bebida: 'Naranjada', emojiEntrada: '🧀', emojiSegundo1: '🍖', emojiSegundo2: '🍗', emojiBebida: '🥤' },
@@ -254,7 +365,6 @@
         let diasHastaLunes = (1 - diaActual + 7) % 7;
         if (diasHastaLunes === 0 && diaActual !== 1) diasHastaLunes = 7;
         lunes.setDate(hoy.getDate() + diasHastaLunes);
-        
         const cont = document.getElementById('weekdaysContainer');
         if (cont) { 
             cont.innerHTML = ''; 
@@ -278,13 +388,7 @@
         let diasHastaLunes = (1 - diaActual + 7) % 7;
         if (diasHastaLunes === 0 && diaActual !== 1) diasHastaLunes = 7;
         lunes.setDate(hoy.getDate() + diasHastaLunes);
-        
-        const hoyNombre = (() => {
-            const dias = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO'];
-            const nombre = dias[diaActual];
-            return diasSemana.find(d => d === nombre) || null;
-        })();
-        
+        const hoyNombre = (() => { const dias = ['DOMINGO', 'LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO']; const nombre = dias[diaActual]; return diasSemana.find(d => d === nombre) || null; })();
         const cont = document.getElementById('menuGrid');
         if (cont) { 
             cont.innerHTML = ''; 
@@ -295,7 +399,7 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=22" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=23" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
                 cont.appendChild(card); 
             }); 
         } 
@@ -308,7 +412,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=22", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=22", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=22", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=22", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=23", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=23", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=23", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=23", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
