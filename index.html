@@ -30,43 +30,37 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fef7e8; color: #4a3b2c; }
 
-        /* HEADER CON LOGO COMO BANNER LATERAL */
         .header {
             background: linear-gradient(135deg, #e67e22, #d35400);
             color: white;
-            padding: 1.5rem 2rem;
+            text-align: center;
+            padding: 1.5rem 1rem 1rem;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            position: relative;
+        }
+
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 2rem;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
         }
 
-        /* Logo como banner lateral izquierdo - INDEPENDIENTE */
-        .logo-banner {
-            flex-shrink: 0;
-            width: 200px; /* Tamaño fijo para escritorio */
-            max-width: 200px;
-        }
-
-        .logo-banner img {
-            width: 100%;
+        .logo-img {
+            max-width: 160px;
             height: auto;
             border-radius: 20px;
             background: white;
             padding: 8px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            display: block;
         }
 
-        /* Texto del header a la derecha del logo */
-        .header-content {
-            flex: 1;
+        .logo-text {
             text-align: left;
         }
 
-        .header-content h1 {
-            font-size: 3.2rem;
+        .logo-text h1 {
+            font-size: 2.8rem;
             letter-spacing: 2px;
             margin: 0;
             font-family: 'Georgia', 'Times New Roman', Times, serif;
@@ -75,15 +69,28 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .header-content p {
-            font-size: 1.2rem;
+        .logo-text p {
+            font-size: 1.1rem;
             margin-top: 0.3rem;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 0.5px;
+            opacity: 0.9;
         }
 
-        /* El menú queda debajo del header, sin interferencia */
+        @media (max-width: 480px) {
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .logo-text {
+                text-align: center;
+            }
+            .logo-text h1 {
+                font-size: 2rem;
+            }
+            .logo-img {
+                max-width: 100px;
+            }
+        }
+
         .top-menu {
             background: #fff3e0;
             padding: 0.8rem;
@@ -98,42 +105,31 @@
             gap: 0.5rem;
         }
 
-        /* Responsive: en móviles, el logo se vuelve 3x más grande */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .logo-banner {
-                width: 300px; /* 3x más grande (200px * 1.5 = 300px) */
-                max-width: 80%; /* Para que no se salga en pantallas muy pequeñas */
-            }
-
-            .header-content {
-                text-align: center;
-            }
-
-            .header-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .header-content p {
-                font-size: 1rem;
-            }
+        .menu-tab {
+            background: transparent;
+            color: #d35400;
+            border: 2px solid #d35400;
+            padding: 0.6rem 1.2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
         }
 
-        @media (max-width: 480px) {
-            .logo-banner {
-                width: 280px; /* Ajuste fino para móviles muy pequeños */
-                max-width: 85%;
-            }
+        .menu-tab:hover {
+            background: #f39c12;
+            color: white;
+            border-color: #f39c12;
         }
 
-        /* Resto de estilos (sin cambios) */
+        .menu-tab.active {
+            background: #d35400;
+            color: white;
+            border-color: #d35400;
+        }
+
         .clock-container { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin: 2rem auto; padding: 1.5rem; background: #fff3e0; border-radius: 30px; max-width: 600px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.1); }
         .analog-clock { width: 140px; height: 140px; border-radius: 50%; background: #f5e6d3; border: 6px solid #8b5a2b; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         .clock-face { position: relative; width: 100%; height: 100%; }
@@ -259,22 +255,20 @@
 </head>
 <body>
 <div class="header">
-    <!-- Logo como banner lateral izquierdo -->
-    <div class="logo-banner">
-        <img src="./logo.jpg?v=23" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/300x300?text=Logo'">
-    </div>
-    <!-- Contenido del header a la derecha -->
-    <div class="header-content">
-        <h1>🍽️ Ayllu Perú</h1>
-        <p>🌟 La mejor opción de tus mediodías, a un clic de distancia</p>
+    <div class="logo-container">
+        <img src="./logo.jpg?v=25" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/160x160?text=Logo'">
+        <div class="logo-text">
+            <h1>🍽️ Ayllu Perú</h1>
+            <p>🌟 La mejor opción de tus mediodías, a un clic de distancia</p>
+        </div>
     </div>
 </div>
 <div class="top-menu"><button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button><button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button><button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button><button class="menu-tab" data-page="escolar">📚 Menú Escolar Septiembre</button><button class="menu-tab" data-page="ayllu">🌟 Ayllu</button><button class="menu-tab" data-page="reseñas">⭐ ¡Déjanos tu reseña!</button><button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button><button class="menu-tab" data-page="pronto">🎉 ¡Pronto!</button></div>
 <div class="clock-container"><div class="analog-clock"><div class="clock-face"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">12</div><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">6</div><div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">3</div><div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">9</div><div class="hand hour-hand" id="hourHand"></div><div class="hand minute-hand" id="minuteHand"></div><div class="hand second-hand" id="secondHand"></div><div class="center-dot"></div></div></div><div><div class="date-info"><div class="time-digital" id="digitalTime"></div><div class="date" id="fullDate"></div></div><div class="season-info" id="seasonInfo"><span class="season-icon" id="seasonIcon">☀️</span><span id="seasonName">Verano</span></div></div></div>
 <div class="weekdays-section"><div class="weekdays-container" id="weekdaysContainer"></div></div>
 
-<!-- MENÚ EJECUTIVO - Semana del 31 de agosto al 4 de septiembre 2026 (puedes actualizar después) -->
-<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 31 de agosto a Viernes 4 de septiembre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
+<!-- MENÚ EJECUTIVO - Semana del 7 al 11 de septiembre 2026 -->
+<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 7 a Viernes 11 de septiembre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
 
 <!-- ENSALADAS -->
 <div id="page-ensaladas" class="page-section"><div class="section"><div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div><div class="carta-container"><div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div><div class="carta-item"><div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 22</div></div></div></div></div>
@@ -289,16 +283,7 @@
         <div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida + Postre 🍰<br><span>¡A sólo S/ 17!</span></div>
         <div class="scroll-table">
             <table class="menu-escolar-table">
-                <thead>
-                    <tr>
-                        <th>Día</th>
-                        <th>Fecha</th>
-                        <th>Entrada</th>
-                        <th>Plato de fondo</th>
-                        <th>Bebida</th>
-                        <th>Postre</th>
-                    </tr>
-                </thead>
+                <thead><tr><th>Día</th><th>Fecha</th><th>Entrada</th><th>Plato de fondo</th><th>Bebida</th><th>Postre</th></tr></thead>
                 <tbody>
                     <tr class="week-separator"><td colspan="6">📅 Semana 1</td></tr>
                     <tr><td>Martes</td><td>1</td><td>Ensalada fresca</td><td>Pollito frito con guiso de lentejitas</td><td>Emoliente</td><td>Fruta de estación</td></tr>
@@ -306,11 +291,11 @@
                     <tr><td>Jueves</td><td>3</td><td>Causita con pollo</td><td>Tallarines rojos con pollo</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
                     <tr><td>Viernes</td><td>4</td><td>Ocoa arequipeña</td><td>Pollo a la olla con ensalada blanca</td><td>Agua de manzana</td><td>Quequito de vainilla</td></tr>
                     <tr class="week-separator"><td colspan="6">📅 Semana 2</td></tr>
-                    <tr><td>Lunes</td><td>7</td><td>Huevo a la rusa</td><td>Ají de pollo</td><td>Limonada</td><td>Mix de frutas</td></tr>
-                    <tr><td>Martes</td><td>8</td><td>Palta rellena</td><td>Lomo saltado</td><td>Emoliente</td><td>Quequito de plátano</td></tr>
-                    <tr><td>Miércoles</td><td>9</td><td>Ensalada del campo</td><td>Seco de pollo</td><td>Naranjada</td><td>Fruta de estación</td></tr>
-                    <tr><td>Jueves</td><td>10</td><td>Ensalada de verduras cocidas</td><td>Estofado de pollo de la nona</td><td>Maracuyá</td><td>Mazamorra morada</td></tr>
-                    <tr><td>Viernes</td><td>11</td><td>Causita con atún</td><td>Asado de res con puré</td><td>Chicha morada</td><td>Quequito marmoleado</td></tr>
+                    <tr><td>Lunes</td><td>7</td><td>Alitas broaster con tártara</td><td>Pollito anticuchero con papas doradas</td><td>Limonada</td><td>Fruta de estación</td></tr>
+                    <tr><td>Martes</td><td>8</td><td>Cremita de zapallo</td><td>Pollo frito con arroz a la chiclayana</td><td>Naranjada</td><td>Mix de frutas</td></tr>
+                    <tr><td>Miércoles</td><td>9</td><td>Huevo a la rusa</td><td>Suprema de pollo con spaguetti a la huancaina</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
+                    <tr><td>Jueves</td><td>10</td><td>Ensalada fresca</td><td>Hamburguesa con puré de espinacas</td><td>Agua de manzana</td><td>Quequito de plátano</td></tr>
+                    <tr><td>Viernes</td><td>11</td><td>Ensalada popeye</td><td>Pollo al horno con locrito de zapallo</td><td>Hierba luisa</td><td>Mazamorra de durazno</td></tr>
                     <tr class="week-separator"><td colspan="6">📅 Semana 3</td></tr>
                     <tr><td>Lunes</td><td>14</td><td>Ensalada mixta</td><td>Pollito broaster con papas fritas</td><td>Limonada</td><td>Fruta de estación</td></tr>
                     <tr><td>Martes</td><td>15</td><td>Ensalada de palta</td><td>Pollito a la chiclayana con yuca</td><td>Agua de manzana</td><td>Quequito de chocolate</td></tr>
@@ -330,70 +315,21 @@
                 </tbody>
             </table>
         </div>
-        <div class="info-escolar">
-            <h3>🍽️ Información importante</h3>
-            <ul>
-                <li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li>
-                <li><strong>Precio:</strong> S/ 17</li>
-                <li>Nuestro menú incluye opciones balanceadas y saludables con proteínas, vegetales y carbohidratos.</li>
-                <li>Nuestro packaging está diseñado con envases que mantienen el calor y la frescura de los alimentos.</li>
-            </ul>
-            <h3>📦 Tipos de Entregas</h3>
-            <ul>
-                <li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li>
-                <li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li>
-            </ul>
-            <p style="margin-top:1rem; text-align:center; font-weight:bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p>
-        </div>
+        <div class="info-escolar"><h3>🍽️ Información importante</h3><ul><li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li><li><strong>Precio:</strong> S/ 17</li><li>Nuestro menú incluye opciones balanceadas y saludables.</li></ul><h3>📦 Tipos de Entregas</h3><ul><li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li><li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li></ul><p style="margin-top:1rem; text-align:center; font-weight:bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p></div>
     </div>
 </div>
 
-<!-- NUEVA SECCIÓN: AYLLU (Presentación, Misión, Visión) -->
-<div id="page-ayllu" class="page-section">
-    <div class="section">
-        <div class="title-center"><h2>🌟 Ayllu Perú</h2></div>
-        <div class="ayllu-container">
-            <div class="block">
-                <h3><span class="icon">🌟</span> Breve presentación</h3>
-                <p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p>
-            </div>
-            <div class="block">
-                <h3><span class="icon">🇵🇪</span> Misión</h3>
-                <p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p>
-            </div>
-            <div class="block">
-                <h3><span class="icon">🌱</span> Visión</h3>
-                <p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- AYLLU -->
+<div id="page-ayllu" class="page-section"><div class="section"><div class="title-center"><h2>🌟 Ayllu Perú</h2></div><div class="ayllu-container"><div class="block"><h3><span class="icon">🌟</span> Breve presentación</h3><p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p></div><div class="block"><h3><span class="icon">🇵🇪</span> Misión</h3><p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p></div><div class="block"><h3><span class="icon">🌱</span> Visión</h3><p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p></div></div></div></div>
 
-<!-- SECCIÓN DE RESEÑAS -->
+<!-- RESEÑAS -->
 <div id="page-reseñas" class="page-section"><div class="section"><div class="title-center"><h2>⭐ ¡Déjanos tu reseña! ⭐</h2></div><div class="reseñas-container"><div class="reseña-form"><h3>👨‍🍳 <span>Comparte tu experiencia</span> <span style="font-size:1.5rem;">🍽️</span></h3><textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida?" maxlength="500"></textarea><div class="char-counter"><span id="charCount">0</span>/500 caracteres</div><button class="btn-reseña" id="enviarReseña"><span>👨‍🍳</span> Enviar reseña</button></div><h3 style="color:#d35400; margin-bottom:1rem;">📖 Lo que dicen nuestros comensales</h3><div id="reseñasList" class="reseñas-list"></div><div id="paginacion" class="paginacion"></div></div></div></div>
 
 <!-- FINES DE SEMANA -->
 <div id="page-findesemana" class="page-section"><div class="section"><div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div><div class="weekend-highlight"><span>🍽️</span> ¡Los fines de semana también tenemos comida peruana para ti! <span>🍽️</span><br>Disfruta en casa con nuestra deliciosa cocina casera.</div><div class="weekend-banners-vertical"><div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 1<br>(Próximamente imagen de Sábado Especial)</div><div class="info"><h3>🌅 SÁBADO ESPECIAL</h3><p>Platos tradicionales peruanos para empezar bien el fin de semana</p><span class="badge">¡Pide hoy mismo!</span></div></div><div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 2<br>(Próximamente imagen de Domingo en Familia)</div><div class="info"><h3>🌞 DOMINGO EN FAMILIA</h3><p>El sabor de siempre para compartir con los que más quieres</p><span class="badge">Delivery a domicilio</span></div></div></div><div style="text-align:center; margin-top:2rem;"><p style="font-size:1.1rem;">✨ ¡Contamos con delivery a domicilio! ✨</p><p style="color:#d35400; font-weight:bold;">WhatsApp: 946 895 814</p></div></div></div>
 
-<!-- NUEVA SECCIÓN: ¡PRONTO! -->
-<div id="page-pronto" class="page-section">
-    <div class="section">
-        <div class="title-center"><h2>🎉 ¡Pronto! 🎉</h2></div>
-        <div class="pronto-container">
-            <div class="event-icon">📅</div>
-            <h3>Eventos y Festivales Gastronómicos</h3>
-            <p>Estamos preparando experiencias únicas para ti. Próximamente podrás encontrar:</p>
-            <ul>
-                <li>🍽️ <strong>Eventos corporativos</strong> – Planeación de menús para empresas y reuniones.</li>
-                <li>🎪 <strong>Ferias gastronómicas</strong> – Participación en festivales de comida peruana.</li>
-                <li>👨‍🍳 <strong>Talleres culinarios</strong> – Aprende a preparar nuestros platos.</li>
-                <li>📦 <strong>Nuevos planes de suscripción</strong> – Menús semanales personalizados.</li>
-            </ul>
-            <p style="color:#d35400; font-weight:bold;">¡Sigue atento a nuestras redes y WhatsApp para no perderte nada!</p>
-            <p style="margin-top:1rem;">📞 <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p>
-        </div>
-    </div>
-</div>
+<!-- PRONTO -->
+<div id="page-pronto" class="page-section"><div class="section"><div class="title-center"><h2>🎉 ¡Pronto! 🎉</h2></div><div class="pronto-container"><div class="event-icon">📅</div><h3>Eventos y Festivales Gastronómicos</h3><p>Estamos preparando experiencias únicas para ti. Próximamente podrás encontrar:</p><ul><li>🍽️ <strong>Eventos corporativos</strong> – Planeación de menús para empresas y reuniones.</li><li>🎪 <strong>Ferias gastronómicas</strong> – Participación en festivales de comida peruana.</li><li>👨‍🍳 <strong>Talleres culinarios</strong> – Aprende a preparar nuestros platos.</li><li>📦 <strong>Nuevos planes de suscripción</strong> – Menús semanales personalizados.</li></ul><p style="color:#d35400; font-weight:bold;">¡Sigue atento a nuestras redes y WhatsApp para no perderte nada!</p><p style="margin-top:1rem;">📞 <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p></div></div></div>
 
 <div class="section"><div class="gallery-rolling"><div class="rolling-title">🍜 Nuestros Platos Destacados 🍲</div><div class="rolling-container"><div class="rolling-track" id="rollingTrack"></div></div></div></div>
 <div class="section"><div class="title-center"><h2>📞 Haz tu pedido por WhatsApp</h2></div><div class="contact-info"><p>📱 <strong>WhatsApp:</strong> 946 895 814</p><p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p><p>📍 <strong>Atención:</strong> Lima</p><p>🚚 <strong>Delivery disponible</strong></p><a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn"><span class="tiktok-icon"></span>Síguenos en TikTok</a></div></div>
@@ -401,13 +337,13 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ EJECUTIVO (ejemplo, puedes actualizar después) =====
+    // ===== MENÚ EJECUTIVO - Semana del 7 al 11 de septiembre 2026 =====
     const menuData = {
-        'LUNES': { entrada: 'Cazuela de pollo', segundo1: 'Pollo a la olla con ensalada blanca', segundo2: 'Lomo saltado', bebida: 'Emoliente', emojiEntrada: '🍲', emojiSegundo1: '🍗', emojiSegundo2: '🍛', emojiBebida: '🥤' },
-        'MARTES': { entrada: 'Tequeños', segundo1: 'Cerdito al horno con camote', segundo2: 'Pollo frito con locrito de zapallo', bebida: 'Naranjada', emojiEntrada: '🧀', emojiSegundo1: '🍖', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'MIÉRCOLES': { entrada: 'Causita con pollo', segundo1: 'Churrasco con rigattoni al pesto', segundo2: 'Cau cau de pollo', bebida: 'Maracuyá', emojiEntrada: '🥔', emojiSegundo1: '🥩', emojiSegundo2: '🍛', emojiBebida: '🥤' },
-        'JUEVES': { entrada: 'Sopita de dieta', segundo1: 'Ternera al vino con ensalada rusa', segundo2: 'Escabeche de pollo', bebida: 'Agua de manzana', emojiEntrada: '🥣', emojiSegundo1: '🍖', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'VIERNES': { entrada: 'Ensalada mixta', segundo1: 'Pollo frito con arroz a la jardinera', segundo2: 'Seco de res', bebida: 'Hierba luisa', emojiEntrada: '🥗', emojiSegundo1: '🍗', emojiSegundo2: '🍖', emojiBebida: '🥤' }
+        'LUNES': { entrada: 'Alitas broaster con tártara', segundo1: 'Pollito anticuchero con papas doradas', segundo2: 'Macarrones en salsa bolognesa', bebida: 'Limonada', emojiEntrada: '🍗', emojiSegundo1: '🍗', emojiSegundo2: '🍝', emojiBebida: '🥤' },
+        'MARTES': { entrada: 'Cremita de zapallo', segundo1: 'Pollo frito con arroz a la chiclayana', segundo2: 'Patita con maní', bebida: 'Naranjada', emojiEntrada: '🥣', emojiSegundo1: '🍗', emojiSegundo2: '🍛', emojiBebida: '🥤' },
+        'MIÉRCOLES': { entrada: 'Huevo a la rusa', segundo1: 'Suprema de pollo con spaguetti a la huancaina', segundo2: 'Arroz con chancho', bebida: 'Maracuyá', emojiEntrada: '🥚', emojiSegundo1: '🍗', emojiSegundo2: '🍖', emojiBebida: '🥤' },
+        'JUEVES': { entrada: 'Ensalada fresca', segundo1: 'Hamburguesa con puré de espinacas', segundo2: 'Estofado de pollo con papas amarillas', bebida: 'Agua de manzana', emojiEntrada: '🥗', emojiSegundo1: '🍔', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'VIERNES': { entrada: 'Ensalada popeye', segundo1: 'Pollo al horno con locrito de zapallo', segundo2: 'Polladita', bebida: 'Hierba luisa', emojiEntrada: '🥗', emojiSegundo1: '🍗', emojiSegundo2: '🍗', emojiBebida: '🥤' }
     };
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
@@ -415,7 +351,7 @@
     let paginaActual = 1;
     const RESEÑAS_POR_PAGINA = 5;
 
-    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-08-31' }]; mostrarReseñas(); }
+    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-09-07' }]; mostrarReseñas(); }
     function guardarReseñas() { localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas)); }
     function agregarReseña(t) { if (!t.trim() || t.length > 500) return false; reseñas.unshift({ id: Date.now(), nombre: 'Comensal ' + Math.floor(Math.random() * 900 + 100), texto: t.trim(), fecha: new Date().toISOString().slice(0, 10) }); guardarReseñas(); paginaActual = 1; mostrarReseñas(); return true; }
     function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
@@ -462,7 +398,7 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=23" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=25" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
                 cont.appendChild(card); 
             }); 
         } 
@@ -475,7 +411,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=23", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=23", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=23", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=23", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=25", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=25", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=25", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=25", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
