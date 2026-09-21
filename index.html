@@ -10,7 +10,6 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <style>
-        /* Watermark: un solo logo grande y centrado */
         body::before {
             content: '';
             position: fixed;
@@ -30,28 +29,13 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #faf5e0; color: #3a2f1e; }
 
-        /* ========== HEADER CON LOGO ENMARCADO + TABS A LA DERECHA + LÍNEA 3D ========== */
+        /* HEADER */
         .header {
             background: linear-gradient(135deg, #d4a017, #a07a00);
             color: white;
-            padding: 1.2rem 2rem 0.6rem;
+            padding: 1.2rem 2rem 1rem;
             position: relative;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        /* Línea 3D continua al fondo del header */
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(to bottom, #4a3600 0%, #8b6914 40%, #e8c547 70%, #d4a017 100%);
-            box-shadow:
-                0 -1px 0 rgba(255,255,255,0.35),
-                inset 0 1px 2px rgba(255,255,255,0.4),
-                0 3px 6px rgba(0,0,0,0.45);
         }
 
         .header-inner {
@@ -62,7 +46,7 @@
             margin: 0 auto;
         }
 
-        /* Logo enmarcado estilo old style */
+        /* Logo enmarcado */
         .logo-frame {
             flex-shrink: 0;
             background: #fdf6e3;
@@ -84,14 +68,31 @@
             border-radius: 3px;
         }
 
-        /* Columna derecha con títulos + tabs */
+        /* Columna derecha */
         .header-right {
             flex: 1;
             min-width: 0;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
+            position: relative;
+        }
+
+        /* Línea 3D solo desde el borde derecho del logo hacia la derecha */
+        .header-right::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(to bottom, #4a3600 0%, #8b6914 40%, #e8c547 70%, #d4a017 100%);
+            box-shadow:
+                0 -1px 0 rgba(255,255,255,0.35),
+                inset 0 1px 2px rgba(255,255,255,0.4),
+                0 3px 6px rgba(0,0,0,0.45);
+            border-radius: 3px;
         }
 
         .header-titles h1 {
@@ -112,7 +113,6 @@
             font-weight: 300;
         }
 
-        /* Tabs dentro del header */
         .header-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -146,9 +146,8 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
-        /* Responsive: móviles */
         @media (max-width: 700px) {
-            .header { padding: 1rem 1rem 0.6rem; }
+            .header { padding: 1rem 1rem 0.8rem; }
             .header-inner { flex-direction: column; align-items: center; gap: 1rem; }
             .logo-frame { width: 180px; max-width: 70%; }
             .header-right { width: 100%; text-align: center; align-items: center; }
@@ -158,7 +157,7 @@
             .menu-tab { padding: 0.4rem 0.7rem; font-size: 0.75rem; }
         }
 
-        /* ========== RESTO DEL SITIO ========== */
+        /* RESTO DEL SITIO */
         .clock-container { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin: 2rem auto; padding: 1.5rem; background: #fff8e1; border-radius: 30px; max-width: 600px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #f0dbb4; }
         .analog-clock { width: 140px; height: 140px; border-radius: 50%; background: #fdf6e3; border: 6px solid #a07a00; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .clock-face { position: relative; width: 100%; height: 100%; }
@@ -222,6 +221,7 @@
         .menu-card .entrada { background: #fff8e1; padding: 1rem; font-weight: bold; color: #a07a00; text-align: center; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
         .menu-card .segundo { padding: 1rem; text-align: center; border-bottom: 1px dashed #f0e0c0; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; word-break: break-word; }
         .menu-card .bebida { background: #fff8e1; padding: 1rem; text-align: center; font-size: 1rem; font-weight: bold; min-height: 65px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: auto; }
+        .menu-card .emoji { font-size: 1.3rem; }
         .gallery-rolling { background: #fff8e1; border-radius: 28px; padding: 2rem; margin-top: 2rem; }
         .rolling-title { text-align: center; color: #a07a00; margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600; }
         .rolling-container { overflow: hidden; border-radius: 18px; }
@@ -243,7 +243,33 @@
         @media (max-width: 1000px) { .menu-card { width: 380px; } }
         @media (max-width: 900px) { .menu-card { width: 100%; max-width: 450px; } }
         @media (max-width: 768px) { .section h2 { font-size: 1.6rem; } .price-banner { font-size: 1rem; max-width: 90%; } .price-banner span { font-size: 1.5rem; } .rolling-item { min-width: 160px; } .rolling-item img { width: 150px; height: 120px; } .analog-clock { width: 100px; height: 100px; } .date-info .time-digital { font-size: 1.3rem; } .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; } .tiktok-icon { width: 18px; height: 18px; } }
-        @media (max-width: 480px) { .menu-card { width: 100%; min-width: auto; } .menu-card .entrada, .menu-card .segundo, .menu-card .bebida { padding: 0.8rem; font-size: 0.9rem; } .menu-card h3 { font-size: 1rem; } .carta-item { flex-direction: column; align-items: flex-start; } .carta-precio { align-self: flex-start; } }
+
+        /* ⬇️ MÓVIL: AGRANDAR TEXTOS DE LA COMIDA ⬇️ */
+        @media (max-width: 480px) {
+            .menu-card { width: 100%; min-width: auto; border-radius: 20px; }
+            .menu-card h3 {
+                font-size: 1.7rem;      /* era 1rem → ahora 1.7rem */
+                padding: 1rem;
+                letter-spacing: 2px;
+            }
+            .menu-card .entrada,
+            .menu-card .segundo,
+            .menu-card .bebida {
+                padding: 1.4rem 1rem;   /* más espacio */
+                font-size: 1.55rem;     /* era 0.9rem → ahora 1.55rem (~1.7x) */
+                min-height: 110px;      /* más alto */
+                line-height: 1.3;
+                font-weight: 600;
+            }
+            .menu-card .emoji {
+                font-size: 2rem;        /* emojis 2x más grandes en móvil */
+            }
+            .carta-item { flex-direction: column; align-items: flex-start; }
+            .carta-precio { align-self: flex-start; font-size: 1.3rem; }
+            .carta-nombre { font-size: 1.2rem; }
+            .carta-descripcion { font-size: 1rem; }
+        }
+
         .menu-escolar-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
         .menu-escolar-table th, .menu-escolar-table td { border: 1px solid #f0e0c0; padding: 0.8rem; text-align: left; vertical-align: top; }
         .menu-escolar-table th { background: #d4a017; color: white; text-align: center; font-weight: bold; }
@@ -273,14 +299,12 @@
 </head>
 <body>
 
-<!-- ==================== NUEVO HEADER ==================== -->
+<!-- HEADER -->
 <div class="header">
     <div class="header-inner">
-        <!-- Logo enmarcado estilo old style -->
         <div class="logo-frame">
-            <img src="./logo.jpg?v=28" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
+            <img src="./logo.jpg?v=29" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
         </div>
-        <!-- Columna derecha: títulos + tabs -->
         <div class="header-right">
             <div class="header-titles">
                 <h1>🍽️ Ayllu Perú</h1>
@@ -298,7 +322,6 @@
         </div>
     </div>
 </div>
-<!-- ==================== FIN HEADER ==================== -->
 
 <div class="clock-container"><div class="analog-clock"><div class="clock-face"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#a07a00;">12</div><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#a07a00;">6</div><div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#a07a00;">3</div><div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#a07a00;">9</div><div class="hand hour-hand" id="hourHand"></div><div class="hand minute-hand" id="minuteHand"></div><div class="hand second-hand" id="secondHand"></div><div class="center-dot"></div></div></div><div><div class="date-info"><div class="time-digital" id="digitalTime"></div><div class="date" id="fullDate"></div></div><div class="season-info" id="seasonInfo"><span class="season-icon" id="seasonIcon">☀️</span><span id="seasonName">Verano</span></div></div></div>
 <div class="weekdays-section"><div class="weekdays-container" id="weekdaysContainer"></div></div>
@@ -315,7 +338,7 @@
 <!-- ENSALADAS -->
 <div id="page-ensaladas" class="page-section"><div class="section"><div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div><div class="carta-container"><div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div><div class="carta-item"><div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 22</div></div></div></div></div>
 
-<!-- MENÚ ESCOLAR SEPTIEMBRE 2026 -->
+<!-- MENÚ ESCOLAR -->
 <div id="page-escolar" class="page-section">
     <div class="section">
         <div class="title-center"><h2>📚 Menú Escolar - Septiembre 2026 📚</h2></div>
@@ -430,7 +453,7 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=28" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=29" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
                 cont.appendChild(card); 
             }); 
         } 
@@ -443,7 +466,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=28", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=28", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=28", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=28", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=29", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=29", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=29", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=29", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
