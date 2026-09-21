@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Ayllu Perú - Menú Ejecutivo S/ 17</title>
+    <title>Ayllu Perú - Menú Semanal S/ 17</title>
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <style>
-        /* Fondo watermark con el logo al 15% de opacidad - REPETIDO */
+        /* Watermark: UN SOLO logo grande y centrado, sin repetición */
         body::before {
             content: '';
             position: fixed;
@@ -19,40 +19,44 @@
             width: 100%;
             height: 100%;
             background-image: url('./logo.jpg');
-            background-repeat: repeat;
+            background-repeat: no-repeat;
             background-position: center;
-            background-size: 120px 120px;
-            opacity: 0.15;
+            background-size: 55% auto;
+            opacity: 0.08;
             z-index: -1;
             pointer-events: none;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fef7e8; color: #4a3b2c; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #faf5e0; color: #3a2f1e; }
 
+        /* HEADER DORADO */
         .header {
-            background: linear-gradient(135deg, #e67e22, #d35400);
+            background: linear-gradient(135deg, #d4a017, #a07a00);
             color: white;
-            text-align: center;
-            padding: 1.5rem 1rem 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 1.2rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 1.5rem;
+            justify-content: flex-start;
+            gap: 2.5rem;
             flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .logo-img {
-            max-width: 160px;
+            max-width: 280px; /* 2.5x más grande */
+            width: 100%;
             height: auto;
             border-radius: 20px;
             background: white;
             padding: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+            flex-shrink: 0;
         }
 
         .logo-text {
@@ -60,36 +64,38 @@
         }
 
         .logo-text h1 {
-            font-size: 2.8rem;
+            font-size: 3.6rem;
             letter-spacing: 2px;
             margin: 0;
             font-family: 'Georgia', 'Times New Roman', Times, serif;
             font-weight: 700;
             font-style: italic;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.25);
         }
 
         .logo-text p {
-            font-size: 1.1rem;
-            margin-top: 0.3rem;
-            opacity: 0.9;
+            font-size: 1.3rem;
+            margin-top: 0.5rem;
+            opacity: 0.95;
         }
 
-        @media (max-width: 480px) {
-            .logo-container { flex-direction: column; text-align: center; }
+        @media (max-width: 700px) {
+            .logo-container { flex-direction: column; text-align: center; gap: 1rem; }
             .logo-text { text-align: center; }
-            .logo-text h1 { font-size: 2rem; }
-            .logo-img { max-width: 100px; }
+            .logo-text h1 { font-size: 2.2rem; }
+            .logo-text p { font-size: 1rem; }
+            .logo-img { max-width: 200px; }
         }
 
+        /* TABS */
         .top-menu {
-            background: #fff3e0;
+            background: #fff8e1;
             padding: 0.8rem;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -98,8 +104,8 @@
 
         .menu-tab {
             background: transparent;
-            color: #d35400;
-            border: 2px solid #d35400;
+            color: #a07a00;
+            border: 2px solid #a07a00;
             padding: 0.6rem 1.2rem;
             font-size: 1rem;
             font-weight: bold;
@@ -109,127 +115,116 @@
             font-family: inherit;
         }
 
-        .menu-tab:hover { background: #f39c12; color: white; border-color: #f39c12; }
-        .menu-tab.active { background: #d35400; color: white; border-color: #d35400; }
+        .menu-tab:hover { background: #d4a017; color: white; border-color: #d4a017; }
+        .menu-tab.active { background: #a07a00; color: white; border-color: #a07a00; }
 
-        .clock-container { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin: 2rem auto; padding: 1.5rem; background: #fff3e0; border-radius: 30px; max-width: 600px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.1); }
-        .analog-clock { width: 140px; height: 140px; border-radius: 50%; background: #f5e6d3; border: 6px solid #8b5a2b; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        .clock-container { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin: 2rem auto; padding: 1.5rem; background: #fff8e1; border-radius: 30px; max-width: 600px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #f0dbb4; }
+        .analog-clock { width: 140px; height: 140px; border-radius: 50%; background: #fdf6e3; border: 6px solid #a07a00; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .clock-face { position: relative; width: 100%; height: 100%; }
-        .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: 50% 100%; background: #4a3b2c; border-radius: 4px; }
+        .hand { position: absolute; bottom: 50%; left: 50%; transform-origin: 50% 100%; background: #3a2f1e; border-radius: 4px; }
         .hour-hand { width: 5px; height: 35px; transform: translateX(-50%) rotate(0deg); }
         .minute-hand { width: 3px; height: 48px; transform: translateX(-50%) rotate(0deg); }
-        .second-hand { width: 2px; height: 52px; background: #e67e22; transform: translateX(-50%) rotate(0deg); }
-        .center-dot { position: absolute; width: 8px; height: 8px; background: #e67e22; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; }
+        .second-hand { width: 2px; height: 52px; background: #d4a017; transform: translateX(-50%) rotate(0deg); }
+        .center-dot { position: absolute; width: 8px; height: 8px; background: #d4a017; border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; }
         .date-info { text-align: center; font-family: 'Courier New', monospace; }
-        .date-info .time-digital { font-size: 2rem; font-weight: bold; color: #d35400; font-family: monospace; }
-        .date-info .date { font-size: 1rem; color: #8b5a2b; margin-top: 0.5rem; }
-        .season-info { text-align: center; margin-top: 0.5rem; font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+        .date-info .time-digital { font-size: 2rem; font-weight: bold; color: #a07a00; font-family: monospace; }
+        .date-info .date { font-size: 1rem; color: #7a6a3e; margin-top: 0.5rem; }
+        .season-info { text-align: center; margin-top: 0.5rem; font-size: 1.1rem; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 0.5rem; color: #7a6a3e; }
         .season-icon { font-size: 1.3rem; }
         .weekdays-section { background: transparent; padding: 0.5rem 1rem 1.5rem; margin: 0 auto; max-width: 1000px; }
         .weekdays-container { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; align-items: center; }
         .day-card { text-align: center; background: white; padding: 0.5rem 1rem; border-radius: 16px; min-width: 80px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #f0dbb4; position: relative; }
-        .day-card.highlight { background: #f39c12; color: white; }
+        .day-card.highlight { background: #d4a017; color: white; }
         .day-card.highlight .day-number, .day-card.highlight .day-name { color: white; }
-        .today-badge { position: absolute; top: -10px; right: -10px; background: #e67e22; color: white; font-size: 0.65rem; font-weight: bold; padding: 2px 6px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        .day-number { font-size: 1.6rem; font-weight: bold; color: #d35400; font-family: monospace; line-height: 1.2; }
-        .day-name { font-size: 0.75rem; font-weight: bold; color: #4a3b2c; letter-spacing: 1px; }
+        .today-badge { position: absolute; top: -10px; right: -10px; background: #a07a00; color: white; font-size: 0.65rem; font-weight: bold; padding: 2px 6px; border-radius: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .day-number { font-size: 1.6rem; font-weight: bold; color: #a07a00; font-family: monospace; line-height: 1.2; }
+        .day-name { font-size: 0.75rem; font-weight: bold; color: #3a2f1e; letter-spacing: 1px; }
         @media (max-width: 480px) { .weekdays-container { gap: 0.6rem; } .day-card { padding: 0.4rem 0.6rem; min-width: 60px; } .day-number { font-size: 1.2rem; } .day-name { font-size: 0.6rem; } .today-badge { font-size: 0.5rem; top: -8px; right: -8px; padding: 1px 4px; } }
         .section { padding: 2rem 1.5rem; max-width: 1600px; margin: 0 auto; }
-        .section h2 { font-size: 2rem; color: #d35400; text-align: center; margin-bottom: 2rem; border-bottom: 3px solid #f39c12; display: inline-block; width: auto; padding-bottom: 0.5rem; }
+        .section h2 { font-size: 2rem; color: #a07a00; text-align: center; margin-bottom: 2rem; border-bottom: 3px solid #d4a017; display: inline-block; width: auto; padding-bottom: 0.5rem; }
         .title-center { text-align: center; }
-        .price-banner { background: #f39c12; color: white; text-align: center; padding: 1rem; border-radius: 50px; margin: 1rem auto 2rem; max-width: 500px; font-size: 1.3rem; font-weight: bold; }
+        .price-banner { background: #d4a017; color: white; text-align: center; padding: 1rem; border-radius: 50px; margin: 1rem auto 2rem; max-width: 500px; font-size: 1.3rem; font-weight: bold; }
         .price-banner span { font-size: 2rem; }
         .reseñas-container { background: white; border-radius: 28px; padding: 2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1); margin-bottom: 2rem; }
-        .reseña-form { background: #fff3e0; border-radius: 24px; padding: 1.5rem; margin-bottom: 2rem; }
-        .reseña-form h3 { color: #d35400; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        .reseña-form { background: #fff8e1; border-radius: 24px; padding: 1.5rem; margin-bottom: 2rem; }
+        .reseña-form h3 { color: #a07a00; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .reseña-form textarea { width: 100%; padding: 1rem; border: 2px solid #f0dbb4; border-radius: 20px; font-family: inherit; font-size: 1rem; resize: vertical; background: white; }
-        .reseña-form textarea:focus { outline: none; border-color: #d35400; }
-        .char-counter { text-align: right; font-size: 0.8rem; color: #8b5a2b; margin-top: 0.3rem; }
-        .btn-reseña { background: #d35400; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 40px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.2s; }
-        .btn-reseña:hover { transform: scale(1.02); background: #e67e22; }
+        .reseña-form textarea:focus { outline: none; border-color: #a07a00; }
+        .char-counter { text-align: right; font-size: 0.8rem; color: #7a6a3e; margin-top: 0.3rem; }
+        .btn-reseña { background: #a07a00; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 40px; font-size: 1rem; font-weight: bold; cursor: pointer; margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.2s; }
+        .btn-reseña:hover { transform: scale(1.02); background: #d4a017; }
         .reseñas-list { max-height: 500px; overflow-y: auto; padding-right: 0.5rem; }
-        .reseña-item { background: #fffef8; border-left: 4px solid #d35400; padding: 1rem; margin-bottom: 1rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .reseña-item { background: #fffef8; border-left: 4px solid #a07a00; padding: 1rem; margin-bottom: 1rem; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .reseña-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem; }
         .chef-icon { font-size: 1.8rem; }
-        .reseña-nombre { font-weight: bold; color: #d35400; }
-        .reseña-fecha { font-size: 0.7rem; color: #a0764a; }
-        .reseña-texto { font-size: 0.95rem; line-height: 1.4; color: #4a3b2c; margin-top: 0.5rem; }
+        .reseña-nombre { font-weight: bold; color: #a07a00; }
+        .reseña-fecha { font-size: 0.7rem; color: #a0894a; }
+        .reseña-texto { font-size: 0.95rem; line-height: 1.4; color: #3a2f1e; margin-top: 0.5rem; }
         .paginacion { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
-        .page-btn { background: #fff3e0; border: 1px solid #f0dbb4; padding: 0.4rem 0.8rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
-        .page-btn:hover { background: #f39c12; color: white; }
-        .page-btn.active-page-btn { background: #d35400; color: white; border-color: #d35400; }
-        .weekend-banners-vertical { display: flex; flex-direction: column; align-items: center; gap: 2rem; margin-top: 2rem; }
-        .weekend-banner-card-vertical { background: #fef7e8; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1); max-width: 600px; width: 100%; transition: transform 0.3s; border: 2px dashed #d35400; }
-        .weekend-banner-card-vertical:hover { transform: translateY(-5px); }
-        .weekend-banner-card-vertical .placeholder-img { width: 100%; height: 250px; background: linear-gradient(135deg, #fef7e8, #fff3e0); display: flex; align-items: center; justify-content: center; color: #d35400; font-size: 1.2rem; text-align: center; padding: 1rem; }
-        .weekend-banner-card-vertical img { width: 100%; height: auto; display: block; }
-        .weekend-banner-card-vertical .info { padding: 1.5rem; text-align: center; background: #fff3e0; }
-        .weekend-banner-card-vertical .info h3 { color: #d35400; margin-bottom: 0.5rem; font-size: 1.3rem; }
-        .weekend-banner-card-vertical .info p { color: #4a3b2c; font-size: 1rem; margin-bottom: 0.8rem; }
-        .weekend-banner-card-vertical .badge { display: inline-block; background: #f39c12; color: white; padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.8rem; font-weight: bold; }
-        .weekend-highlight { background: linear-gradient(135deg, #2d6a4f, #1b4d3e); color: white; text-align: center; padding: 1rem; border-radius: 60px; margin-bottom: 2rem; font-size: 1.1rem; }
-        .weekend-highlight span { font-size: 1.5rem; }
+        .page-btn { background: #fff8e1; border: 1px solid #f0dbb4; padding: 0.4rem 0.8rem; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
+        .page-btn:hover { background: #d4a017; color: white; }
+        .page-btn.active-page-btn { background: #a07a00; color: white; border-color: #a07a00; }
         .carta-container { background: white; border-radius: 24px; padding: 1.8rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); max-width: 650px; margin: 0 auto; }
         .carta-item { display: flex; justify-content: space-between; align-items: flex-start; padding: 0.9rem 0; border-bottom: 1px solid #f0e0c0; gap: 1rem; flex-wrap: wrap; }
         .carta-item:last-child { border-bottom: none; }
         .carta-nombre { font-size: 1rem; font-weight: 500; color: #2c3e2f; flex: 3; line-height: 1.4; }
         .carta-nombre strong { font-size: 1.05rem; }
-        .carta-descripcion { font-size: 0.85rem; color: #8b5a2b; margin-top: 0.2rem; }
-        .carta-precio { font-size: 1.05rem; font-weight: 700; color: #e67e22; white-space: nowrap; background: #fff3e0; padding: 0.2rem 0.8rem; border-radius: 30px; flex-shrink: 0; }
-        .carta-subtitulo { text-align: center; color: #a0764a; margin: 0 0 1.5rem 0; font-size: 0.95rem; letter-spacing: 0.5px; }
+        .carta-descripcion { font-size: 0.85rem; color: #7a6a3e; margin-top: 0.2rem; }
+        .carta-precio { font-size: 1.05rem; font-weight: 700; color: #a07a00; white-space: nowrap; background: #fff8e1; padding: 0.2rem 0.8rem; border-radius: 30px; flex-shrink: 0; }
+        .carta-subtitulo { text-align: center; color: #a0894a; margin: 0 0 1.5rem 0; font-size: 0.95rem; letter-spacing: 0.5px; }
         .menu-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; align-items: stretch; }
         .menu-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.08); width: 420px; min-width: 350px; max-width: 100%; transition: transform 0.25s ease; position: relative; display: flex; flex-direction: column; }
         .menu-card:hover { transform: translateY(-6px); }
-        .menu-card.today-card { box-shadow: 0 8px 25px rgba(211,84,0,0.2); background: #fffef8; }
+        .menu-card.today-card { box-shadow: 0 8px 25px rgba(212,160,23,0.25); background: #fffef8; border: 2px solid #d4a017; }
         .menu-card img { width: 100%; height: 200px; object-fit: cover; }
-        .menu-card h3 { background: #f39c12; color: white; padding: 0.7rem; font-size: 1.2rem; text-align: center; letter-spacing: 1px; }
-        .menu-card .entrada { background: #fff3e0; padding: 1rem; font-weight: bold; color: #e67e22; text-align: center; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+        .menu-card h3 { background: #d4a017; color: white; padding: 0.7rem; font-size: 1.2rem; text-align: center; letter-spacing: 1px; }
+        .menu-card .entrada { background: #fff8e1; padding: 1rem; font-weight: bold; color: #a07a00; text-align: center; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
         .menu-card .segundo { padding: 1rem; text-align: center; border-bottom: 1px dashed #f0e0c0; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; word-break: break-word; }
-        .menu-card .bebida { background: #fff3e0; padding: 1rem; text-align: center; font-size: 1rem; font-weight: bold; min-height: 65px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: auto; }
-        .gallery-rolling { background: #fff3e0; border-radius: 28px; padding: 2rem; margin-top: 2rem; }
-        .rolling-title { text-align: center; color: #d35400; margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600; }
+        .menu-card .bebida { background: #fff8e1; padding: 1rem; text-align: center; font-size: 1rem; font-weight: bold; min-height: 65px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: auto; }
+        .gallery-rolling { background: #fff8e1; border-radius: 28px; padding: 2rem; margin-top: 2rem; }
+        .rolling-title { text-align: center; color: #a07a00; margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600; }
         .rolling-container { overflow: hidden; border-radius: 18px; }
         .rolling-track { display: flex; animation: scroll 66s linear infinite; gap: 1rem; }
         .rolling-item { text-align: center; min-width: 220px; }
         .rolling-item img { width: 200px; height: 150px; object-fit: cover; border-radius: 20px; box-shadow: 0 6px 14px rgba(0,0,0,0.1); }
-        .rolling-item .dish-name { margin-top: 0.5rem; font-size: 0.8rem; color: #d35400; font-weight: bold; }
+        .rolling-item .dish-name { margin-top: 0.5rem; font-size: 0.8rem; color: #a07a00; font-weight: bold; }
         .rolling-container:hover .rolling-track { animation-play-state: paused; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; border-radius: 50px; padding: 12px 20px; display: flex; align-items: center; gap: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 6px 14px rgba(0,0,0,0.15); z-index: 1000; }
-        .contact-info { text-align: center; background: #fff3e0; border-radius: 28px; padding: 2rem; margin-top: 2rem; }
+        .contact-info { text-align: center; background: #fff8e1; border-radius: 28px; padding: 2rem; margin-top: 2rem; }
         .contact-info p { margin: 0.6rem 0; font-size: 1.05rem; }
         .tiktok-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #000000; color: white; padding: 12px 24px; border-radius: 40px; text-decoration: none; font-weight: bold; font-size: 1rem; margin-top: 15px; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: none; cursor: pointer; }
         .tiktok-btn:hover { transform: scale(1.02); background: #161616; }
         .tiktok-icon { width: 22px; height: 22px; display: inline-block; background-color: white; mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>') no-repeat center; mask-size: contain; -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3v178.7A162.6 162.6 0 1 1 185 188.3v89.9a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/></svg>') no-repeat center; -webkit-mask-size: contain; }
-        footer { background: #d35400; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+        footer { background: #a07a00; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
         .page-section { display: none; }
         .page-section.active-page { display: block; }
         @media (max-width: 1000px) { .menu-card { width: 380px; } }
         @media (max-width: 900px) { .menu-card { width: 100%; max-width: 450px; } }
-        @media (max-width: 768px) { .section h2 { font-size: 1.6rem; } .price-banner { font-size: 1rem; max-width: 90%; } .price-banner span { font-size: 1.5rem; } .rolling-item { min-width: 160px; } .rolling-item img { width: 150px; height: 120px; } .analog-clock { width: 100px; height: 100px; } .date-info .time-digital { font-size: 1.3rem; } .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; } .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; } .tiktok-icon { width: 18px; height: 18px; } .weekend-banner-card-vertical { max-width: 100%; } }
+        @media (max-width: 768px) { .section h2 { font-size: 1.6rem; } .price-banner { font-size: 1rem; max-width: 90%; } .price-banner span { font-size: 1.5rem; } .rolling-item { min-width: 160px; } .rolling-item img { width: 150px; height: 120px; } .analog-clock { width: 100px; height: 100px; } .date-info .time-digital { font-size: 1.3rem; } .menu-tab { padding: 0.4rem 0.8rem; font-size: 0.8rem; } .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; } .tiktok-icon { width: 18px; height: 18px; } }
         @media (max-width: 480px) { .menu-card { width: 100%; min-width: auto; } .menu-card .entrada, .menu-card .segundo, .menu-card .bebida { padding: 0.8rem; font-size: 0.9rem; } .menu-card h3 { font-size: 1rem; } .carta-item { flex-direction: column; align-items: flex-start; } .carta-precio { align-self: flex-start; } }
         .menu-escolar-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
         .menu-escolar-table th, .menu-escolar-table td { border: 1px solid #f0e0c0; padding: 0.8rem; text-align: left; vertical-align: top; }
-        .menu-escolar-table th { background: #f39c12; color: white; text-align: center; font-weight: bold; }
+        .menu-escolar-table th { background: #d4a017; color: white; text-align: center; font-weight: bold; }
         .menu-escolar-table td { background: #fffef8; }
         .menu-escolar-table tr:nth-child(even) td { background: #fffcf5; }
         .week-separator { background: #f0e0c0; text-align: center; font-weight: bold; }
-        .week-separator td { background: #f0e0c0; color: #4a3b2c; text-align: center; padding: 0.5rem; }
+        .week-separator td { background: #f0e0c0; color: #3a2f1e; text-align: center; padding: 0.5rem; }
         .scroll-table { overflow-x: auto; background: white; border-radius: 24px; padding: 1rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-        .info-escolar { background: #fff3e0; border-radius: 20px; padding: 1.5rem; margin-top: 2rem; }
-        .info-escolar h3 { color: #d35400; margin-bottom: 0.5rem; margin-top: 1rem; }
+        .info-escolar { background: #fff8e1; border-radius: 20px; padding: 1.5rem; margin-top: 2rem; }
+        .info-escolar h3 { color: #a07a00; margin-bottom: 0.5rem; margin-top: 1rem; }
         .info-escolar h3:first-of-type { margin-top: 0; }
         .info-escolar ul { margin-left: 1.5rem; }
         .info-escolar li { margin: 0.5rem 0; }
         .ayllu-container { max-width: 900px; margin: 0 auto; background: white; border-radius: 24px; padding: 2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
         .ayllu-container .block { margin-bottom: 2rem; }
         .ayllu-container .block:last-child { margin-bottom: 0; }
-        .ayllu-container .block h3 { color: #d35400; font-size: 1.5rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
-        .ayllu-container .block p { font-size: 1.05rem; line-height: 1.6; color: #4a3b2c; }
+        .ayllu-container .block h3 { color: #a07a00; font-size: 1.5rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+        .ayllu-container .block p { font-size: 1.05rem; line-height: 1.6; color: #3a2f1e; }
         .ayllu-container .block .icon { font-size: 1.8rem; }
         .pronto-container { text-align: center; padding: 2rem; background: white; border-radius: 24px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); }
-        .pronto-container h3 { color: #d35400; font-size: 2rem; margin-bottom: 1rem; }
-        .pronto-container p { font-size: 1.1rem; color: #4a3b2c; max-width: 600px; margin: 0 auto 1.5rem; }
+        .pronto-container h3 { color: #a07a00; font-size: 2rem; margin-bottom: 1rem; }
+        .pronto-container p { font-size: 1.1rem; color: #3a2f1e; max-width: 600px; margin: 0 auto 1.5rem; }
         .pronto-container .event-icon { font-size: 4rem; margin-bottom: 1rem; }
         .pronto-container ul { text-align: left; max-width: 500px; margin: 0 auto 1.5rem; list-style: none; }
         .pronto-container ul li { margin-bottom: 0.5rem; }
@@ -238,25 +233,39 @@
 <body>
 <div class="header">
     <div class="logo-container">
-        <img src="./logo.jpg?v=26" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/160x160?text=Logo'">
+        <img src="./logo.jpg?v=27" alt="Ayllu Perú Logo" class="logo-img" onerror="this.src='https://placehold.co/280x280?text=Logo'">
         <div class="logo-text">
             <h1>🍽️ Ayllu Perú</h1>
             <p>🌟 La mejor opción de tus mediodías, a un clic de distancia</p>
         </div>
     </div>
 </div>
-<div class="top-menu"><button class="menu-tab active" data-page="ejecutivo">📅 Menú Ejecutivo</button><button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button><button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button><button class="menu-tab" data-page="escolar">📚 Menú Escolar Septiembre</button><button class="menu-tab" data-page="ayllu">🌟 Ayllu</button><button class="menu-tab" data-page="reseñas">⭐ ¡Déjanos tu reseña!</button><button class="menu-tab" data-page="findesemana">🎉 Fines de semana con sabor</button><button class="menu-tab" data-page="pronto">🎉 ¡Pronto!</button></div>
-<div class="clock-container"><div class="analog-clock"><div class="clock-face"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">12</div><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">6</div><div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">3</div><div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#8b5a2b;">9</div><div class="hand hour-hand" id="hourHand"></div><div class="hand minute-hand" id="minuteHand"></div><div class="hand second-hand" id="secondHand"></div><div class="center-dot"></div></div></div><div><div class="date-info"><div class="time-digital" id="digitalTime"></div><div class="date" id="fullDate"></div></div><div class="season-info" id="seasonInfo"><span class="season-icon" id="seasonIcon">☀️</span><span id="seasonName">Verano</span></div></div></div>
+
+<!-- ORDEN DE PESTAÑAS SEGÚN SOLICITUD -->
+<div class="top-menu">
+    <button class="menu-tab" data-page="conoce">🌟 Conócenos</button>
+    <button class="menu-tab active" data-page="ejecutivo">📅 Menú Semanal</button>
+    <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
+    <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
+    <button class="menu-tab" data-page="escolar">📚 Menú Escolar Septiembre</button>
+    <button class="menu-tab" data-page="reseñas">⭐ Nuestros clientes opinan</button>
+    <button class="menu-tab" data-page="pronto">🎉 ¡Pronto!</button>
+</div>
+
+<div class="clock-container"><div class="analog-clock"><div class="clock-face"><div style="position:absolute;top:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#a07a00;">12</div><div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:16px;font-weight:bold;color:#a07a00;">6</div><div style="position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#a07a00;">3</div><div style="position:absolute;left:12px;top:50%;transform:translateY(-50%);font-size:16px;font-weight:bold;color:#a07a00;">9</div><div class="hand hour-hand" id="hourHand"></div><div class="hand minute-hand" id="minuteHand"></div><div class="hand second-hand" id="secondHand"></div><div class="center-dot"></div></div></div><div><div class="date-info"><div class="time-digital" id="digitalTime"></div><div class="date" id="fullDate"></div></div><div class="season-info" id="seasonInfo"><span class="season-icon" id="seasonIcon">☀️</span><span id="seasonName">Verano</span></div></div></div>
 <div class="weekdays-section"><div class="weekdays-container" id="weekdaysContainer"></div></div>
 
-<!-- MENÚ EJECUTIVO - Semana del 14 al 18 de septiembre 2026 -->
-<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Ejecutivo ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 14 a Viernes 18 de septiembre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
+<!-- MENÚ SEMANAL - Semana del 21 al 25 de septiembre 2026 -->
+<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Semanal ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 21 a Viernes 25 de septiembre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
 
-<!-- ENSALADAS -->
-<div id="page-ensaladas" class="page-section"><div class="section"><div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div><div class="carta-container"><div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div><div class="carta-item"><div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 22</div></div></div></div></div>
+<!-- CONÓCENOS (Nosotros / Misión / Visión) -->
+<div id="page-conoce" class="page-section"><div class="section"><div class="title-center"><h2>🌟 Conócenos</h2></div><div class="ayllu-container"><div class="block"><h3><span class="icon">🌟</span> Nosotros</h3><p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p></div><div class="block"><h3><span class="icon">🇵🇪</span> Misión</h3><p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p></div><div class="block"><h3><span class="icon">🌱</span> Visión</h3><p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p></div></div></div></div>
 
 <!-- PLATOS A LA CARTA -->
 <div id="page-carta" class="page-section"><div class="section"><div class="title-center"><h2>🍽️ Platos a la Carta</h2></div><div class="carta-container"><div class="carta-subtitulo">Preparados al momento con ingredientes frescos</div><div class="carta-item"><div class="carta-nombre">🍖 Churrasco con papas fritas y arroz</div><div class="carta-precio">S/ 18</div></div><div class="carta-item"><div class="carta-nombre">🍖 Churrasco montado (con huevo y plátano)</div><div class="carta-precio">S/ 22</div></div><div class="carta-item"><div class="carta-nombre">🍗 Pollo a la plancha con papas fritas y arroz</div><div class="carta-precio">S/ 18</div></div><div class="carta-item"><div class="carta-nombre">🥣 Sopa de dieta</div><div class="carta-precio">S/ 15</div></div><div class="carta-item"><div class="carta-nombre">🍛 Pollo saltado</div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🍛 Lomo saltado</div><div class="carta-precio">S/ 22</div></div><div class="carta-item"><div class="carta-nombre">🥣 Sopa criolla</div><div class="carta-precio">S/ 18</div></div></div></div></div>
+
+<!-- ENSALADAS -->
+<div id="page-ensaladas" class="page-section"><div class="section"><div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div><div class="carta-container"><div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div><div class="carta-item"><div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 22</div></div></div></div></div>
 
 <!-- MENÚ ESCOLAR SEPTIEMBRE 2026 -->
 <div id="page-escolar" class="page-section">
@@ -297,78 +306,72 @@
                 </tbody>
             </table>
         </div>
-        <div class="info-escolar"><h3>🍽️ Información importante</h3><ul><li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li><li><strong>Precio:</strong> S/ 17</li><li>Nuestro menú incluye opciones balanceadas y saludables.</li></ul><h3>📦 Tipos de Entregas</h3><ul><li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li><li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li></ul><p style="margin-top:1rem; text-align:center; font-weight:bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p></div>
+        <div class="info-escolar"><h3>🍽️ Información importante</h3><ul><li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li><li><strong>Precio:</strong> S/ 17</li><li>Nuestro menú incluye opciones balanceadas y saludables.</li></ul><h3>📦 Tipos de Entregas</h3><ul><li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li><li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li></ul><p style="margin-top:1rem; text-align:center; font-weight:bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color:#a07a00;">946 895 814</a></p></div>
     </div>
 </div>
 
-<!-- AYLLU -->
-<div id="page-ayllu" class="page-section"><div class="section"><div class="title-center"><h2>🌟 Ayllu Perú</h2></div><div class="ayllu-container"><div class="block"><h3><span class="icon">🌟</span> Breve presentación</h3><p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p></div><div class="block"><h3><span class="icon">🇵🇪</span> Misión</h3><p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p></div><div class="block"><h3><span class="icon">🌱</span> Visión</h3><p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p></div></div></div></div>
-
-<!-- RESEÑAS -->
-<div id="page-reseñas" class="page-section"><div class="section"><div class="title-center"><h2>⭐ ¡Déjanos tu reseña! ⭐</h2></div><div class="reseñas-container"><div class="reseña-form"><h3>👨‍🍳 <span>Comparte tu experiencia</span> <span style="font-size:1.5rem;">🍽️</span></h3><textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida?" maxlength="500"></textarea><div class="char-counter"><span id="charCount">0</span>/500 caracteres</div><button class="btn-reseña" id="enviarReseña"><span>👨‍🍳</span> Enviar reseña</button></div><h3 style="color:#d35400; margin-bottom:1rem;">📖 Lo que dicen nuestros comensales</h3><div id="reseñasList" class="reseñas-list"></div><div id="paginacion" class="paginacion"></div></div></div></div>
-
-<!-- FINES DE SEMANA -->
-<div id="page-findesemana" class="page-section"><div class="section"><div class="title-center"><h2>🎉 Fines de semana con sabor 🎉</h2></div><div class="weekend-highlight"><span>🍽️</span> ¡Los fines de semana también tenemos comida peruana para ti! <span>🍽️</span><br>Disfruta en casa con nuestra deliciosa cocina casera.</div><div class="weekend-banners-vertical"><div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 1<br>(Próximamente imagen de Sábado Especial)</div><div class="info"><h3>🌅 SÁBADO ESPECIAL</h3><p>Platos tradicionales peruanos para empezar bien el fin de semana</p><span class="badge">¡Pide hoy mismo!</span></div></div><div class="weekend-banner-card-vertical"><div class="placeholder-img">🖼️ ESPACIO PARA BANNER 2<br>(Próximamente imagen de Domingo en Familia)</div><div class="info"><h3>🌞 DOMINGO EN FAMILIA</h3><p>El sabor de siempre para compartir con los que más quieres</p><span class="badge">Delivery a domicilio</span></div></div></div><div style="text-align:center; margin-top:2rem;"><p style="font-size:1.1rem;">✨ ¡Contamos con delivery a domicilio! ✨</p><p style="color:#d35400; font-weight:bold;">WhatsApp: 946 895 814</p></div></div></div>
+<!-- RESEÑAS / NUESTROS CLIENTES OPINAN -->
+<div id="page-reseñas" class="page-section"><div class="section"><div class="title-center"><h2>⭐ Nuestros clientes opinan ⭐</h2></div><div class="reseñas-container"><div class="reseña-form"><h3>👨‍🍳 <span>Comparte tu experiencia</span> <span style="font-size:1.5rem;">🍽️</span></h3><textarea id="reseñaTexto" rows="3" placeholder="Escribe aquí tu reseña... ¿Qué te pareció nuestra comida?" maxlength="500"></textarea><div class="char-counter"><span id="charCount">0</span>/500 caracteres</div><button class="btn-reseña" id="enviarReseña"><span>👨‍🍳</span> Enviar reseña</button></div><h3 style="color:#a07a00; margin-bottom:1rem;">📖 Lo que dicen nuestros comensales</h3><div id="reseñasList" class="reseñas-list"></div><div id="paginacion" class="paginacion"></div></div></div></div>
 
 <!-- PRONTO -->
-<div id="page-pronto" class="page-section"><div class="section"><div class="title-center"><h2>🎉 ¡Pronto! 🎉</h2></div><div class="pronto-container"><div class="event-icon">📅</div><h3>Eventos y Festivales Gastronómicos</h3><p>Estamos preparando experiencias únicas para ti. Próximamente podrás encontrar:</p><ul><li>🍽️ <strong>Eventos corporativos</strong> – Planeación de menús para empresas y reuniones.</li><li>🎪 <strong>Ferias gastronómicas</strong> – Participación en festivales de comida peruana.</li><li>👨‍🍳 <strong>Talleres culinarios</strong> – Aprende a preparar nuestros platos.</li><li>📦 <strong>Nuevos planes de suscripción</strong> – Menús semanales personalizados.</li></ul><p style="color:#d35400; font-weight:bold;">¡Sigue atento a nuestras redes y WhatsApp para no perderte nada!</p><p style="margin-top:1rem;">📞 <a href="https://wa.me/51946895814" style="color:#d35400;">946 895 814</a></p></div></div></div>
+<div id="page-pronto" class="page-section"><div class="section"><div class="title-center"><h2>🎉 ¡Pronto! 🎉</h2></div><div class="pronto-container"><div class="event-icon">📅</div><h3>Eventos y Festivales Gastronómicos</h3><p>Estamos preparando experiencias únicas para ti. Próximamente podrás encontrar:</p><ul><li>🍽️ <strong>Eventos corporativos</strong> – Planeación de menús para empresas y reuniones.</li><li>🎪 <strong>Ferias gastronómicas</strong> – Participación en festivales de comida peruana.</li><li>👨‍🍳 <strong>Talleres culinarios</strong> – Aprende a preparar nuestros platos.</li><li>📦 <strong>Nuevos planes de suscripción</strong> – Menús semanales personalizados.</li></ul><p style="color:#a07a00; font-weight:bold;">¡Sigue atento a nuestras redes y WhatsApp para no perderte nada!</p><p style="margin-top:1rem;">📞 <a href="https://wa.me/51946895814" style="color:#a07a00;">946 895 814</a></p></div></div></div>
 
 <div class="section"><div class="gallery-rolling"><div class="rolling-title">🍜 Nuestros Platos Destacados 🍲</div><div class="rolling-container"><div class="rolling-track" id="rollingTrack"></div></div></div></div>
 <div class="section"><div class="title-center"><h2>📞 Haz tu pedido por WhatsApp</h2></div><div class="contact-info"><p>📱 <strong>WhatsApp:</strong> 946 895 814</p><p>✉️ <strong>Email:</strong> aylluperueventos@gmail.com</p><p>📍 <strong>Atención:</strong> Lima</p><p>🚚 <strong>Delivery disponible</strong></p><a href="https://www.tiktok.com/@aylluper.comidade" target="_blank" class="tiktok-btn"><span class="tiktok-icon"></span>Síguenos en TikTok</a></div></div>
-<footer><p>Ayllu Perú - Comida de casa para tu día a día</p><p>✨ Menú Ejecutivo S/ 17 (Entrada + Plato de fondo + Bebida) ✨</p></footer>
+<footer><p>Ayllu Perú - Comida de casa para tu día a día</p><p>✨ Menú Semanal S/ 17 (Entrada + 2 Platos de fondo + Bebida) ✨</p></footer>
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ EJECUTIVO - Semana del 14 al 18 de septiembre 2026 =====
+    // ===== MENÚ SEMANAL - Semana del 21 al 25 de septiembre 2026 =====
     const menuData = {
         'LUNES': {
-            entrada: 'Cremita de zapallo',
-            segundo1: 'Lentejitas guisadas con pollo saltado',
-            segundo2: 'Asado de ternera con puré de papas',
+            entrada: 'Ensalada de palta',
+            segundo1: 'Pollo al vino con arverjitas partidas',
+            segundo2: 'Filete de pollo con papas doradas',
             bebida: 'Limonada',
+            emojiEntrada: '🥑',
+            emojiSegundo1: '🍗',
+            emojiSegundo2: '🍗',
+            emojiBebida: '🥤'
+        },
+        'MARTES': {
+            entrada: 'Sopa de casa',
+            segundo1: 'Lomo saltado',
+            segundo2: 'Adobo de chancho con camote',
+            bebida: 'Agua de manzana',
             emojiEntrada: '🥣',
             emojiSegundo1: '🍛',
             emojiSegundo2: '🍖',
             emojiBebida: '🥤'
         },
-        'MARTES': {
-            entrada: 'Tequeños con queso',
-            segundo1: 'Pollo con piña',
-            segundo2: 'Ají de pollo',
-            bebida: 'Emoliente',
-            emojiEntrada: '🧀',
-            emojiSegundo1: '🍗',
-            emojiSegundo2: '🍛',
-            emojiBebida: '🥤'
-        },
         'MIÉRCOLES': {
-            entrada: 'Sopita criolla',
-            segundo1: 'Bistec con trigo arrositado',
-            segundo2: 'Cau cau de pollo',
-            bebida: 'Naranjada',
+            entrada: 'Ocopa arequipeña',
+            segundo1: 'Arroz con pollo',
+            segundo2: 'Bistec apanado con ensalada rusa',
+            bebida: 'Emoliente',
             emojiEntrada: '🥣',
-            emojiSegundo1: '🥩',
-            emojiSegundo2: '🍛',
+            emojiSegundo1: '🍗',
+            emojiSegundo2: '🥩',
             emojiBebida: '🥤'
         },
         'JUEVES': {
-            entrada: 'Ensalada mixta',
-            segundo1: 'Carapulcra con chanchito o pollo',
-            segundo2: 'Escabeche de pescado',
-            bebida: 'Maracuyá',
-            emojiEntrada: '🥗',
-            emojiSegundo1: '🍖',
-            emojiSegundo2: '🐟',
+            entrada: 'Papita rellena',
+            segundo1: 'Pollo al maní',
+            segundo2: 'Tallarines rojos con pollo',
+            bebida: 'Hierba luisa',
+            emojiEntrada: '🥔',
+            emojiSegundo1: '🍗',
+            emojiSegundo2: '🍝',
             emojiBebida: '🥤'
         },
         'VIERNES': {
-            entrada: 'Cazuela del pescador',
-            segundo1: 'Pollo al horno con ensalada de fideos',
-            segundo2: 'Arroz tapado a lo pobre',
-            bebida: 'Chicha morada',
-            emojiEntrada: '🍲',
+            entrada: 'Ensalada mixta',
+            segundo1: 'Pollo broaster con papas fritas',
+            segundo2: 'Seco de res con frijoles',
+            bebida: 'Maracuyá',
+            emojiEntrada: '🥗',
             emojiSegundo1: '🍗',
-            emojiSegundo2: '🍛',
+            emojiSegundo2: '🍖',
             emojiBebida: '🥤'
         }
     };
@@ -378,7 +381,7 @@
     let paginaActual = 1;
     const RESEÑAS_POR_PAGINA = 5;
 
-    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-09-14' }]; mostrarReseñas(); }
+    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-09-21' }]; mostrarReseñas(); }
     function guardarReseñas() { localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas)); }
     function agregarReseña(t) { if (!t.trim() || t.length > 500) return false; reseñas.unshift({ id: Date.now(), nombre: 'Comensal ' + Math.floor(Math.random() * 900 + 100), texto: t.trim(), fecha: new Date().toISOString().slice(0, 10) }); guardarReseñas(); paginaActual = 1; mostrarReseñas(); return true; }
     function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
@@ -425,7 +428,7 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=26" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=27" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span style="font-size:1.3rem;">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span style="font-size:1.3rem;">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span style="font-size:1.3rem;">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
                 cont.appendChild(card); 
             }); 
         } 
@@ -438,7 +441,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=26", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=26", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=26", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=26", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=27", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=27", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=27", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=27", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
