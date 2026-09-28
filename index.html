@@ -248,21 +248,21 @@
         @media (max-width: 480px) {
             .menu-card { width: 100%; min-width: auto; border-radius: 20px; }
             .menu-card h3 {
-                font-size: 1.7rem;      /* era 1rem → ahora 1.7rem */
+                font-size: 1.7rem;
                 padding: 1rem;
                 letter-spacing: 2px;
             }
             .menu-card .entrada,
             .menu-card .segundo,
             .menu-card .bebida {
-                padding: 1.4rem 1rem;   /* más espacio */
-                font-size: 1.55rem;     /* era 0.9rem → ahora 1.55rem (~1.7x) */
-                min-height: 110px;      /* más alto */
+                padding: 1.4rem 1rem;
+                font-size: 1.55rem;
+                min-height: 110px;
                 line-height: 1.3;
                 font-weight: 600;
             }
             .menu-card .emoji {
-                font-size: 2rem;        /* emojis 2x más grandes en móvil */
+                font-size: 2rem;
             }
             .carta-item { flex-direction: column; align-items: flex-start; }
             .carta-precio { align-self: flex-start; font-size: 1.3rem; }
@@ -303,7 +303,7 @@
 <div class="header">
     <div class="header-inner">
         <div class="logo-frame">
-            <img src="./logo.jpg?v=29" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
+            <img src="./logo.jpg?v=30" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
         </div>
         <div class="header-right">
             <div class="header-titles">
@@ -327,7 +327,7 @@
 <div class="weekdays-section"><div class="weekdays-container" id="weekdaysContainer"></div></div>
 
 <!-- MENÚ SEMANAL -->
-<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Semanal ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 21 a Viernes 25 de septiembre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
+<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Semanal ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 28 de septiembre a Viernes 2 de octubre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
 
 <!-- CONÓCENOS -->
 <div id="page-conoce" class="page-section"><div class="section"><div class="title-center"><h2>🌟 Conócenos</h2></div><div class="ayllu-container"><div class="block"><h3><span class="icon">🌟</span> Nosotros</h3><p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p></div><div class="block"><h3><span class="icon">🇵🇪</span> Misión</h3><p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p></div><div class="block"><h3><span class="icon">🌱</span> Visión</h3><p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p></div></div></div></div>
@@ -347,29 +347,6 @@
             <table class="menu-escolar-table">
                 <thead><tr><th>Día</th><th>Fecha</th><th>Entrada</th><th>Plato de fondo</th><th>Bebida</th><th>Postre</th></tr></thead>
                 <tbody>
-                    <tr class="week-separator"><td colspan="6">📅 Semana 1</td></tr>
-                    <tr><td>Martes</td><td>1</td><td>Ensalada fresca</td><td>Pollito frito con guiso de lentejitas</td><td>Emoliente</td><td>Fruta de estación</td></tr>
-                    <tr><td>Miércoles</td><td>2</td><td>Tequeños</td><td>Pollo con piña y arroz chaufa</td><td>Carambola</td><td>Arrociot con leche</td></tr>
-                    <tr><td>Jueves</td><td>3</td><td>Causita con pollo</td><td>Tallarines rojos con pollo</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
-                    <tr><td>Viernes</td><td>4</td><td>Ocoa arequipeña</td><td>Pollo a la olla con ensalada blanca</td><td>Agua de manzana</td><td>Quequito de vainilla</td></tr>
-                    <tr class="week-separator"><td colspan="6">📅 Semana 2</td></tr>
-                    <tr><td>Lunes</td><td>7</td><td>Alitas broaster con tártara</td><td>Pollito anticuchero con papas doradas</td><td>Limonada</td><td>Fruta de estación</td></tr>
-                    <tr><td>Martes</td><td>8</td><td>Cremita de zapallo</td><td>Pollo frito con arroz a la chiclayana</td><td>Naranjada</td><td>Mix de frutas</td></tr>
-                    <tr><td>Miércoles</td><td>9</td><td>Huevo a la rusa</td><td>Suprema de pollo con spaguetti a la huancaina</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
-                    <tr><td>Jueves</td><td>10</td><td>Ensalada fresca</td><td>Hamburguesa con puré de espinacas</td><td>Agua de manzana</td><td>Quequito de plátano</td></tr>
-                    <tr><td>Viernes</td><td>11</td><td>Ensalada popeye</td><td>Pollo al horno con locrito de zapallo</td><td>Hierba luisa</td><td>Mazamorra de durazno</td></tr>
-                    <tr class="week-separator"><td colspan="6">📅 Semana 3</td></tr>
-                    <tr><td>Lunes</td><td>14</td><td>Ensalada mixta</td><td>Pollito broaster con papas fritas</td><td>Limonada</td><td>Fruta de estación</td></tr>
-                    <tr><td>Martes</td><td>15</td><td>Ensalada de palta</td><td>Pollito a la chiclayana con yuca</td><td>Agua de manzana</td><td>Quequito de chocolate</td></tr>
-                    <tr><td>Miércoles</td><td>16</td><td>Salpicón de pollo</td><td>Pollo dorado con ensalada de fideos</td><td>Chicha morada</td><td>Mix de frutas</td></tr>
-                    <tr><td>Jueves</td><td>17</td><td>Papa a la huancaina</td><td>Arroz con pollo</td><td>Maracuyá</td><td>Fruta de estación</td></tr>
-                    <tr><td>Viernes</td><td>18</td><td>Tequeños con queso</td><td>Olluquito con carne</td><td>Emoliente</td><td>Mazamorra de durazno</td></tr>
-                    <tr class="week-separator"><td colspan="6">📅 Semana 4</td></tr>
-                    <tr><td>Lunes</td><td>21</td><td>Ensalada mixta</td><td>Pollito adobado con frijoles</td><td>Manzanilla natura</td><td>Fruta de estación</td></tr>
-                    <tr><td>Martes</td><td>22</td><td>Yuquitas fritas en salsa ocopa</td><td>Pollito anticuchero con ensalada rusa</td><td>Chicha morada</td><td>Quequito de vainilla</td></tr>
-                    <tr><td>Miércoles</td><td>23</td><td>Bolitas de causa</td><td>Bistec con spaguetti a la huancaina</td><td>Limonada</td><td>Mix de frutas</td></tr>
-                    <tr><td>Jueves</td><td>24</td><td>Alitas broaster con salsa tártara</td><td>Filete de pescado con arvejitas partidas</td><td>Emoliente</td><td>Fruta de estación</td></tr>
-                    <tr><td>Viernes</td><td>25</td><td>Ensalada popeye</td><td>Carapulcra con pollo o chancho</td><td>Agua de manzana</td><td>Mazamorra de maicena</td></tr>
                     <tr class="week-separator"><td colspan="6">📅 Semana 5</td></tr>
                     <tr><td>Lunes</td><td>28</td><td>Huevito en salsa huancaina</td><td>Pollo saltado</td><td>Limonada</td><td>Fruta de estación</td></tr>
                     <tr><td>Martes</td><td>29</td><td>Papita rellena</td><td>Cau cau de pollo</td><td>Carambola</td><td>Arrociot con leche</td></tr>
@@ -394,11 +371,11 @@
 
 <script>
     const menuData = {
-        'LUNES': { entrada: 'Ensalada de palta', segundo1: 'Pollo al vino con arverjitas partidas', segundo2: 'Filete de pollo con papas doradas', bebida: 'Limonada', emojiEntrada: '🥑', emojiSegundo1: '🍗', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'MARTES': { entrada: 'Sopa de casa', segundo1: 'Lomo saltado', segundo2: 'Adobo de chancho con camote', bebida: 'Agua de manzana', emojiEntrada: '🥣', emojiSegundo1: '🍛', emojiSegundo2: '🍖', emojiBebida: '🥤' },
-        'MIÉRCOLES': { entrada: 'Ocopa arequipeña', segundo1: 'Arroz con pollo', segundo2: 'Bistec apanado con ensalada rusa', bebida: 'Emoliente', emojiEntrada: '🥣', emojiSegundo1: '🍗', emojiSegundo2: '🥩', emojiBebida: '🥤' },
-        'JUEVES': { entrada: 'Papita rellena', segundo1: 'Pollo al maní', segundo2: 'Tallarines rojos con pollo', bebida: 'Hierba luisa', emojiEntrada: '🥔', emojiSegundo1: '🍗', emojiSegundo2: '🍝', emojiBebida: '🥤' },
-        'VIERNES': { entrada: 'Ensalada mixta', segundo1: 'Pollo broaster con papas fritas', segundo2: 'Seco de res con frijoles', bebida: 'Maracuyá', emojiEntrada: '🥗', emojiSegundo1: '🍗', emojiSegundo2: '🍖', emojiBebida: '🥤' }
+        'LUNES': { entrada: 'Aguadito de pollo', segundo1: 'Asado de res con puré', segundo2: 'Pollo a la chiclayana con lentejitas', bebida: 'Limonada', emojiEntrada: '🥣', emojiSegundo1: '🍖', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'MARTES': { entrada: 'Ensalada fresca', segundo1: 'Mondonguito a la italiana', segundo2: 'Pollo al horno con arroz a la jardinera', bebida: 'Emoliente', emojiEntrada: '🥗', emojiSegundo1: '🍲', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'MIÉRCOLES': { entrada: 'Papa a la huancaína', segundo1: 'Tallarines rojos con chanfainita y mote', segundo2: 'Cochinita al horno con camote', bebida: 'Naranjada', emojiEntrada: '🥔', emojiSegundo1: '🍝', emojiSegundo2: '🍖', emojiBebida: '🥤' },
+        'JUEVES': { entrada: 'Huevo a la rusa', segundo1: 'Carapulcra con pollo', segundo2: 'Filete de pollo con rigattoni al pesto', bebida: 'Maracuyá', emojiEntrada: '🥚', emojiSegundo1: '🍛', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'VIERNES': { entrada: 'Causa rellena', segundo1: 'Churrasco con papas fritas', segundo2: 'Pollo frito con ensalada waldorf', bebida: 'Chicha morada', emojiEntrada: '🥔', emojiSegundo1: '🥩', emojiSegundo2: '🍗', emojiBebida: '🥤' }
     };
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
@@ -406,7 +383,7 @@
     let paginaActual = 1;
     const RESEÑAS_POR_PAGINA = 5;
 
-    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-09-21' }]; mostrarReseñas(); }
+    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-09-28' }]; mostrarReseñas(); }
     function guardarReseñas() { localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas)); }
     function agregarReseña(t) { if (!t.trim() || t.length > 500) return false; reseñas.unshift({ id: Date.now(), nombre: 'Comensal ' + Math.floor(Math.random() * 900 + 100), texto: t.trim(), fecha: new Date().toISOString().slice(0, 10) }); guardarReseñas(); paginaActual = 1; mostrarReseñas(); return true; }
     function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
@@ -453,7 +430,7 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=29" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=30" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
                 cont.appendChild(card); 
             }); 
         } 
@@ -466,7 +443,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=29", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=29", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=29", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=29", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=30", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=30", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=30", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=30", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
