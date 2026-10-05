@@ -29,7 +29,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #faf5e0; color: #3a2f1e; }
 
-        /* HEADER */
         .header {
             background: linear-gradient(135deg, #d4a017, #a07a00);
             color: white;
@@ -46,7 +45,6 @@
             margin: 0 auto;
         }
 
-        /* Logo enmarcado */
         .logo-frame {
             flex-shrink: 0;
             background: #fdf6e3;
@@ -61,14 +59,8 @@
             width: 220px;
         }
 
-        .logo-frame img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 3px;
-        }
+        .logo-frame img { width: 100%; height: auto; display: block; border-radius: 3px; }
 
-        /* Columna derecha */
         .header-right {
             flex: 1;
             min-width: 0;
@@ -79,7 +71,6 @@
             position: relative;
         }
 
-        /* Línea 3D solo desde el borde derecho del logo hacia la derecha */
         .header-right::after {
             content: '';
             position: absolute;
@@ -106,19 +97,9 @@
             line-height: 1.1;
         }
 
-        .header-titles p {
-            font-size: 1.1rem;
-            margin-top: 0.3rem;
-            opacity: 0.95;
-            font-weight: 300;
-        }
+        .header-titles p { font-size: 1.1rem; margin-top: 0.3rem; opacity: 0.95; font-weight: 300; }
 
-        .header-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.5rem;
-        }
+        .header-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.5rem; }
 
         .menu-tab {
             background: rgba(255,255,255,0.15);
@@ -133,18 +114,8 @@
             font-family: inherit;
         }
 
-        .menu-tab:hover {
-            background: rgba(255,255,255,0.3);
-            border-color: white;
-            transform: translateY(-1px);
-        }
-
-        .menu-tab.active {
-            background: white;
-            color: #a07a00;
-            border-color: white;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
+        .menu-tab:hover { background: rgba(255,255,255,0.3); border-color: white; transform: translateY(-1px); }
+        .menu-tab.active { background: white; color: #a07a00; border-color: white; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
 
         @media (max-width: 700px) {
             .header { padding: 1rem 1rem 0.8rem; }
@@ -157,7 +128,6 @@
             .menu-tab { padding: 0.4rem 0.7rem; font-size: 0.75rem; }
         }
 
-        /* RESTO DEL SITIO */
         .clock-container { display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap; margin: 2rem auto; padding: 1.5rem; background: #fff8e1; border-radius: 30px; max-width: 600px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05), 0 4px 10px rgba(0,0,0,0.08); border: 1px solid #f0dbb4; }
         .analog-clock { width: 140px; height: 140px; border-radius: 50%; background: #fdf6e3; border: 6px solid #a07a00; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.15); }
         .clock-face { position: relative; width: 100%; height: 100%; }
@@ -216,8 +186,12 @@
         .menu-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.08); width: 420px; min-width: 350px; max-width: 100%; transition: transform 0.25s ease; position: relative; display: flex; flex-direction: column; }
         .menu-card:hover { transform: translateY(-6px); }
         .menu-card.today-card { box-shadow: 0 8px 25px rgba(212,160,23,0.25); background: #fffef8; border: 2px solid #d4a017; }
+        .menu-card.feriado-card { background: #f5f0e0; border: 2px dashed #a07a00; }
+        .menu-card.feriado-card .feriado-msg { display: flex; align-items: center; justify-content: center; padding: 3rem 1rem; font-size: 1.4rem; font-weight: bold; color: #a07a00; text-align: center; flex-direction: column; gap: 0.8rem; flex: 1; }
+        .menu-card.feriado-card .feriado-msg .icon { font-size: 3rem; }
         .menu-card img { width: 100%; height: 200px; object-fit: cover; }
         .menu-card h3 { background: #d4a017; color: white; padding: 0.7rem; font-size: 1.2rem; text-align: center; letter-spacing: 1px; }
+        .menu-card.feriado-card h3 { background: #a07a00; }
         .menu-card .entrada { background: #fff8e1; padding: 1rem; font-weight: bold; color: #a07a00; text-align: center; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
         .menu-card .segundo { padding: 1rem; text-align: center; border-bottom: 1px dashed #f0e0c0; font-size: 1rem; min-height: 75px; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; word-break: break-word; }
         .menu-card .bebida { background: #fff8e1; padding: 1rem; text-align: center; font-size: 1rem; font-weight: bold; min-height: 65px; display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: auto; }
@@ -244,26 +218,12 @@
         @media (max-width: 900px) { .menu-card { width: 100%; max-width: 450px; } }
         @media (max-width: 768px) { .section h2 { font-size: 1.6rem; } .price-banner { font-size: 1rem; max-width: 90%; } .price-banner span { font-size: 1.5rem; } .rolling-item { min-width: 160px; } .rolling-item img { width: 150px; height: 120px; } .analog-clock { width: 100px; height: 100px; } .date-info .time-digital { font-size: 1.3rem; } .tiktok-btn { padding: 8px 18px; font-size: 0.85rem; } .tiktok-icon { width: 18px; height: 18px; } }
 
-        /* ⬇️ MÓVIL: AGRANDAR TEXTOS DE LA COMIDA ⬇️ */
         @media (max-width: 480px) {
             .menu-card { width: 100%; min-width: auto; border-radius: 20px; }
-            .menu-card h3 {
-                font-size: 1.7rem;
-                padding: 1rem;
-                letter-spacing: 2px;
-            }
-            .menu-card .entrada,
-            .menu-card .segundo,
-            .menu-card .bebida {
-                padding: 1.4rem 1rem;
-                font-size: 1.55rem;
-                min-height: 110px;
-                line-height: 1.3;
-                font-weight: 600;
-            }
-            .menu-card .emoji {
-                font-size: 2rem;
-            }
+            .menu-card h3 { font-size: 1.7rem; padding: 1rem; letter-spacing: 2px; }
+            .menu-card .entrada, .menu-card .segundo, .menu-card .bebida { padding: 1.4rem 1rem; font-size: 1.55rem; min-height: 110px; line-height: 1.3; font-weight: 600; }
+            .menu-card .emoji { font-size: 2rem; }
+            .menu-card.feriado-card .feriado-msg { font-size: 1.3rem; padding: 2rem 1rem; }
             .carta-item { flex-direction: column; align-items: flex-start; }
             .carta-precio { align-self: flex-start; font-size: 1.3rem; }
             .carta-nombre { font-size: 1.2rem; }
@@ -295,6 +255,38 @@
         .pronto-container .event-icon { font-size: 4rem; margin-bottom: 1rem; }
         .pronto-container ul { text-align: left; max-width: 500px; margin: 0 auto 1.5rem; list-style: none; }
         .pronto-container ul li { margin-bottom: 0.5rem; }
+
+        /* ⚠️ AVISO DE ACTUALIZACIÓN EN CURSO */
+        .update-notice {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px dashed #d4a017;
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 1rem auto 2rem;
+            max-width: 700px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(212,160,23,0.15);
+        }
+        .update-notice .icon {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+        .update-notice h3 {
+            color: #a07a00;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+        .update-notice p {
+            color: #7a6a3e;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
     </style>
 </head>
 <body>
@@ -303,7 +295,7 @@
 <div class="header">
     <div class="header-inner">
         <div class="logo-frame">
-            <img src="./logo.jpg?v=30" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
+            <img src="./logo.jpg?v=31" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
         </div>
         <div class="header-right">
             <div class="header-titles">
@@ -315,7 +307,7 @@
                 <button class="menu-tab active" data-page="ejecutivo">📅 Menú Semanal</button>
                 <button class="menu-tab" data-page="carta">🍽️ Platos a la Carta</button>
                 <button class="menu-tab" data-page="ensaladas">🥗 Ensaladas</button>
-                <button class="menu-tab" data-page="escolar">📚 Menú Escolar Septiembre</button>
+                <button class="menu-tab" data-page="escolar">📚 Menú Escolar</button>
                 <button class="menu-tab" data-page="reseñas">⭐ Nuestros clientes opinan</button>
                 <button class="menu-tab" data-page="pronto">🎉 ¡Pronto!</button>
             </div>
@@ -327,7 +319,7 @@
 <div class="weekdays-section"><div class="weekdays-container" id="weekdaysContainer"></div></div>
 
 <!-- MENÚ SEMANAL -->
-<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Semanal ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 28 de septiembre a Viernes 2 de octubre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
+<div id="page-ejecutivo" class="page-section active-page"><div class="section"><div class="title-center"><h2>✨ Menú Semanal ✨</h2></div><div class="price-banner">🥗 Incluye: Entrada + 2 Platos de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div><p style="text-align:center; margin-bottom:2rem;">📅 Lunes 5 a Viernes 9 de octubre 2026 | ⏰ 8:00 am a 3:00 pm</p><div class="menu-grid" id="menuGrid"></div></div></div>
 
 <!-- CONÓCENOS -->
 <div id="page-conoce" class="page-section"><div class="section"><div class="title-center"><h2>🌟 Conócenos</h2></div><div class="ayllu-container"><div class="block"><h3><span class="icon">🌟</span> Nosotros</h3><p>En Ayllu Perú llevamos la tradición peruana a tu mesa con menús frescos y nutritivos por delivery. Atendemos empresas, instituciones y familias con un servicio puntual y confiable, porque creemos que la buena comida une y fortalece comunidades.</p></div><div class="block"><h3><span class="icon">🇵🇪</span> Misión</h3><p>En Ayllu Perú nos comprometemos a ofrecer un servicio de menú por delivery que combine calidad, autenticidad y responsabilidad. Elaboramos platos nutritivos inspirados en la riqueza gastronómica peruana, utilizando ingredientes frescos y procesos cuidadosos que garantizan sabor y bienestar. Nuestro propósito es alimentar comunidades con confianza y calidez, fortaleciendo la productividad de empresas, instituciones y familias a través de una experiencia culinaria que refleja el espíritu del ayllu: unión, respeto y tradición.</p></div><div class="block"><h3><span class="icon">🌱</span> Visión</h3><p>Convertirnos en la empresa líder en servicios de menú por delivery en el Perú, reconocida por su excelencia en la atención, innovación en la propuesta gastronómica y compromiso con la cultura nacional. Aspiramos a ser un referente que promueva la alimentación saludable y sostenible, integrando valores de responsabilidad social y ambiental, y consolidando a Ayllu Perú como un puente entre la tradición culinaria y las necesidades modernas de nuestros clientes.</p></div></div></div></div>
@@ -338,23 +330,34 @@
 <!-- ENSALADAS -->
 <div id="page-ensaladas" class="page-section"><div class="section"><div class="title-center"><h2>🥗 Nuestras Ensaladas</h2></div><div class="carta-container"><div class="carta-subtitulo">Frescas, saludables y con ingredientes de primera calidad</div><div class="carta-item"><div class="carta-nombre">🥗 <strong>Ensalada Alexandra</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, aceitunas negras, tomate, huevo duro y atún... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🥑 <strong>Ensalada Isabella</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, zanahoria rallada, tomate, palta y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 20</div></div><div class="carta-item"><div class="carta-nombre">🧀 <strong>Ensalada Camille</strong><br><span class="carta-descripcion">Lechuga orgánica, espinaca, choclito, queso fresco, palta, tomate y pollo... acompañados con el aliño de la casa 🧂</span></div><div class="carta-precio">S/ 22</div></div></div></div></div>
 
-<!-- MENÚ ESCOLAR -->
+<!-- MENÚ ESCOLAR - CON AVISO DE ACTUALIZACIÓN EN CURSO -->
 <div id="page-escolar" class="page-section">
     <div class="section">
-        <div class="title-center"><h2>📚 Menú Escolar - Septiembre 2026 📚</h2></div>
-        <div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida + Postre 🍰<br><span>¡A sólo S/ 17!</span></div>
-        <div class="scroll-table">
-            <table class="menu-escolar-table">
-                <thead><tr><th>Día</th><th>Fecha</th><th>Entrada</th><th>Plato de fondo</th><th>Bebida</th><th>Postre</th></tr></thead>
-                <tbody>
-                    <tr class="week-separator"><td colspan="6">📅 Semana 5</td></tr>
-                    <tr><td>Lunes</td><td>28</td><td>Huevito en salsa huancaina</td><td>Pollo saltado</td><td>Limonada</td><td>Fruta de estación</td></tr>
-                    <tr><td>Martes</td><td>29</td><td>Papita rellena</td><td>Cau cau de pollo</td><td>Carambola</td><td>Arrociot con leche</td></tr>
-                    <tr><td>Miércoles</td><td>30</td><td>Ensalada mixta</td><td>Filete de pollo con rigattoni al pesto</td><td>Naranjada</td><td>Mix de frutas</td></tr>
-                </tbody>
-            </table>
+        <div class="title-center"><h2>📚 Menú Escolar 📚</h2></div>
+        
+        <!-- AVISO DE ACTUALIZACIÓN EN CURSO -->
+        <div class="update-notice">
+            <span class="icon">🔄</span>
+            <h3>¡Actualización en curso!</h3>
+            <p>Estamos preparando el nuevo menú escolar del mes. Vuelve pronto para consultar todos los platos disponibles. Mientras tanto, puedes pedir el menú semanal actual.</p>
         </div>
-        <div class="info-escolar"><h3>🍽️ Información importante</h3><ul><li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li><li><strong>Precio:</strong> S/ 17</li><li>Nuestro menú incluye opciones balanceadas y saludables.</li></ul><h3>📦 Tipos de Entregas</h3><ul><li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li><li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li></ul><p style="margin-top:1rem; text-align:center; font-weight:bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color:#a07a00;">946 895 814</a></p></div>
+
+        <div class="price-banner">🥗 Incluye: Entrada + Plato de fondo + Bebida + Postre 🍰<br><span>¡A sólo S/ 17!</span></div>
+        
+        <div class="info-escolar">
+            <h3>🍽️ Información importante</h3>
+            <ul>
+                <li><strong>Incluye:</strong> Entrada + Plato de fondo + Bebida + Postre</li>
+                <li><strong>Precio:</strong> S/ 17</li>
+                <li>Nuestro menú incluye opciones balanceadas y saludables.</li>
+            </ul>
+            <h3>📦 Tipos de Entregas</h3>
+            <ul>
+                <li><strong>En la hora de ingreso (hasta las 07:50 am):</strong> Dirigido para aquellos niños que deseen almorzar rico y saludable durante su segundo refrigerio.</li>
+                <li><strong>En la hora de salida (a las 03:00 pm):</strong> Dirigido a los niños que deseen almorzar antes de iniciar sus talleres y/o Adecore.</li>
+            </ul>
+            <p style="margin-top:1rem; text-align:center; font-weight:bold;">📞 Realiza tus pedidos por WhatsApp al: <a href="https://wa.me/51946895814" style="color:#a07a00;">946 895 814</a></p>
+        </div>
     </div>
 </div>
 
@@ -370,12 +373,13 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
+    // ===== MENÚ SEMANAL - Semana del 5 al 9 de octubre 2026 =====
     const menuData = {
-        'LUNES': { entrada: 'Aguadito de pollo', segundo1: 'Asado de res con puré', segundo2: 'Pollo a la chiclayana con lentejitas', bebida: 'Limonada', emojiEntrada: '🥣', emojiSegundo1: '🍖', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'MARTES': { entrada: 'Ensalada fresca', segundo1: 'Mondonguito a la italiana', segundo2: 'Pollo al horno con arroz a la jardinera', bebida: 'Emoliente', emojiEntrada: '🥗', emojiSegundo1: '🍲', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'MIÉRCOLES': { entrada: 'Papa a la huancaína', segundo1: 'Tallarines rojos con chanfainita y mote', segundo2: 'Cochinita al horno con camote', bebida: 'Naranjada', emojiEntrada: '🥔', emojiSegundo1: '🍝', emojiSegundo2: '🍖', emojiBebida: '🥤' },
-        'JUEVES': { entrada: 'Huevo a la rusa', segundo1: 'Carapulcra con pollo', segundo2: 'Filete de pollo con rigattoni al pesto', bebida: 'Maracuyá', emojiEntrada: '🥚', emojiSegundo1: '🍛', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'VIERNES': { entrada: 'Causa rellena', segundo1: 'Churrasco con papas fritas', segundo2: 'Pollo frito con ensalada waldorf', bebida: 'Chicha morada', emojiEntrada: '🥔', emojiSegundo1: '🥩', emojiSegundo2: '🍗', emojiBebida: '🥤' }
+        'LUNES': { entrada: 'Bolita de causa', segundo1: 'Hamburguesa con lentejitas', segundo2: 'Escabeche de pollo con camote', bebida: 'Emoliente', emojiEntrada: '🥔', emojiSegundo1: '🍔', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'MARTES': { entrada: 'Sopita de dieta', segundo1: 'Seco de carne', segundo2: 'Saltadito de brócoli con pollo', bebida: 'Naranjada', emojiEntrada: '🥣', emojiSegundo1: '🍖', emojiSegundo2: '🍗', emojiBebida: '🥤' },
+        'MIÉRCOLES': { entrada: 'Tequeños con queso', segundo1: 'Pollo con piña', segundo2: 'Picante de carne (receta de la abuela)', bebida: 'Manzanilla', emojiEntrada: '🧀', emojiSegundo1: '🍗', emojiSegundo2: '🍖', emojiBebida: '🥤' },
+        'JUEVES': { feriado: true },
+        'VIERNES': { entrada: 'Menestrón', segundo1: 'Pollo al sillao', segundo2: 'Macarrones a la bolognesa', bebida: 'Limonada con hierba buena', emojiEntrada: '🍲', emojiSegundo1: '🍗', emojiSegundo2: '🍝', emojiBebida: '🥤' }
     };
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
@@ -383,7 +387,7 @@
     let paginaActual = 1;
     const RESEÑAS_POR_PAGINA = 5;
 
-    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-09-28' }]; mostrarReseñas(); }
+    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-10-05' }]; mostrarReseñas(); }
     function guardarReseñas() { localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas)); }
     function agregarReseña(t) { if (!t.trim() || t.length > 500) return false; reseñas.unshift({ id: Date.now(), nombre: 'Comensal ' + Math.floor(Math.random() * 900 + 100), texto: t.trim(), fecha: new Date().toISOString().slice(0, 10) }); guardarReseñas(); paginaActual = 1; mostrarReseñas(); return true; }
     function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
@@ -430,7 +434,20 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=30" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                
+                // Si es feriado
+                if (m.feriado) {
+                    card.classList.add('feriado-card');
+                    card.innerHTML = `
+                        <h3>📆 ${day}</h3>
+                        <div class="feriado-msg">
+                            <span class="icon">🎉</span>
+                            <span>FERIADO</span>
+                        </div>
+                    `;
+                } else {
+                    card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=31" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                }
                 cont.appendChild(card); 
             }); 
         } 
@@ -443,7 +460,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=30", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=30", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=30", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=30", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=31", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=31", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=31", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=31", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
