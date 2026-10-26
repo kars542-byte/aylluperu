@@ -271,7 +271,7 @@
 <div class="header">
     <div class="header-inner">
         <div class="logo-frame">
-            <img src="./logo.jpg?v=32" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
+            <img src="./logo.jpg?v=33" alt="Ayllu Perú Logo" onerror="this.src='https://placehold.co/280x280?text=Logo'">
         </div>
         <div class="header-right">
             <div class="header-titles">
@@ -300,7 +300,7 @@
     <div class="section">
         <div class="title-center"><h2>✨ Menú Semanal ✨</h2></div>
         <div class="price-banner">🥗 Incluye: Entrada + 2 Opciones de fondo + Bebida 🥤<br><span>¡A sólo S/ 17!</span></div>
-        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes 19 a Viernes 23 de octubre 2026 | ⏰ 8:00 am a 3:00 pm</p>
+        <p style="text-align:center; margin-bottom:2rem;">📅 Lunes 26 a Viernes 30 de octubre 2026 | ⏰ 8:00 am a 3:00 pm</p>
         <div class="menu-grid" id="menuGrid"></div>
     </div>
 </div>
@@ -419,13 +419,58 @@
 <a href="https://wa.me/51946895814?text=Hola,%20quiero%20pedir%20el%20menú" class="whatsapp-btn" target="_blank">💬 Pedir por WhatsApp</a>
 
 <script>
-    // ===== MENÚ SEMANAL - Semana del 19 al 23 de octubre 2026 =====
+    // ===== MENÚ SEMANAL - Semana del 26 al 30 de octubre 2026 =====
     const menuData = {
-        'LUNES': { entrada: 'Shambar', segundo1: 'Tallarines rojos con pollo', segundo2: 'Pollo al vino con lentejitas', bebida: 'Limonada', emojiEntrada: '🥣', emojiSegundo1: '🍝', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'MARTES': { entrada: 'Bolitas de causa con atún', segundo1: 'Olluquito con carne', segundo2: 'Saltado de pollo', bebida: 'Emoliente', emojiEntrada: '🥔', emojiSegundo1: '🍛', emojiSegundo2: '🍗', emojiBebida: '🥤' },
-        'MIÉRCOLES': { entrada: 'Ensalada Popeye', segundo1: 'Seco de pollo a la norteña con frijol o yuca', segundo2: 'Patita con maní', bebida: 'Naranjada', emojiEntrada: '🥗', emojiSegundo1: '🍗', emojiSegundo2: '🍲', emojiBebida: '🥤' },
-        'JUEVES': { entrada: 'Huevo en salsa huancaína', segundo1: 'Arroz con pollo', segundo2: 'Cau cau tradicional', bebida: 'Maracuyá', emojiEntrada: '🥚', emojiSegundo1: '🍗', emojiSegundo2: '🍛', emojiBebida: '🥤' },
-        'VIERNES': { entrada: 'Ensalada mixta', segundo1: 'Bistec con puré de pallares', segundo2: 'Arroz tapado a lo pobre', bebida: 'Chicha morada', emojiEntrada: '🥗', emojiSegundo1: '🥩', emojiSegundo2: '🍛', emojiBebida: '🥤' }
+        'LUNES': { 
+            entrada: 'Cremita de zapallo', 
+            segundo1: 'Saltadito de pollo con puré de pallares', 
+            segundo2: 'Macarrones a la bolognesa', 
+            bebida: 'Hierba luisa', 
+            emojiEntrada: '🥣', 
+            emojiSegundo1: '🍗', 
+            emojiSegundo2: '🍝', 
+            emojiBebida: '🥤' 
+        },
+        'MARTES': { 
+            entrada: 'Ensalada fresca', 
+            segundo1: 'Pollo al maní', 
+            segundo2: 'Bistec de higadocón con arvejitas partidas', 
+            bebida: 'Toronjil', 
+            emojiEntrada: '🥗', 
+            emojiSegundo1: '🍗', 
+            emojiSegundo2: '🥩', 
+            emojiBebida: '🥤' 
+        },
+        'MIÉRCOLES': { 
+            entrada: 'Tequeños con queso', 
+            segundo1: 'Pollo con piña', 
+            segundo2: 'Olluquito con carne', 
+            bebida: 'Agua de piña', 
+            emojiEntrada: '🧀', 
+            emojiSegundo1: '🍗', 
+            emojiSegundo2: '🍛', 
+            emojiBebida: '🥤' 
+        },
+        'JUEVES': { 
+            entrada: 'Alitas broaster', 
+            segundo1: 'Pollo a la olla con ensalada de fideos', 
+            segundo2: 'Hamburguesa casera con guiso de trigo', 
+            bebida: 'Manzanilla', 
+            emojiEntrada: '🍗', 
+            emojiSegundo1: '🍲', 
+            emojiSegundo2: '🍔', 
+            emojiBebida: '🥤' 
+        },
+        'VIERNES': { 
+            entrada: 'Ensalada del campo', 
+            segundo1: 'Bistec apanado con spaguetti a la huancaina', 
+            segundo2: 'Mondonguito a la italiana', 
+            bebida: 'Limonada con hierba buena', 
+            emojiEntrada: '🥗', 
+            emojiSegundo1: '🥩', 
+            emojiSegundo2: '🍲', 
+            emojiBebida: '🥤' 
+        }
     };
 
     const diasSemana = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES'];
@@ -433,7 +478,7 @@
     let paginaActual = 1;
     const RESEÑAS_POR_PAGINA = 5;
 
-    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-10-19' }]; mostrarReseñas(); }
+    function cargarReseñas() { const g = localStorage.getItem('ayllu_reseñas'); reseñas = g ? JSON.parse(g) : [{ id: 1, nombre: 'María G.', texto: '¡Excelente atención! La comida llegó caliente y muy sabrosa.', fecha: '2026-10-26' }]; mostrarReseñas(); }
     function guardarReseñas() { localStorage.setItem('ayllu_reseñas', JSON.stringify(reseñas)); }
     function agregarReseña(t) { if (!t.trim() || t.length > 500) return false; reseñas.unshift({ id: Date.now(), nombre: 'Comensal ' + Math.floor(Math.random() * 900 + 100), texto: t.trim(), fecha: new Date().toISOString().slice(0, 10) }); guardarReseñas(); paginaActual = 1; mostrarReseñas(); return true; }
     function escapeHtml(t) { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
@@ -480,7 +525,7 @@
                 card.className = 'menu-card'; 
                 if (day === hoyNombre) card.classList.add('today-card'); 
                 let dl = day.toLowerCase().replace('miércoles', 'miercoles').replace(/[áéíóú]/g, c => ({ á: 'a', é: 'e', í: 'i', ó: 'o', ú: 'u' })[c]); 
-                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=32" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
+                card.innerHTML = `<img src="./imagenes/menu/${dl}.jpg?v=33" alt="${day}" onerror="this.src='https://placehold.co/420x200?text=${day}'"><h3>📆 ${day}</h3><div class="entrada"><span class="emoji">${m.emojiEntrada}</span> <span>${m.entrada}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo1}</span> <span>${m.segundo1}</span></div><div class="segundo"><span class="emoji">${m.emojiSegundo2}</span> <span>${m.segundo2}</span></div><div class="bebida"><span class="emoji">${m.emojiBebida}</span> <span>${m.bebida}</span></div>`; 
                 cont.appendChild(card); 
             }); 
         } 
@@ -493,7 +538,7 @@
 
     generarDiasSemana(); generarMenuCards(); setInterval(updateClock, 1000); updateClock();
 
-    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=32", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=32", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=32", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=32", nombre: "Churrasco con papas" }];
+    const platos = [{ img: "./imagenes/platos/IMG-20260323-WA0018.jpg?v=33", nombre: "Lentejitas con arroz y pollo" }, { img: "./imagenes/platos/IMG-20260323-WA0019.jpg?v=33", nombre: "Bistec con papas fritas" }, { img: "./imagenes/platos/IMG-20260405-WA0029.jpg?v=33", nombre: "Pollo a la milanesa" }, { img: "./imagenes/platos/IMG-20260405-WA0030.jpg?v=33", nombre: "Churrasco con papas" }];
     const track = document.getElementById('rollingTrack'); if (track) { [...platos, ...platos].forEach(p => { let d = document.createElement('div'); d.className = 'rolling-item'; let i = document.createElement('img'); i.src = p.img; i.alt = p.nombre; i.onerror = () => i.src = 'https://placehold.co/400x300?text=Plato'; let s = document.createElement('div'); s.className = 'dish-name'; s.textContent = p.nombre; d.append(i, s); track.appendChild(d); }); }
 
     document.querySelectorAll('.menu-tab').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('.menu-tab').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page')); document.getElementById(`page-${btn.dataset.page}`).classList.add('active-page'); }));
